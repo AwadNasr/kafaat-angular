@@ -1,0 +1,9 @@
+/* Target the svg element inside .aclass and set fill color to red */
+.aclass svg {
+  fill: red !important;
+}
+
+/* Alternatively, target the path elements directly */
+.aclass svg path {
+  fill: red !important;
+}

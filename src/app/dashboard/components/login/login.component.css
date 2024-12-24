@@ -1,0 +1,6 @@
+
+@media (767px < width < 3000px) {
+    .registeration-container{
+        padding: 70px 25%;
+    }  
+}

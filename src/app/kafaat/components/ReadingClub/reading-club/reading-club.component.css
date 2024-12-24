@@ -1,0 +1,48 @@
+.card{
+    width: 92%;
+    margin: auto;
+    margin-block: 40px;
+    border-radius: 10px;
+}
+h1{
+    font-weight: bold;
+    font-family: "alex-600";
+    padding-inline: 20px;
+    margin: 0px;
+    font-size: xx-large;
+}
+.pdfContainer{
+    background-color: #f3f3f3;
+    border-radius: 30px;
+    width: fit-content;
+    padding-inline: 10px;
+    padding-block: 10px;
+}
+hr{
+    width: 80%;
+    margin: auto;
+    color: #3a7f9a73;
+}
+.statisticsCol{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-block: 20px;
+}
+.vertical-line {
+    width: 1px;
+    margin-block: 50px;
+    background-color: #3a7f9a73;
+    padding: .5px;
+}
+.numberLabel{
+    color: #005183;
+    font-size: xxx-large;
+    font-weight: bold;
+    padding-block: 25px;
+}
+.titleLabel{
+    color: #b1b1b1;
+    font-size: large;
+    padding-block: 5px;
+}

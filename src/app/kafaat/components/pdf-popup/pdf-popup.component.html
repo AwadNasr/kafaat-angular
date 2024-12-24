@@ -1,0 +1,9 @@
+  <div class="position-relative w-100 h-100 " >
+    <div class="text-end p-2 close-dialog-btn " >
+        <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+    </div>
+    <pdf-viewer [src]="url"
+              style="width: 100%; height: 100%"
+  ></pdf-viewer>
+</div>
+

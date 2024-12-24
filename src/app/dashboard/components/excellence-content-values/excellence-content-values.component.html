@@ -1,0 +1,35 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">{{title}}</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+          <label class="input-label" for="Title"> العنوان</label>
+          <input formControlName="Title" type="Title" name="Title" id="Title"
+              [class.is-invalid]="Title?.invalid && Title?.touched" [class.is-valid]="Title?.valid"
+              class="form-control my-1">
+          <div *ngIf="Title?.errors && Title?.touched">
+              <small *ngIf="Title?.hasError('required')" class="text-danger">يجب ادخال العنوان </small>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label class="input-label" for="Description"> الوصف</label>
+          <!-- <input formControlName="Description" type="text" name="Description" id="Description"
+              [class.is-invalid]="Description?.invalid && Description?.touched" [class.is-valid]="Description?.valid"
+              class="form-control my-1"> -->
+              <textarea formControlName="Description" type="text" name="Description" id="Description"
+              [class.is-invalid]="Description?.invalid && Description?.touched" [class.is-valid]="Description?.valid"
+              class="form-control my-1" cols="6" rows="6"></textarea>
+      </div>
+      <div class="mb-3">
+        <label class=" mb-3" for="Image">
+         الصورة
+        </label>
+        <input (change)="onFileSelected2($event)" formControlName="Image" type="file" name="Image"
+               id="Image" class="form-control my-1 file-input" accept="image/*" hidden>
+        <label for="Image" class="bg-primary-btn-block custom-file-label">اختار صورة</label>
+      </div>
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>

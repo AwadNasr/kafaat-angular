@@ -1,0 +1,90 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+    <div class="title-pop-up">{{title}}</div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label class="input-label" for="Year">سنة التقرير</label>
+            <input formControlName="Year" type="text" name="Year" id="Year"
+                [class.is-invalid]="Year?.invalid && Year?.touched" [class.is-valid]="Year?.valid"
+                class="form-control my-1">
+            <div *ngIf="Year?.errors && Year?.touched">
+                <small *ngIf="Year?.hasError('required')" class="text-danger">يجب ادخال سنة التقرير</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="Partners">عدد المشاركين</label>
+            <input formControlName="Partners" type="number" name="Partners" id="Partners"
+                [class.is-invalid]="Partners?.invalid && Partners?.touched" [class.is-valid]="Partners?.valid"
+                class="form-control my-1">
+            <div *ngIf="Partners?.errors && Partners?.touched">
+                <small *ngIf="Partners?.hasError('required')" class="text-danger">يجب ادخال عدد المشاركين</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="Benefits">عدد المستفيدين</label>
+            <input formControlName="Benefits" type="number" name="Benefits" id="Benefits"
+                [class.is-invalid]="Benefits?.invalid && Benefits?.touched" [class.is-valid]="Benefits?.valid"
+                class="form-control my-1">
+            <div *ngIf="Benefits?.errors && Benefits?.touched">
+                <small *ngIf="Benefits?.hasError('required')" class="text-danger">يجب ادخال عدد المستفيدين</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="ReadedBooks">عدد الكتب المقروءة التقرير</label>
+            <input formControlName="ReadedBooks" type="number" name="ReadedBooks" id="ReadedBooks"
+                [class.is-invalid]="ReadedBooks?.invalid && ReadedBooks?.touched" [class.is-valid]="ReadedBooks?.valid"
+                class="form-control my-1">
+            <div *ngIf="ReadedBooks?.errors && ReadedBooks?.touched">
+                <small *ngIf="ReadedBooks?.hasError('required')" class="text-danger">يجب ادخال عدد الكتب المقروءة</small>
+            </div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="title-header">الملف التعريفى للموقع</div>
+            <div class="w-100">
+                <div class="dashed-container d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <img src="/assets/images/cloud.svg" alt="">
+                        <div class="ps-3">
+                            <div (click)="fileInput.click()" class="d-pointer">
+                                <div class="cloud-title pb-2">اختر ملف، او اسحبه هنا للرفع</div>
+                                <div class="cloud-sub-title">PDF, file size no more than 30MB</div>
+                            </div>
+                            <input type="file" name="image"   accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" (change)="onChangeFile($event,'introductoryFilePath','PDF')" #fileInput style="display:none">
+                        </div>
+                    </div>
+                    <div>
+                        <!-- <a *ngIf="isSaveButtonShown==false" class="bg-primary-btn" (click)="fileInput.click()">تحديد الملف التعريفى</a> -->
+                        <!-- <a *ngIf="isSaveButtonShown==true" class="bg-primary-outline-btn" (click)="submit()">حفظ التعديل</a> -->
+                    </div>
+                </div>
+                <div >
+                    <small *ngIf="checkResult != ''" class="text-danger">نوع الملف  المسموح به نوع الـ PDF فقط</small>
+                </div>
+                <div *ngIf="introductoryFilePath.length>0"  class="p-3 d-flex justify-content-between align-items-center select-file-bg">
+                    <!-- <div style="text-align: right;">
+                        <a class="text-decoration-none d-pointer" (click)="showIntroductoryFilePath()" > عرض </a>
+                        <span class="px-3">الملف التعريفى الخاص بالموقع</span>
+                        <img src="/assets/images/file-small-image.svg" alt="">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="mb-3">
+            <label class="input-label" for="ClubImage">صورة النادي: (لايجب ان يقل العرض عن {{minWidthProgram}} الطول عن
+                {{minHeightProgram}})</label>
+            <input (change)="onFileSelected($event)" formControlName="ClubImage" type="file" name="ClubImage"
+                id="ClubImage" [class.is-invalid]="ClubImage?.invalid && ClubImage?.touched"
+                [class.is-valid]="ClubImage?.valid" class="form-control my-1">
+            <div *ngIf="ClubImage?.errors && ClubImage?.touched">
+                <small *ngIf="ClubImage?.hasError('required')" class="text-danger">يجب ادخال صورة النادي</small>
+            </div>
+        </div> -->
+
+
+        <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="controller ">
+  <div class="d-flex justify-content-between align-items-center ps-4">
+    <img src="assets/images/full.svg"  (click)="FullScreen()" alt="not found" style="cursor: pointer;" class="me-2">
+    <img *ngIf="currentPage==0" src="assets/images/next_right.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="currentPage!=0" (click)="PreviosClick()" src="assets/images/next_right_enb.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="currentPage==0" src="assets/images/next_pdf_right.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="currentPage!=0" (click)="startClick()" src="assets/images/next_pdf_right_enb.svg" alt="not found" style="cursor: pointer;">
+
+    <span class="numbers">
+        {{controller.length}}-{{currentPage}}
+    </span>
+    <img src="assets/images/download_pdf.svg" alt="not found" (click)="DownladClick()" style="cursor: pointer;">
+    <img *ngIf="currentPage!=controller.length" (click)="EndClick()" src="assets/images/next_pdf.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="currentPage==controller.length" src="assets/images/next_pdf_dis.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="controller.length!=currentPage" (click)="NextClick()" src="assets/images/nex_to.svg" alt="not found" style="cursor: pointer;">
+    <img *ngIf="currentPage==controller.length" src="assets/images/nex_to_dis.svg" alt="not found" style="cursor: pointer;">
+  </div>
+
+</div>

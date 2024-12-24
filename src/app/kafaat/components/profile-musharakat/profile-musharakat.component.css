@@ -1,0 +1,148 @@
+.main-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--neutral90-color);
+    margin-bottom: 15px;
+}
+.program-main-primary {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    color: var(--main-color);
+    display: inline-block;
+    padding: 5px;
+}
+.sub-title{
+    font-size: 14px;
+    color: var(--neutral60-color);
+    line-height: 22px;
+    font-weight: 400;
+    display: inline-block;
+}
+.musharakat-list-content::-webkit-scrollbar {
+    display: none; 
+}
+.tabs-container{
+    position: relative;
+}
+.musharakat-list-content {
+    overflow-x: scroll;
+    /* display: inline-flex;  */
+    white-space: nowrap; 
+    /* padding-top: 50px; */
+    margin-bottom: 30px;
+  }
+  .active-navigation-button,.inactive-navigation-button{
+    size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    padding:  16px;
+    line-height: 8px;
+}
+
+.divider{
+    height: 1px;
+    background-color: var(--Primary-border-color);
+    margin: 20px 0px;
+}
+.vertical-divider{
+    display: inline-block;
+    width: 2px;
+    background-color: var(--Primary-border-color);
+    margin: 0px 5px;
+    height: 20px;
+}
+/* -----------------------------to be romove extra classes not used----------------------------------- */
+.shared-user-info-image{
+    width: 40px;
+    height: 40px;
+    border: 5px solid var(--bg-outline-color);
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+.shared-user-info-container{
+    position: relative;
+}
+.shared-title{
+    margin: 20px 0px 10px 0px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--neutral90-color);
+}
+.shared-desctiption{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--neutral70-color);
+    text-align: justify;
+}
+.line-separator{
+    margin: 40px 0px;
+    color: var(--Primary-border-color);
+}
+.shared-user-info-list{
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    cursor: pointer;
+    width: 5px;
+    height: 20px;
+}
+.shared-user-info-list-image{
+    width: 5px;
+    height: 20px;
+    cursor: pointer;
+}
+.shared-user-info-list-options{
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 8px;
+}
+.musharakat-options{
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 8px;
+    z-index: 6;
+}
+.shared-user-info{
+    z-index: 1;
+}
+.shared-user-info-list-options-item-update,.shared-user-info-list-options-item-delete{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    padding: 18px 16px 18px 16px;
+    color: var(--neutral90-color);
+    background-color: white;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.shared-user-info-list-options-item-delete{
+    color: red;
+    border-radius: 0px 0px 8px 8px;
+    background-color: white;
+    bottom: 0px;
+    top: 50px;
+}
+.shared-user-info-list-options-item-update:hover,.shared-user-info-list-options-item-delete:hover{
+    color: var(--main-color);
+    background-color: var(--Primary-Surface-color);
+}

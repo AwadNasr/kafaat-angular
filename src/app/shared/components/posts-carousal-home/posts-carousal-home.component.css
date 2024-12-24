@@ -1,0 +1,54 @@
+.CardContainer {
+    display: flex;
+    direction: rtl;
+    padding: 15px;
+
+    .imgContainer {
+        border: 1px solid #80808024;
+        border-radius: 0px 20px 0px 20px;
+        padding: 0px;
+    }
+
+    .textContainer {
+        background-image: url(../../../../assets/images/الخط.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        /* direction: rtl; */
+        div{
+            text-align: justify;
+        }
+        .name {
+            background-color: #b79144;
+            width: fit-content;
+            padding-inline: 20px;
+            padding-block: 3px;
+            border-radius: 3px;
+            color: white;
+        }
+
+        .activeName {
+            border: 1px solid #000;
+            width: fit-content;
+            padding-inline: 15px;
+            padding-block: 3px;
+        }
+    }
+}
+@media (767px >= width){
+    .textContainer {
+        background-image: none !important;
+        .name {
+            margin-top: 20px !important;
+        }
+    }
+    .containerRow{
+        margin-inline: 0px;
+        text-align: center;
+        width: 100% !important;
+    }
+}
+img.disabled {
+  opacity: 0.5;
+  pointer-events: none; /* Disable clicks */
+}

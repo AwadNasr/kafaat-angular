@@ -1,0 +1,12 @@
+<div class="row" dir="ltr">
+  <div class="col-12 col-md-5">
+      <img [src]="ImageFile" alt="what-kafaat.png" width="100%" height="100%">
+  </div>
+  <div class="col-12 col-md-7  d-flex align-items-center" dir="rtl">
+      <div class="px-4 pt-4">
+          <p class="lh-lg" [innerHTML]="readingClub.description" style="text-align: justify;"></p>
+          <a class="bg-primary-btn my-4"  *ngIf="!isParticipant" (click)="joinClub()"> انضم للنادي</a>
+
+      </div>
+    </div>
+</div>

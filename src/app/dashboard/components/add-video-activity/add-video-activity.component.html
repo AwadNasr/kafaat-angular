@@ -1,0 +1,39 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">إضافة فديو</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label class="input-label" for="videoTitle">عنوان الفديو</label>
+        <input formControlName="videoTitle" type="text" name="videoTitle" id="videoTitle" [class.is-invalid]="videoTitle?.invalid && videoTitle?.touched" [class.is-valid]="videoTitle?.valid" class="form-control my-1">
+        <div *ngIf="videoTitle?.errors && videoTitle?.touched">
+            <small *ngIf="videoTitle?.hasError('required')"  class="text-danger">يجب ادخال عنوان الفديو</small>
+        </div>
+    </div>
+    <div class="col-12 col-md-12">
+        <div class="w-100">
+            <label class="mb-2" for="description">وصف المنشط</label>
+            <div id="editor"  class="w-100"  #editor>
+                {{data?.videoDescription}}
+            </div>
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="Title">url فديو</label>
+        <input formControlName="Title" type="text" name="Title" id="Title" [class.is-invalid]="Title?.invalid && Title?.touched" [class.is-valid]="Title?.valid" class="form-control my-1">
+        <div *ngIf="Title?.errors && Title?.touched">
+            <small *ngIf="Title?.hasError('required')"  class="text-danger">يجب ادخال url الفديو</small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="ImageFile"> ملف صورة</label>
+        <input  (change)="onFileSelected($event)" formControlName="fileAttach" type="file" name="fileAttach" id="fileAttach" [class.is-invalid]="fileAttach?.invalid && fileAttach?.touched" [class.is-valid]="fileAttach?.valid" class="form-control my-1">
+        <div *ngIf="fileAttach?.errors && fileAttach?.touched">
+            <small *ngIf="fileAttach?.hasError('required')"  class="text-danger">يجب ادخال ملف  صورة</small>
+        </div>
+    </div>
+    <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+</form>
+</div>

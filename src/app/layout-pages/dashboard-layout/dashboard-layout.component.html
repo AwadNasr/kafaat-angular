@@ -1,0 +1,303 @@
+<div class="wrapper position-relative">
+    <button *ngIf="isSidebarActive" type="button" id="sidebarCollapse"(click)="toggleSidebar()" class="navbar-btn position-absolute" style="top: 5px; right: 20px;background-color: var(--main-color)">
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+        <span style="background-color: white;"></span>
+    </button>
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" [class]="isSidebarActive?'active':''">
+        <div class="sidebar-header">
+            <button type="button" id="sidebarCollapse"(click)="toggleSidebar()" class="navbar-btn mb-3">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="text-center  fw-bold fs-5">نظام كفاءات</div>
+        </div>
+
+        <ul class="list-unstyled components">
+            <li class="nav-item">
+                <a routerLink="/admin/" class="nav-link" >
+                    لوحة التحكم
+                </a>
+            </li>
+            <li class="nav-item">
+              <a routerLink="/admin/registeration" class="nav-link" >
+                انشاء طلب انضمام جديد
+              </a>
+          </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber0" aria-expanded="false">
+                     البرامج والمناشط<i class="fas fa-chevron-down float-end"></i>
+                </a>
+                <ul class="collapse list-unstyled" id="mainlinknumber0">
+                    <li class="nav-item">
+
+                        <a routerLink="/admin/programs" class="nav-link"  routerLinkActive="active" >
+                          البرامج
+                        </a>
+
+                    </li>
+
+                <li class="nav-item">
+
+                <a routerLink="/admin/activities" class="nav-link"  routerLinkActive="active" >
+                      المناشط
+                </a>
+
+            </li>
+            <li class="nav-item">
+
+                <a routerLink="/admin/articles" class="nav-link"  routerLinkActive="active" >
+                  المقالات
+                </a>
+
+            </li>
+            <li class="nav-item">
+
+                <a routerLink="/admin/writtings" class="nav-link"  routerLinkActive="active" >
+                  مؤلفات أبناء الأسرة
+                </a>
+
+            </li>
+            <li class="nav-item">
+
+                <a routerLink="/admin/read-club-list" class="nav-link"  routerLinkActive="active" >
+                  نادي القراءة
+                </a>
+
+            </li>
+            <li class="nav-item">
+
+              <a routerLink="/admin/library-category-list" class="nav-link"  routerLinkActive="active" >
+             مكتبة كفاءات
+              </a>
+
+          </li>
+
+
+
+            <li class="nav-item">
+                <a routerLink="/admin/excellence-prize" class="nav-link"  routerLinkActive="active" >
+                  جائزة التفوق
+               </a>
+            </li>
+          <li class="nav-item">
+
+            <a routerLink="/admin/volunteer-list" class="nav-link"  routerLinkActive="active" >
+                التطوع
+            </a>
+
+        </li>
+            <li class="nav-item">
+
+                <a routerLink="/admin/family-writings-list" class="nav-link"  routerLinkActive="active" >
+               مؤلفات أبناء و بنات الأسرة
+                </a>
+
+            </li>
+            <li class="nav-item">
+
+                <a routerLink="/admin/add-activity" class="nav-link"  routerLinkActive="active" >
+                     اضافة منشط
+                </a>
+                </li>
+                    <li class="nav-item">
+                        <hr>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/admin/types-activity" class="nav-link"  routerLinkActive="active" >
+                            انواع الانشطة
+                        </a>
+                        </li>
+
+                        <li class="nav-item">
+
+                            <a routerLink="/admin/user-category-show" class="nav-link"  routerLinkActive="active" >
+                                مصنفات المستخدمين
+                            </a>
+
+                        </li>
+                        <li class="nav-item">
+
+                          <a routerLink="/admin/site-photos-list" class="nav-link"  routerLinkActive="active" >
+                        التحكم في الصور
+                          </a>
+
+                      </li>
+                </ul>
+            </li>
+
+
+          <li class="nav-item">
+            <a  class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber2" aria-expanded="false">
+                بيانات فرعية<i class="fas fa-chevron-down float-end"></i>
+            </a>
+            <ul class="collapse list-unstyled" id="mainlinknumber2">
+                <li class="nav-item">
+                    <a routerLink="/admin/countries" class="nav-link">الدولة</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/cities" class="nav-link">المدينة</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/districts" class="nav-link">الحى</a>
+                </li>
+                <li class="nav-item">
+                    <hr>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/qualifications" class="nav-link">المؤهل</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/departments" class="nav-link">القسم</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/specializations" class="nav-link">التخصص</a>
+                </li>
+
+                <li class="nav-item">
+                    <hr>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/workTypes" class="nav-link">نوع العمل</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/distinguishedTypes" class="nav-link">وجه التميز</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/familyBranches" class="nav-link">فرع العائلة</a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber3" aria-expanded="false">
+                 المستخدمين<i class="fas fa-chevron-down float-end"></i>
+            </a>
+            <ul class="collapse list-unstyled" id="mainlinknumber3">
+                <li class="nav-item">
+                    <a routerLink="/admin/join-requests" class="nav-link">طلبات الانضمام</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/members" class="nav-link">الأعضاء</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/admins" class="nav-link">المشرفين</a>
+                </li>
+                <li class="nav-item">
+                    <hr>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber4" aria-expanded="false">
+                 رسائل الزائرين<i class="fas fa-chevron-down float-end"></i>
+            </a>
+            <ul class="collapse list-unstyled" id="mainlinknumber4">
+                <li class="nav-item">
+                    <a routerLink="/admin/contact-us-list-new" class="nav-link">جديد</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/contact-us-list-not-sent" class="nav-link">لم يتم الرد</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/contact-us-list-sent"  class="nav-link">تم الرد</a>
+                </li>
+                <li class="nav-item">
+                    <hr>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber_magazine" aria-expanded="false">مجلة كفاءات<i class="fas fa-chevron-down float-end"></i>
+            </a>
+            <ul class="collapse list-unstyled" id="mainlinknumber_magazine">
+                <li class="nav-item">
+                    <a routerLink="/admin/magazines" class="nav-link" routerLinkActive="active">
+                        قائمة المجلات
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+          <a  class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber20" aria-expanded="false">معرض الصور و الفيديوهات <i class="fas fa-chevron-down float-end"></i>
+          </a>
+          <ul class="collapse list-unstyled" id="mainlinknumber20">
+              <li class="nav-item">
+                  <a routerLink="/admin/photos" class="nav-link">
+                       معرض الصور
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a routerLink="/admin/videos" class="nav-link">
+                     معرض الفيديوهات
+                </a>
+            </li>
+          </ul>
+      </li>
+        <li class="nav-item">
+            <a routerLink="/admin/contactInformation" class="nav-link"  routerLinkActive="active" >
+                معلومات التواصل
+            </a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/admin/mix-page" class="nav-link"  routerLinkActive="active" >
+                معلومات اضافية
+            </a>
+        </li>
+        <li class="nav-item">
+            <a  class="nav-link" data-bs-toggle="collapse" data-bs-target="#mainlinknumber5" aria-expanded="false">
+                  مـــن نــــــــحن<i class="fas fa-chevron-down float-end"></i>
+            </a>
+            <ul class="collapse list-unstyled" id="mainlinknumber5">
+                <li class="nav-item">
+                    <a routerLink="/admin/kafaat-founders" class="nav-link" routerLinkActive="active">
+                        مؤسسوا كفاءات
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/admin/documented-images" class="nav-link" routerLinkActive="active">
+                         قسم الصور الموثـقــة
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!--   -->
+        </ul>
+
+        <div class="dropdown text-center">
+          <a  class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <!-- <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2"> -->
+            <img src="{{userProfileImage}}" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>{{user.userName}}</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <!-- <li><a class="dropdown-item" >الاعدادت</a></li>
+            <li><a class="dropdown-item" (click)="viewMyProfile()">البروفيل</a></li>
+            <li><hr class="dropdown-divider"></li> -->
+            <li><a class="dropdown-item" (click)="logout()"> تسجيل خروج</a></li>
+          </ul>
+        </div>
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content" [class]="windowWidth>770?'pt-5':''">
+        <nav  *ngIf="windowWidth<770" class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+
+                <button type="button" id="sidebarCollapse"(click)="toggleSidebar()" class="navbar-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+    </div>
+        </nav>
+
+        <router-outlet></router-outlet>
+
+    </div>
+  </div>

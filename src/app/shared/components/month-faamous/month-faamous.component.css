@@ -1,0 +1,15 @@
+.Container{
+    transition: 400ms;
+}
+@media (0px <=width <=767px) {
+
+    .containerRow{
+        margin-inline: 0px !important;
+        padding-inline: 0px !important;
+        div{
+            div{
+                padding-inline: 0px !important;
+            }
+        }
+    }
+}

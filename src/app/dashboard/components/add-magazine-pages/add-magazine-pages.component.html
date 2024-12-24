@@ -1,0 +1,60 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+    <div class="col-12 col-md-7">
+      <div class="mainPageTitle mb-3">إضافة صفحات للمجلة <span class="text-muted ">({{item.title}})</span></div>
+      <div>
+          <a class="bg-primary-btn p-2 px-3 d-inline-block mx-3" (click)="submit()">حفظ </a>
+          <a class="bg-primary-outline-btn p-2 px-3 d-inline-block  mx-3" (click)="back()">إلغاء </a>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2 mb-4">
+    <a class="bg-primary-btn p-2 d-inline-block px-3 mx-3" (click)="addPage1()">إنشاء صفحة اخرى </a>
+    <span class="text-muted ">تم إضافة {{pages.length}}  صفحات</span>
+</div>
+
+  <!-- <div *ngFor="let error of formErrors">{{error.controlName}} : {{error.ErrorMsg}}</div> -->
+  <form [formGroup]="form" (ngSubmit)="submit">
+    <div class="row">
+  <div formArrayName="pages" class="row">
+    <div *ngFor="let page of pages.controls; let i = index" [formGroupName]="i" class="col-12 col-md-3">
+
+
+
+        <div>
+            <div class="magazinePageContainer shadow-medium mb-4" [style]="page.get('imagePath')?.errors && page.get('imagePath')?.touched?'border-color:red':''">
+                <!-- <div class="magazinePageImage {{page.get('imagePath').value==''?'imagesNotInserted':'imagesAdded'}}">
+                    <div *ngIf="pages.length>1" class="magazinePageControl">
+                        <button class="btn" appTooltip="حذف الصفحة" (click)="removePage(i)"><i class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i></button>
+                    </div>
+                    <a class="changeImageIcon" (click)="magazineImagePath.click()"></a>
+                </div> -->
+                <!-- <a (click)="magazineImagePath.click()"> -->
+
+                <div class="magazinePageImage {{page.get('imagePath').value == '' ? 'imagesNotInserted' : ''}}"
+     [style.backgroundImage]="page.get('imagePath').value ? 'url(' + page.get('imagePreview').value + ')' : ''">
+  <div *ngIf="pages.length > 1" class="magazinePageControl">
+    <button class="btn" appTooltip="حذف الصفحة" (click)="removePage(i)">
+      <i class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i>
+    </button>
+  </div>
+  <a class="changeImageIcon" (click)="magazineImagePath.click()"></a>
+</div>
+<!-- </a> -->
+                <input type="file" [name]="'imagePath_'+i" [id]="'imagePath_'+i" [formControlName]="i"  accept="image/*" #magazineImagePath (change)="onMagazinePageChangeImage($event,i)" style="display:none">
+                <div class="magazinePageNumber">صفحة رقم : <span>
+                    <input style="width: 100px; padding: 5px 10px; text-align: center;" formControlName="pageNumber" type="text" [name]="'imagePath_'+i" [id]="'imagePath_'+i" [class.is-invalid]="page.get('pageNumber')?.invalid && page.get('pageNumber')?.touched" [class.is-valid]="page.get('pageNumber')?.valid" class="form-control my-1">
+                </span></div>
+                <div *ngIf="page.get('pageNumber')?.errors?.fractionalNumber && page.get('pageNumber')?.touched">
+                  <small class="text-danger">من فضلك أدخل رقم صحيح بدون كسور</small>
+                </div>
+
+            </div>
+            <div *ngIf="page.get('pageNumber')?.errors && page.get('pageNumber')?.touched"> <small *ngIf="page.get('pageNumber')?.hasError('required')" class="text-danger">ادخل رقم الصفحة</small> </div>
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+</form>

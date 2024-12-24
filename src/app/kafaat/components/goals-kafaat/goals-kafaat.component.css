@@ -1,0 +1,34 @@
+.section3{
+    background-image: url('../../../../assets/images/bg_section3.png');
+    background-repeat: no-repeat;
+
+}
+.section4{
+    background-image: url('../../../../assets/images/bg_section.png');
+    background-repeat: no-repeat;
+    background-position: right;
+
+}
+
+.bg-div{
+    background-image: url('../.././../../assets/images/bg-div.png') ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .title-goals{
+    font-weight: 600px;
+    line-height: 63px;
+    font-size: 1.4rem;
+    text-align: center;
+    color: var(--main-color);
+  }
+  .description-file-title{
+    font-weight: 600px;
+    line-height: 48px;
+    font-size: 32px;
+    text-align: right;
+    color: white;
+  }
+
+  

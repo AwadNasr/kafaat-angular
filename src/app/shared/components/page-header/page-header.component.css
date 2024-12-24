@@ -1,0 +1,60 @@
+.page-header-container-label{
+    padding-top: 10px;
+    font-size: 16px;
+    color: var(--neutral70-color);
+    font-weight: 400;
+}
+.page-header-container-image-container{
+    display: inline-block;
+    position: relative;
+    width: 18px;
+    height: 30px;
+}
+.page-header-container-image-container img
+{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}.page-header-container-title{
+    display: inline-block;
+    padding-inline: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    /* color: var(----neutral90-color);  */
+}
+
+.bg-header{
+    /* background-image: url("../../../../assets/images/Union.png"); */
+    /* background-repeat: no-repeat;
+    background-position: right; */
+    background: var(--main-color);
+    width: fit-content;
+    position: relative;
+    /* right: -9px; */
+    /* width: 40%;
+    background-size: cover; */
+}
+.bg-header2{
+    /* background-image: url("../../../../assets/images/bg-header2.svg");
+    background-repeat: no-repeat;
+    background-position: right; */
+    background: var(--main-color);
+    width: fit-content;
+    position: relative;
+    /* right: -9px; */
+    
+}
+
+
+/* @media (500px <= width <=2000px){
+    .page-header-container{
+        margin: 40px 107px;
+    }
+}
+@media (0px <= width <=500px){
+    .page-header-container{
+        margin: 40px 16px;
+    }
+} */

@@ -1,0 +1,92 @@
+<div class="general-container mb-5">
+    <div class="mb-4 fw-bolder fs-5 pb-4  d-flex justify-content-start align-items-center"><div class="various"></div><div class="d-inline-block ms-3" style="border-bottom: 4px solid #005183; padding-bottom: 15px;">  معلومات إضافية </div>  </div>
+    <div class="row mb-5">
+        <div class="title-header">فيديو الصفحة الرئيسية</div>
+        <div class="image-container" style="height: 350px;">
+           
+            <div class="home-video">
+                <video *ngIf="homeVideoPath" width="100%" height="80%" oncanplay="this.play()" onloadedmetadata="this.muted = true" style="mix-blend-mode: screen;">
+                    <source src="{{homeVideoPath}}"  type="video/mp4">
+                </video>
+            </div>
+            <div class="icon-camera d-pointer">
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <div appTooltip="تعديل فيديو الصفحة الرئيسية" (click)="homeVideo.click()" class="d-pointer"  class="d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                            <i class="fas fa-camera camera-icon" ></i>
+                        </div>
+                        <div class="ps-3">
+                            <input type="file" name="image1"  accept="image/*" (change)="onChangeFile($event,'homeVideoPath','Video')" #homeVideo style="display:none">
+                        </div>
+                    </div>
+                    <div *ngIf="itemInfo[2].isSaveButtonShown==true" class="col-12 col-md-2 d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                        <button (click)="submit()" class="bg-primary-opacity-btn">حــفظ</button>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <div class="image-size-description d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                            تحميل فيديو الصفحة الرئيسية حجمه لا يتجاوز ال 30 ميجا بايت من امتداد mp4, avi, mov, wmv, flv, mpg, webm, 3gp, ogv
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="title-header">صورة الصفحة الرئيسية</div>
+        <div class="image-container" style="height: 350px;">
+            <div class="image-bg-1" style="background-image: url('{{homeImagePath}}');"></div>
+            <div class="icon-camera d-pointer">
+                <div class="row">
+                    <div class="col-12 col-md-3">
+                        <div appTooltip="تعديل الصورة" (click)="eventImage1.click()" class="d-pointer"  class="d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                            <i class="fas fa-camera camera-icon" ></i>
+                        </div>
+                        <div class="ps-3">
+                            <input type="file" name="image1"  accept="image/*" (change)="onChangeFile($event,'homeImagePath','Image')" #eventImage1 style="display:none">
+                        </div>
+                    </div>
+                    <div *ngIf="itemInfo[0].isSaveButtonShown==true" class="col-12 col-md-2 d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                        <button (click)="submit()" class="bg-primary-opacity-btn">حــفظ</button>
+                    </div>
+                    <div class="col-12 col-md-7">
+                        <div class="image-size-description d-flex align-items-center justify-content-center" style="min-height: 70px;">
+                            أبعاد الصورة [ عرض : 1600 , ارتفاع : 1200 ]
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="title-header">الملف التعريفى للموقع</div>
+        <div class="w-100">
+            <div class="dashed-container d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-start align-items-center">
+                    <img src="/assets/images/cloud.svg" alt="">
+                    <div class="ps-3">
+                        <div (click)="fileInput.click()" class="d-pointer">
+                            <div class="cloud-title pb-2">اختر ملف، او اسحبه هنا للرفع</div>
+                            <div class="cloud-sub-title">PDF, file size no more than 100MB</div>
+                        </div>
+                        <input type="file" name="image"   accept="image/*" (change)="onChangeFile($event,'introductoryFilePath','PDF')" #fileInput style="display:none">
+                    </div>
+                </div>
+                <div>
+                    <a *ngIf="itemInfo[1].isSaveButtonShown==false" class="bg-primary-btn" (click)="fileInput.click()">تحديد الملف التعريفى</a>
+                    <a *ngIf="itemInfo[1].isSaveButtonShown==true" class="bg-primary-outline-btn" (click)="submit()">حفظ التعديل</a>
+                </div>
+            </div>
+            <div *ngIf="introductoryFilePath.length>0"  class="p-3 d-flex justify-content-between align-items-center select-file-bg">
+                <div style="text-align: right;">
+                    <a class="text-decoration-none d-pointer" (click)="showIntroductoryFilePath()" > عرض </a>
+                    <span class="px-3">الملف التعريفى الخاص بالموقع</span>
+                    <img src="/assets/images/file-small-image.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

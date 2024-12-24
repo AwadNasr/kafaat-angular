@@ -1,0 +1,50 @@
+.book-card img {
+  border-radius: 8px 8px 0 0; /* Border-radius to match the card look */
+  width: 100%; /* Make the image fill the card width */
+  height: 240px;
+}
+.book-card {
+  width: 250px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  text-align: center;
+  min-height: 400px;
+  cursor: pointer;
+
+}
+.book-card p {
+  margin: 5px 0;
+}
+.book-card a {
+  color: #007bff; /* Link color */
+  font-weight: bold;
+}
+.custom-placeholder::placeholder {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+
+.search-wrapper {
+  position: relative;
+  width: 90%;
+  max-width: 605px;
+  height: 56px;
+}
+
+.search-wrapper .search-icon {
+  position: absolute;
+  top: 35%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .search-wrapper {
+    width: 605px; /* Set the width to 605px for medium screens and above */
+  }
+}

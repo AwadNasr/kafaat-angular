@@ -1,0 +1,17 @@
+.card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.aclass {
+  display: block;
+  width: 100px !important; /* Adjust width */
+  height: 100px !important; /* Adjust height */
+}
+
+::ng-deep .aclass canvas {
+  width: 100px !important; /* Force width for canvas */
+  height: 100px !important; /* Force height for canvas */
+}

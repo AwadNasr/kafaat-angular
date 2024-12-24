@@ -1,0 +1,64 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+    <div class="col-12 col-md-6">
+      <div class="mainPageTitle mb-3">مجلات كفاءات</div>
+      <button class="bg-primary-outline-btn p-2 d-block" (click)="addItem()">اضافة مجلة</button>
+    </div>
+    <div class="col-12 col-md-2">
+      <button type="button"  class="bg-primary-btn-block my-3 mb-4 p-2" (click)="getPageByName()">بحث</button>
+    </div>
+    <div class="col-12 col-md-4">
+      <input type="text" style="outline: none; border: 1px solid var(--main-color);box-shadow: none;"  [(ngModel)]="pagedRequest.name" placeholder="ابحث عن مجلة" class="form-control">
+    </div>
+  </div>
+
+  <div>
+      <table class="table table-responsive table-hover">
+          <tr class="tableHeader">
+              <td>الصورة </td>
+              <td>عنوان المجلة</td>
+              <td>العدد</td>
+              <td>السنة</td>
+              <td>عدد الصفحات</td>
+              <td>التحكم</td>
+          </tr>
+           <tr class="mt-3">
+              <td colspan="7"></td>
+           </tr>
+          <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate:
+              { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount };let i = index">
+              <tr id="first_{{i}}" >
+                  <td class="table-date" style="cursor: pointer;">
+                  <div class="user-image" style="background-image: url({{item.coverPath}});"></div>
+                </td>
+                  <td class="table-date" style="cursor: pointer;">{{item.title}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.magazineissue}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.year}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.numberOfPages}}</td>
+                  <td class="table-date">
+                    <div>
+                        <button class="btn" appTooltip="تفاصيل المجلة" routerLink="/admin/magazine-details/{{item.id}}"><i class="fa-solid fa-up-right-from-square" style="color: rgb(2, 57, 139);"></i></button>
+                        <button class="btn" appTooltip="تعديل المجلة" (click)="editItem(item.id)"><i class="far fa-edit" style="color: rgb(7, 196, 7);"></i></button>
+                        <button class="btn" appTooltip="حذف المجلة" (click)="deleteItem(item.id)"><i class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i></button>
+                    </div>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <div *ngIf="pageResponse.totalCount==0" class="emptyData">لا يوجد بيانات  . . .</div>
+  </div>
+  <div class="row my-5 mb-1 m-0">
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <pagination-controls (pageChange)="changePageNumber($event)" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+        </div>
+        <div >
+          <select style="margin-bottom: 15px;padding: 5px;display: inline-block;width: 70px;" name="pageSize" id="pageSize" (change)="changePageSize()" [(ngModel)]="pagedRequest.pageSize" class="select-size">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="text-center">إجمالى عدد المجلات : {{ pageResponse.totalCount}}</div>

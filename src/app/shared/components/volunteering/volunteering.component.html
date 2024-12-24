@@ -1,0 +1,91 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="التطوع" Label="متطوعين اسرة الماجد"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/volunteering" subSubSubTitle="التطوع"></app-bread-crumb>
+<div class="card shadow-X-Large">
+  <div class="row p-3">
+      <diV class="col-md-8 col-12">
+          <h1>تقرير التطوع لعام {{volunteeringReportData.year}}</h1>
+      </diV>
+      <diV class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+          <div class="pdfContainer">
+              <i class="fa fa-file-pdf-o" aria-hidden="true" style="color: crimson;padding-inline: 10px;"></i>
+              <a (click)="goToLink(volunteeringReportData.reportFile)" style="cursor: pointer !important;">تحميل التقرير السنوي</a>
+              <!-- <label>تحميل التقرير السنوي</label> -->
+          </div>
+          <!-- <div class="pdfContainer mx-2">
+            <i class="fa-solid fa-sliders" aria-hidden="true" style="color: crimson;padding-inline: 10px;"></i>
+            <a style="cursor: pointer !important;" (click)="filter()">
+              تصفية
+             </a>
+          </div> -->
+      </diV>
+  </div>
+  <hr>
+  <div class="row ">
+      <div class="col-md-1 col-12" ></div>
+      <div class="col-md-3 col-12 statisticsCol" >
+          <img src="../../../../assets/images/participants.png" width="100px" height="80px">
+          <label class="numberLabel">{{volunteeringReportData.hours}}</label>
+          <label class="titleLabel">ساعة</label>
+      </div>
+      <div class="col-md-1 vertical-line"></div>
+      <div class="col-md-3 col-12 statisticsCol" >
+          <img src="../../../../assets/images/Vector.png" width="100px" height="80px">
+          <label class="numberLabel">{{volunteeringReportData.amountOfRiyal}}</label>
+          <label class="titleLabel">ريال (مبلغ مقدر)</label>
+      </div>
+      <!-- <div class="col-md-1 col-12 verticalLine" ></div> -->
+      <div class="col-md-1 vertical-line"></div>
+      <div class="col-md-3 col-12 statisticsCol" >
+          <img src="../../../../assets/images/books.png" width="100px" height="80px">
+          <label class="numberLabel">{{volunteeringReportData.days}}</label>
+          <label class="titleLabel">يوما</label>
+      </div>
+      <!-- <div class="col-md-1 vertical-line"></div> -->
+    
+      <div class="col-md-1 col-12" ></div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-3 col-12 statisticsCol" >
+      <img src="../../../../assets/images/settings 1.png" width="100px" height="80px">
+      <label class="numberLabel">{{volunteeringReportData.volunteers}}</label>
+      <label class="titleLabel">متطوع</label>
+  </div>
+  <div class="col-md-1 vertical-line"></div>
+  <div class="col-md-3 col-12 statisticsCol" >
+      <img src="../../../../assets/images/benefits.png" width="100px" height="80px">
+      <label class="numberLabel">{{volunteeringReportData.manshats}}</label>
+      <label class="titleLabel">منشطا</label>
+  </div>
+  </div>
+</div>
+
+<!-- /////// -->
+  <!-- <div class="page-padding"> -->
+    <div class="shadow-X-Large card" >
+      <div class="row p-3">
+          <diV class="col-md-8 col-12 my-3">
+              <h1 style="font-size: 32px;font-weight: 600;">مجالات التطوع </h1>
+          </diV>
+      </div>
+      <hr>
+      <div class="row row-cols-md-3 row-cols-sm-1 g-2 my-3  d-flex justify-content-center" *ngIf="pageResponse.items.length>0">
+        <div *ngFor="let item of items; let i = index" class="col my-3 ">
+          <div class="card shadow-X-Large">
+            <img [src]="item.fieldImage" class="card-img-top" style="height: 200px !important;" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" style="font-size: 18px;font-weight: 600;color: black !important;"> مجال{{item.title}} </h5>
+              <p class="card-text" style="height: 100px !important;" [innerHTML]="item.description"></p>
+              <a [routerLink]="['/kafaat/volunteer-field',item.id]" class="manashet-card-details-more-link">عرض المزيد</a>
+            </div>
+          </div>        
+        </div>
+      </div>
+      <div class="mt-4"></div>
+      <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+  [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+  (next)="next($event)" (back)="back($event)"></app-paginations>
+      
+    </div>
+  <!-- </div> -->
+  

@@ -1,0 +1,22 @@
+
+
+    <div class="manashet-card-container2">
+        <a [href]="['kafaat/magazine/'+item.id]" class="manashet-card-details-more-link">
+        <!-- <div class="card-image-cont w-100"  [style.background-image]="'url(' + item.coverPath + ')'"></div> -->
+         <div class="w-100" style="height: 230px;">
+          <img [src]="item.coverPath" class="w-100 h-100">
+         </div>
+
+         <div class="manashet-card-details">
+            <div class="manashet-card-details-title-container">
+                <div class="manashet-card-details-title truncate-4-lines">{{item.title}}</div>
+
+            </div>
+            <div class="manashet-card-details-program-details-words" [ngClass]="'isMoreReadEnabled'?'truncate-4-lines':''" [innerHTML]="item.description">
+            </div>
+            <a [href]="['kafaat/magazine/'+item.id]"  *ngIf="'isMoreReadEnabled'" class="manashet-card-details-more-link">عرض المزيد</a>
+            <!-- <a routerLink="#" (click)="isMoreReadEnabled=!isMoreReadEnabled" *ngIf="!'isMoreReadEnabled'" class="manashet-card-details-more-link">عرض اقل</a> -->
+         </div>
+        </a>
+    </div>
+

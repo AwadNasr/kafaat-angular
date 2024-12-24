@@ -1,0 +1,18 @@
+<div class="breadcrumb-container">
+    <span *ngIf="title">
+    <div class="breadcrumb-icon-container"><span class="breadcrumb-icon"><img src="/assets/images/home-light.svg" width="20" height="20"/></span></div>
+    <a [routerLink]="titleRouteLink" class="breadcrumb-active">{{title}}</a>
+    </span>
+    <span *ngIf="subTitles">
+    <span class="breadcrumb-seperator">/</span>
+    <a [routerLink]="subTitlesRouteLink" [class]="subSubTitle?'breadcrumb-active':'breadcrumb-inactive'">{{subTitles}}</a>
+    </span>
+    <span *ngIf="subSubTitle">
+    <span class="breadcrumb-seperator">/</span>
+    <a [routerLink]="subSubTitleRouteLink" [class]="subSubSubTitle?'breadcrumb-active':'breadcrumb-inactive'">{{subSubTitle}}</a>
+    </span>
+    <span *ngIf="subSubSubTitle">
+    <span class="breadcrumb-seperator">/</span>
+    <a [routerLink]="subSubSubTitleRouteLink" class="breadcrumb-inactive">{{subSubSubTitle}}</a>
+    </span>
+</div>

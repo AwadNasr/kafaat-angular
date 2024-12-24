@@ -1,0 +1,32 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">اضافة كتاب</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="mb-3">
+
+          <div class="w-100 form-group">
+            <label for="BookId" class="mb-3">اسم  الكتاب</label>
+            <mat-select class="border rounded p-2" [formControl]="BookId" placeholder="الكتاب" #singleSelect name="BookId" id="BookId"
+            [class.is-invalid]="BookId?.invalid && BookId?.touched"
+            [class.is-valid]="BookId?.valid">
+                <mat-option style="z-index:1000;background-color: white;">
+                    <ngx-mat-select-search  [formControl]="filterInput2"   noEntriesFoundLabel="لا يوجد  اسم كتاب مماثل لكلمة البحث"
+                        placeholderLabel="البحث عن كتاب"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let element of supervisors" [value]="element.id">
+                    {{element.title}}
+                </mat-option>
+            </mat-select>
+            <div *ngIf="BookId?.errors && BookId?.touched">
+                <small *ngIf="BookId?.hasError('required')" class="text-danger">    يجب اختيار الكتاب</small>
+            </div>
+        </div>
+      </div>
+
+
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>

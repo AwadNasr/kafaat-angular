@@ -1,0 +1,117 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+    <div class="col-12 col-md-5">
+      <div class="mainPageTitle mb-3">المشاركون</div>
+
+      <div *ngIf="!clubOrActivity">
+        <button class="bg-primary-btn p-2  d-inline-block" (click)="back()">رجوع للمنشط</button>
+      </div>
+      <div *ngIf="clubOrActivity">
+        <button class="bg-primary-btn p-2  d-inline-block" (click)="back()">رجوع للنادي</button>
+      </div>
+
+
+    </div>
+    <div class="col-12 col-md-3 text-light" style="    align-self: self-end;"  *ngIf="!clubOrActivity">
+      <button type="button" class="btn btn-success w-100" (click)="exportAsXLSX()" >تصدير</button>
+    </div>
+    <div class="col-12 col-md-4" style="    align-self: self-end;">
+      <input type="text" style="outline: none; border: 1px solid var(--main-color);box-shadow: none;margin: 0px;" (keyup.enter)="getPageByName();onNameChange($event.target.value)" [(ngModel)]="pagedRequest.name" placeholder="ابحث عن مستخدم" class="form-control">
+    </div>
+  </div>
+
+  <div>
+      <table class="table table-responsive table-hover">
+          <tr class="tableHeader">
+              <td>الصورة </td>
+              <td>الاسم الرباعي</td>
+              <td *ngIf="!clubOrActivity">الفرع</td>
+              <td *ngIf="!clubOrActivity"> رقم الهوية</td>
+              <td *ngIf="!clubOrActivity"> رقم الجوال</td>
+              <td *ngIf="!clubOrActivity"> المرحلة الدراسية</td>
+              <td *ngIf="!clubOrActivity"> التخصص</td>
+              <td *ngIf="!clubOrActivity"> النوع</td>
+              <td *ngIf="!clubOrActivity"> تاريخ الميلاد</td>
+              <td *ngIf="!clubOrActivity"> المدينة</td>
+              <td *ngIf="!clubOrActivity"> الحي</td>
+              <td *ngIf="!clubOrActivity"> الوظيفة</td>
+              <td *ngIf="!clubOrActivity"> الحالة الاجتماعية</td>
+            <td *ngIf="!clubOrActivity">التحكم</td>
+          </tr>
+           <tr class="mt-3">
+              <td colspan="7"></td>
+           </tr>
+          <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate:
+              { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount };let i = index">
+              <tr id="first_{{i}}" *ngIf="clubOrActivity">
+                  <td class="table-date" style="cursor: pointer;">
+                    <img src="{{item.imageUser}}" width="55" height="55" style="border-radius: 50px;" alt="">
+                    <!-- <div class="user-image" style="background-image: url('{{item.imageUser}}');"></div> -->
+                  </td>
+                  <td class="table-date" style="cursor: pointer;" >{{item.userDisplayName}}</td>
+                  <!-- <td class="table-date" style="cursor: pointer;">{{item.email}}</td> -->
+
+              </tr>
+          </tbody>
+          <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate:
+          { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount};let i = index">
+          <tr id="first_{{i}}" *ngIf="!clubOrActivity">
+              <td class="table-date" style="cursor: pointer;">
+                <img src="{{item.imageUser}}" width="55" height="55" style="border-radius: 50px;" alt="">
+                <!-- <div class="user-image" style="background-image: url('{{item.imageUser}}');"></div> -->
+              </td>
+              <td class="table-date" style="cursor: pointer;" >{{item.userDisplayName}}</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="!clubOrActivity">{{item.familyBranchName}}</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="!clubOrActivity">{{item.identityNumber}}</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="!clubOrActivity">{{item.phoneNumber}}</td>
+              <td class="table-date" style="cursor: pointer;">{{item.qualificationName}}</td>
+              <td class="table-date" style="cursor: pointer;">{{item.specializationName}}</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="item.gender=='m'">ذكر</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="item.gender=='f'">انثي</td>
+              <td class="table-date" style="cursor: pointer;" *ngIf="item.gender==null"></td>
+              <td class="table-date" style="cursor: pointer;">{{item.birthDateInAD | date:'yyyy-MM-dd' }}</td>
+                <td class="table-date" style="cursor: pointer;">{{item.cityName}}</td>
+                <td class="table-date" style="cursor: pointer;">{{item.districtName}}</td>
+                <td class="table-date" style="cursor: pointer;">{{item.workType}}</td>
+                <td class="table-date" style="cursor: pointer;" *ngIf="item.maritalStatus=='s'">اعزب</td>
+                <td class="table-date" style="cursor: pointer;" *ngIf="item.maritalStatus=='m'">متزوج</td>
+                <td class="table-date" style="cursor: pointer;" *ngIf="item.maritalStatus==null"></td>
+               <td class="table-date">
+                <div  *ngIf="!clubOrActivity">
+                  <button appTooltip="اضافة المستخدم إلى المتميزون"  *ngIf="!item.isDistinguished" class="btn action-button"  (click)="addDis(item.id)"><i class="fa-solid fa-user" style="color: black;"></i></button>
+                  <button appTooltip="حذف المستخدم من المتميزون"  *ngIf="item.isDistinguished" class="btn action-button"  (click)="removeDis(item.id)"><i class="fa-solid fa-user" style="color: goldenrod;"></i></button>
+                  <button appTooltip="عرض الملف الشخصى"  class="btn action-button" (click)="viewUserProfile(item.email)"><i class="fa-solid fa-eye" style="color: var(--main-color)"></i></button>
+                  <button appTooltip="حذف المستخدم من المنشط" class="btn action-button" (click)="deleteAccount(item.userId,item.userDisplayName)"><i class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i></button>
+                 </div>
+              </td>
+          </tr>
+      </tbody>
+      </table>
+      <div *ngIf="pageResponse.totalCount==0 && clubOrActivity" class="emptyData">لا يوجد بيانات  . . .</div>
+      <div *ngIf="pageResponse1.totalCount==0 && !clubOrActivity" class="emptyData">لا يوجد بيانات  . . .</div>
+  </div>
+  <div class="row my-5 mb-1 m-0" >
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <pagination-controls (pageChange)="changePageNumber($event)" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+        </div>
+        <div >
+          <select style="margin-bottom: 15px;padding: 5px;display: inline-block;width: 70px;" name="pageSize" id="pageSize" (change)="changePageSize()" [(ngModel)]="pagedRequest.pageSize" class="select-size">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="text-center" *ngIf="clubOrActivity">إجمالى عدد الأعضاء : {{ pageResponse.totalCount}}</div>
+
+  <!-- <div class="row my-5 mb-1 m-0" *ngIf="!clubOrActivity">
+    <div class="d-flex align-items-center justify-content-center">
+      <div>
+        <pagination-controls (pageChange)="p=$event" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+      </div>
+
+    </div>
+</div> -->
+<div class="text-center" *ngIf="!clubOrActivity">إجمالى عدد الأعضاء : {{ pageResponse1.totalCount}}</div>

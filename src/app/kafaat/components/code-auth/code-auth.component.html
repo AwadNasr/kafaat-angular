@@ -1,0 +1,38 @@
+
+    <div class="registeration-container">
+        <div class="pb-4">
+            <img src="/assets/images/logo.svg" width="100%" height="80px" alt="">
+        </div>
+            <div class="registeration">
+                <div class="nextPage">
+                    <div class="details-title">رمز التحقق</div>
+                    <div class="Text-hint mb-4">قم بكتابة رمز التحقق المكون من ٤ أرقام المرسل إلى عنوان البريد الإلكتروني
+                        {{userEmail}}</div>
+                    <div class="code d-flex align-items-center justify-content-center" dir="ltr">
+                        <input type="text" class="code-input-item" name="n1" maxlength="1" [(ngModel)]="verificationCode.n1"
+                            [ngClass]="verificationCode.n1 == ''?'input-non-value-border':(errorCode?'input-error-border':'input-value-border')">
+                        <input type="text" class="code-input-item" name="n2" maxlength="1" [(ngModel)]="verificationCode.n2"
+                            [ngClass]="verificationCode.n2 == ''?'input-non-value-border':(errorCode?'input-error-border':'input-value-border')">
+                        <input type="text" class="code-input-item" name="n3" maxlength="1" [(ngModel)]="verificationCode.n3"
+                            [ngClass]="verificationCode.n3 == ''?'input-non-value-border':(errorCode?'input-error-border':'input-value-border')">
+                        <input type="text" class="code-input-item" name="n4" maxlength="1" [(ngModel)]="verificationCode.n4"
+                            [ngClass]="verificationCode.n4 == ''?'input-non-value-border':(errorCode?'input-error-border':'input-value-border')">
+                    </div>
+                    <a *ngIf="!isCounterTerminated" disabled class="text-center d-block text-decoration-none small mt-4">إعادة
+                        إرسال في خلال ٠٠:{{count}}</a>
+                    <a *ngIf="isCounterTerminated" (click)="resendCode()"
+                        class="text-center text-primary d-pointer d-block text-decoration-none small mt-4">إعادة إرسال</a>
+                    <a *ngIf="errorCode" routerLink="#"
+                        class="text-center d-block text-danger text-decoration-none small mt-4">رمز التحقق غير صحيح، برجاء إعادة
+                        ادخاله مرة اخرى</a>
+        
+                    <button type="submit" (click)="submit()" class="bg-primary-btn-block my-3 mb-4">تحقق</button>
+                </div>
+            </div>
+        <div class="back-arrow pt-3">
+            <a (click)="back()"  class="text-white text-decoration-none d-pointer">
+                <img  src="/assets/images/arrow-forward.svg" alt="">
+                <div class="d-inline-block back-btn">رجوع</div> 
+            </a>
+        </div>
+    </div>

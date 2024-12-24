@@ -1,0 +1,37 @@
+.reading-club-card {
+  max-width: 400px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Default for larger screens (medium and above) */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-container {
+  order: 0; /* Text appears first by default */
+}
+
+.figure-container {
+  order: 1; /* Figure appears second by default */
+}
+
+/* For small screens only (max-width: 576px) */
+@media (max-width: 576px) {
+  .text-container {
+    order: 1; /* Text appears second */
+    text-align: center; /* Center-align text */
+    margin-top: 1rem; /* Add spacing between elements */
+  }
+
+  .figure-container {
+    order: -1; /* Figure appears first */
+    margin-bottom: 1rem; /* Add spacing below figure */
+  }
+}
+

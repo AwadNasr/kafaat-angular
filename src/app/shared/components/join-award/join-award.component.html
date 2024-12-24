@@ -1,0 +1,69 @@
+<!-- <div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div> -->
+<div class="pop-up-container">
+<div class="title-pop-up" style="border-bottom: none;font-size: 16px; font-weight: 400; margin: 30px 15px !important;"> انضم لجائزة التفوق</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="row">
+    <div class="col-12 ">
+      <div class="mb-3">
+        <label for="typeOfAwardId" class="mb-3">اختر نوع الجائزة</label>
+            <select formControlName="typeOfAwardId" type="text" name="typeOfAwardId" id="typeOfAwardId"
+                [class.is-invalid]="typeOfAwardId?.invalid && typeOfAwardId?.touched" [class.is-valid]="typeOfAwardId?.valid"
+                class="form-select my-1">
+                <option *ngFor="let item of typeOfAward" [value]="item.id">{{item.title}}</option>
+                 <!-- <option value="1">1</option> -->
+            </select>
+            <div *ngIf="typeOfAwardId?.errors && typeOfAwardId?.touched">
+              <small *ngIf="typeOfAwardId?.hasError('required')" class="text-danger"> يجب اختيار نوع الجائزة</small>
+          </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-3">
+      <label for="grade" class="mb-3">  التقدير</label>
+          <select formControlName="grade" type="text" name="grade" id="grade"
+              [class.is-invalid]="grade?.invalid && grade?.touched" [class.is-valid]="grade?.valid"
+              class="form-select my-1">
+              <option *ngFor="let item of grades" [value]="item.name">{{item.name}}</option>
+              <!-- <option value="a">1</option> -->
+          </select>
+          <div *ngIf="grade?.errors && grade?.touched">
+            <small *ngIf="grade?.hasError('required')" class="text-danger">  يجب اختيار التقدير </small>
+        </div>
+  </div>
+
+  </div>
+  <div class="col-6 ">
+    <div class="mb-3">
+      <label for="average" class="mb-3"> المعدل</label>
+          <select formControlName="average" type="text" name="average" id="average"
+              [class.is-invalid]="average?.invalid && average?.touched" [class.is-valid]="average?.valid"
+              class="form-select my-1">
+              <option *ngFor="let item of averages" [value]="item.name">{{item.name}}</option>
+              <!-- <option value="a">1</option> -->
+          </select>
+          <div *ngIf="average?.errors && average?.touched">
+            <small *ngIf="average?.hasError('required')" class="text-danger"> يجب اختيار  المعدل</small>
+        </div>
+  </div>
+
+  </div>
+  <div class="col-12 ">
+    <div class="mb-3">
+      <label class="input-label mb-3" for="documentFilePath">
+        ملف الوثيقة
+      </label>
+      <input (change)="onFileSelected($event)" formControlName="documentFilePath" type="file" name="documentFilePath"
+             id="documentFilePath" class="form-control my-1 file-input" accept="image/*" hidden>
+      <label for="documentFilePath" class="bg-primary-btn-block custom-file-label">ادخل ملف الوثيقة</label>
+      <div *ngIf="documentFilePath?.errors && documentFilePath?.touched">
+        <small *ngIf="documentFilePath?.hasError('required')" class="text-danger">يجب ادخال ملف الوثيقة</small>
+      </div>
+    </div>
+  </div>
+  </div>
+  <button type="submit"  class="bg-primary-btn-block  my-3 mb-4 p-2" > تقدم الأن </button>
+  <button type="button"  class="bg-sec-btn-block  my-3 mb-4 p-2" (click)="closeDialog()">  لا ربما لاحقا </button>
+</form>
+</div>

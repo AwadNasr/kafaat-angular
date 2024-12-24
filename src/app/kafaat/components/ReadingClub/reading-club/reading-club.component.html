@@ -1,0 +1,45 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="نادي القراءة" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/readingClub" subSubSubTitle="نادي القراءة"></app-bread-crumb>
+<!-- <div class="page-padding py-4 my-4 border"></div> -->
+ <div class="card shadow-X-Large">
+    <div class="row p-3">
+        <diV class="col-md-8 col-12">
+            <h1>تقرير نادي القراءة لعام {{readingClubRepostData.year}}</h1>
+        </diV>
+        <diV class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+            <div class="pdfContainer">
+                <i class="fa fa-file-pdf-o" aria-hidden="true" style="color: crimson;padding-inline: 10px;"></i>
+                <a (click)="goToLink(readingClubRepostData.reportFile)" style="cursor: pointer !important;">تحميل التقرير السنوي</a>
+            </div>
+
+        </diV>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-1 col-12" ></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/participants.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubRepostData.partners}}</label>
+            <label class="titleLabel">مشاركا</label>
+        </div>
+        <div class="col-md-1 vertical-line"></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/books.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubRepostData.readedBooks}}</label>
+            <label class="titleLabel">كتاب مقروء</label>
+        </div>
+        <!-- <div class="col-md-1 col-12 verticalLine" ></div> -->
+        <div class="col-md-1 vertical-line"></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/benefits.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubRepostData.benefits}}</label>
+            <label class="titleLabel">المستفيدين</label>
+        </div>
+        <div class="col-md-1 col-12" ></div>
+    </div>
+ </div>
+ <app-layout-section [componentToDisplay]="8" title="النوادي المتاحة"></app-layout-section>
+ <app-layout-section [componentToDisplay]="7" title="ما هو نادي القراءة ؟"></app-layout-section>
+ <app-layout-section [componentToDisplay]="9" title="أهمية نادي القراءة"></app-layout-section>
+ <app-layout-section [componentToDisplay]="10" title="أهمية اختيار الكتاب؟"></app-layout-section>

@@ -1,0 +1,26 @@
+<div class="page-padding">
+  <div class="shadow-X-Large card" style="width: 100% !important;">
+    <div class="row p-3">
+        <diV class="col-md-8 col-12 my-3">
+            <h1 style="font-size: 32px;font-weight: 600;">شروط الاشتراك في المسابقة</h1>
+        </diV>
+
+    </div>
+    <hr>
+    <div class="row row-cols-md-3 g-2 my-3  d-flex justify-content-center" *ngIf="pageResponse.items.length>0">
+      <div *ngFor="let item of pageResponse.items; let i = index" class="col my-3 ">
+      <div class="custom-box"  >
+          <span class="number">0{{i+1}}</span>
+          <p class="text">{{item.condition}}</p>
+      </div>
+
+
+
+
+      </div>
+    </div>
+    <div *ngIf="pageResponse.items.length==0" class="d-flex  justify-content-center align-items-center">
+      <h2 class="my-3">لا توجد شروط حاليا لهذه الجائزة </h2>
+    </div>
+  </div>
+</div>

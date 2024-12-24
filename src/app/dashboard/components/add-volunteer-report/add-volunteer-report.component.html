@@ -1,0 +1,47 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">{{title}}</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+
+
+
+    <div class="mb-3">
+      <label class="input-label" for="Title">عنوان التقرير </label>
+      <input formControlName="Title" type="text" name="Title" id="Title"
+          [class.is-invalid]="Title?.invalid && Title?.touched" [class.is-valid]="Title?.valid"
+          class="form-control my-1">
+      <div *ngIf="Title?.errors && Title?.touched">
+          <small *ngIf="Title?.hasError('required')" class="text-danger">يجب ادخال عنوان التقرير </small>
+      </div>
+  </div>
+
+
+      <div class="row mt-4">
+          <div class="title-header">الملف التعريفى للموقع</div>
+          <div class="w-100">
+              <div class="dashed-container d-flex justify-content-between align-items-center">
+                  <div class="d-flex justify-content-start align-items-center">
+                      <img src="/assets/images/cloud.svg" alt="">
+                      <div class="ps-3">
+                          <div (click)="fileInput.click()" class="d-pointer">
+                              <div class="cloud-title pb-2">اختر ملف، او اسحبه هنا للرفع</div>
+                              <div class="cloud-sub-title">PDF, file size no more than 30MB</div>
+                          </div>
+                          <input type="file" name="image"   accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" (change)="onChangeFile($event,'introductoryFilePath','PDF')" #fileInput style="display:none">
+                      </div>
+                  </div>
+                  <div>
+                  </div>
+              </div>
+              <div >
+                  <small *ngIf="checkResult != ''" class="text-danger">نوع الملف  المسموح به نوع الـ PDF فقط</small>
+              </div>
+
+          </div>
+      </div>
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>

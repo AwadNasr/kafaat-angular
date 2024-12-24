@@ -1,0 +1,97 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+  <div class="col-12 col-md-7">
+    <div class="mainPageTitle mb-3">التحكيم</div>
+    <div >
+      <!-- <button class="bg-primary-btn p-2  d-inline-block">رجوع لمجال التطوع</button> -->
+    </div>
+  </div>
+  <div class="col-12 col-md-5">
+    <input type="text" style="outline: none; border: 1px solid var(--main-color);box-shadow: none;" (keyup.enter)="getPageByName()" [(ngModel)]="pagedRequest.name" placeholder="ابحث عن مستخدم" class="form-control">
+  </div>
+</div>
+
+<div>
+  <div class="manashet-list-content text-center my-2">
+    <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+</div>
+    <table class="table table-responsive table-hover">
+        <tr class="tableHeader">
+            <td>الاسم </td>
+            <td>المرحلة</td>
+            <td>الاعتماد </td>
+            <td> من أبطال النادي </td>
+            <td> الفوائد </td>
+            <td> الشارة </td>
+            <td> رابط المشاركة </td>
+            <td >التحكم</td>
+        </tr>
+         <tr class="mt-3">
+            <td colspan="7"></td>
+         </tr>
+        <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate:
+            { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount };let i = index">
+            <tr id="first_{{i}}" >
+                <td class="table-date" style="cursor: pointer;">{{item.userDisplayName}}</td>
+                <td class="table-date" style="cursor: pointer;width: 150px !important;">
+                  <select class="form-select" (change)="onQualificationChange(item.participantId, $event.target.value)">
+
+                    <option [value]="10007" [selected]="item.qualificationId==10007">دكتوراه</option>
+                    <option [value]="10009" [selected]="item.qualificationId==10009">ماجستير</option>
+                    <option [value]="10010" [selected]="item.qualificationId==10010">بكالوريوس</option>
+                    <option [value]="10011" [selected]="item.qualificationId==10011">دبلوم</option>
+                    <option [value]="10012" [selected]="item.qualificationId==10012">ثانوي</option>
+                    <option [value]="10013" [selected]="item.qualificationId==10013">متوسط</option>
+                  </select>
+                </td>
+                <td class="table-date" style="cursor: pointer;width: 100px !important;" *ngIf="item.isApproved" >
+                  معتمد
+                </td>
+                <td class="table-date" style="cursor: pointer;width: 100px !important;" *ngIf="!item.isApproved" >
+                  مرفوض
+                </td>
+                <td class="table-date" style="cursor: pointer;width: 100px !important;" >
+                <select class="form-select" (change)="onApprovalChange(item.participantId, $event.target.value)">
+
+                  <option [value]="true" [selected]="item.isHero==true">نعم</option>
+                  <option [value]="false" [selected]="item.isHero==false">لا</option>
+                </select>
+              </td>
+                <td class="table-date" style="cursor: pointer;width: 100px !important;" >
+                  <input type="number" class="form-control" [value]="item.benefits" (keydown.enter)="onBenefitsEnter(item.participantId, $event)">
+                  </td>
+                  <td class="table-date" style="cursor: pointer;width: 150px !important;" >
+                    <input type="text" class="form-control" [value]="item.badge" (keydown.enter)="onBadgeEnter(item.participantId, $event)">
+                    </td>
+                    <td class="table-date" style="cursor: pointer;width: 150px !important;" >
+                      <input type="text" class="form-control" [value]="item.shareLink" (keydown.enter)="onShareLinkEnter(item.participantId, $event)">
+                      </td>
+
+
+                 <td class="table-date">
+                  <div >
+                    <button appTooltip="عرض الملف الشخصى"  class="btn action-button" (click)="viewUserProfile(item.email)"><i class="fa-solid fa-eye" style="color: var(--main-color)"></i></button>
+                    <button appTooltip="حذف المشارك" class="btn" (click)="deleteItem(item.id)"><i
+                      class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i></button>
+                   </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="pageResponse.totalCount==0" class="emptyData">لا يوجد بيانات  . . .</div>
+</div>
+<div class="row my-5 mb-1 m-0">
+    <div class="d-flex align-items-center justify-content-center">
+      <div>
+        <pagination-controls (pageChange)="changePageNumber($event)" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+      </div>
+      <div >
+        <select style="margin-bottom: 15px;padding: 5px;display: inline-block;width: 70px;" name="pageSize" id="pageSize" (change)="changePageSize()" [(ngModel)]="pagedRequest.pageSize" class="select-size">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </div>
+</div>
+<div class="text-center">إجمالى عدد الأعضاء : {{ pageResponse.totalCount}}</div>

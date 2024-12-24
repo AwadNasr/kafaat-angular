@@ -1,0 +1,101 @@
+.video-player-item-container{
+    border-radius: 8px;
+    border: 1px solid var(--Primary-border-color);
+    margin: 10px;
+}
+.video-player-item-details{
+    padding: 20px 15px;
+}
+.video-player-item-title{
+    line-height: 32px;
+    font-size: 18px;
+    color: var(--neutral90-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.video-player-item-description{
+    line-height: 22px;
+    font-size: 14px;
+    color: var(--neutral70-color);
+    font-weight: 400;
+}
+
+
+
+
+
+
+.card-image{
+    position: relative;
+    /* width: 350px; */
+    height: 230px;
+    overflow: hidden;
+    margin: 0px auto;
+    background-color: var(--Primary-border-color);
+  }
+  .card-image-outline{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 230px;
+    height: 230px;
+    border-radius: 50% 50%;
+    box-shadow: 0px 2px 7px lightgray;
+    overflow: hidden;
+    background-color: var(--bg-outline-color);
+  }
+  .card-image-video-player{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50% 50%;
+    overflow: hidden;
+    background-image: url('/assets/images/video-player.svg');
+    background-color: var(--main-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 111;
+    cursor: pointer;
+  }
+  .card-displayed-image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 210px;
+    height: 210px;
+    background-color: white;
+    border-radius: 50% 50%;
+    z-index: 2;
+    background-image: url('/assets/images/p3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .card-displayed-image img{
+    width: 210px;
+    height: 210px;
+    border-radius: 50% 50%;
+    opacity: 90%;
+  }
+
+
+  @media(500px <= width <= 2500px){
+    .video-player-item-container{
+        width: 100%;
+    }
+}
+@media(0px <= width <= 500px){
+    .video-player-item-container{
+        width: auto;
+    }
+}
+.video-player-item-container:hover .card-displayed-image{
+  transition: all .3s ease-in-out;
+  width: 250px;
+  height: 250px;
+}

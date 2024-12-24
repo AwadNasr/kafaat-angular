@@ -1,0 +1,67 @@
+<div class="footer-container">
+    <div class="page-padding">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="kafaat-logo"></div>
+                    </div>
+                </div>
+                <div class="phone"><img src='/assets/images/whats-app-logo.png' loading="lazy" class="social-icon"><span> {{contactInformationItems.whatsapp}} </span></div>
+                <div class="social-icon-container">
+                    <a href="{{contactInformationItems.snapchatLink}}" target="_blank"><img src='/assets/images/Snapchat-white.svg' loading="lazy" class="social-icon"></a>
+                    <a href="{{contactInformationItems.telegramLink}}" target="_blank"><img src='/assets/images/telegram.svg' loading="lazy"class="social-icon"></a>
+                    <a href="{{contactInformationItems.twitterLink}}" target="_blank"><img src='/assets/images/Twitter-light.svg' loading="lazy"class="social-icon"></a>
+                    <a href="{{contactInformationItems.instagramLink}}" target="_blank"><img src='/assets/images/Instagram-light.svg' loading="lazy"class="social-icon"></a>
+                    <a href="{{contactInformationItems.youtubeLink}}" target="_blank"><img src='/assets/images/Youtube-light.svg' loading="lazy"class="social-icon"></a>
+                    <a href="{{contactInformationItems.facebookLink}}" target="_blank"><img src='/assets/images/Facebook-light.svg'loading="lazy" class="social-icon"></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <div class="d-block d-md-none" style="height: 100px;"></div>
+                <div class="row">
+                    <div class="col-6 row">
+
+                        <div class="col-6">
+                           <div class="links-title">البرامج</div>
+                        <a *ngIf="programs[0]" [routerLink]="['/kafaat/program-details/',programs[0].id]" class="link-item">{{programs[0].title}}</a>
+                        <a *ngIf="programs[1]" [routerLink]="['/kafaat/program-details/',programs[1].id]" class="link-item">{{programs[1].title}}</a>
+                        <a *ngIf="programs[2]" [routerLink]="['/kafaat/program-details/',programs[2].id]" class="link-item">{{programs[2].title}}</a>
+                        <a *ngIf="programs[3]" [routerLink]="['/kafaat/program-details/',programs[3].id]" class="link-item">{{programs[3].title}}</a>
+                        <a *ngIf="programs[4]" [routerLink]="['/kafaat/program-details/',programs[4].id]" class="link-item">{{programs[4].title}}</a>
+                        <a *ngIf="programs[5]" [routerLink]="['/kafaat/program-details/',programs[5].id]" class="link-item">{{programs[5].title}}</a>
+                        </div>
+                        <div class="col-6">
+                          <div class="links-title"></div>
+                        <a *ngIf="programs[6]" [routerLink]="['/kafaat/program-details/',programs[6].id]" class="link-item">{{programs[6].title}}</a>
+                        <a *ngIf="programs[7]" [routerLink]="['/kafaat/program-details/',programs[7].id]" class="link-item">{{programs[7].title}}</a>
+                        <a *ngIf="programs[8]" [routerLink]="['/kafaat/program-details/',programs[8].id]" class="link-item">{{programs[8].title}}</a>
+                        <a *ngIf="programs[9]" [routerLink]="['/kafaat/program-details/',programs[9].id]" class="link-item">{{programs[9].title}}</a>
+                        <a *ngIf="programs[10]" [routerLink]="['/kafaat/program-details/',programs[10].id]" class="link-item">{{programs[10].title}}</a>
+                        <a *ngIf="programs[11]" [routerLink]="['/kafaat/program-details/',programs[11].id]" class="link-item">{{programs[11].title}}</a>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="col-6">
+                        <div class="links-title">روابط سريعة</div>
+                        <a routerLink="/kafaat/about" fragment="beginningOfAbout"  class="link-item">عن كفاءات</a>
+                        <a routerLink="/kafaat/winners" class="link-item">متميزون الشهر</a>
+                        <a routerLink="/kafaat/famous-posts" class="link-item">مشاركات</a>
+                        <a routerLink="/kafaat/post-people" class="link-item">آراء المشاركين</a>
+                        <a class="link-item" routerLink="/kafaat/photo-album">معرض الصور </a>
+                        <a class="link-item" routerLink="/kafaat/video-album">معرض الفيديوهات </a>
+                        <a  (click)="openModal()" class="link-item">البث المباشر</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="line-separator"></span>
+        <div class="rights">
+            جميع الحقوق محفوظة {{year}} @كفاءات
+        </div>
+    </div>
+</div>
+<app-dialog-video-image #dialog></app-dialog-video-image>

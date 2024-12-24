@@ -1,0 +1,25 @@
+<div class="divider-section"></div>
+<div class="page-padding">
+    <app-page-header  [Header]="title" [header]="header"></app-page-header>
+    <div class="card p-0 m-0 shadow-X-Large">
+        <div class="card-body p-0">
+            <ng-container #container>
+                <app-display-content *ngIf="componentToDisplay==1"></app-display-content>
+                <app-minshat-carousal  *ngIf="componentToDisplay==2"></app-minshat-carousal>
+                <app-posts-carousal-home *ngIf="componentToDisplay==3"></app-posts-carousal-home>
+                <app-month-faamous *ngIf="componentToDisplay==4"></app-month-faamous>
+                <app-form-contact *ngIf="componentToDisplay==5"></app-form-contact>
+                <app-article-home-display *ngIf="componentToDisplay==6"></app-article-home-display>
+                <app-club-content *ngIf="componentToDisplay==7"></app-club-content>
+                <app-reading-club-section *ngIf="componentToDisplay==8"></app-reading-club-section>
+                <app-reading-club-importance *ngIf="componentToDisplay==9"></app-reading-club-importance>
+                <app-reading-club-choosing *ngIf="componentToDisplay==10"></app-reading-club-choosing>
+                <app-club-details-content *ngIf="componentToDisplay==11"></app-club-details-content>
+                <app-excellence-award *ngIf="componentToDisplay==12" (idChange)="handleIdChange($event)"></app-excellence-award>
+                <app-award-info *ngIf="componentToDisplay==13"></app-award-info>
+                <!-- <app-excellence-award-condition *ngIf="componentToDisplay==14 " [sharedId]="sharedId"></app-excellence-award-condition> -->
+
+            </ng-container>
+        </div>
+    </div>
+</div>

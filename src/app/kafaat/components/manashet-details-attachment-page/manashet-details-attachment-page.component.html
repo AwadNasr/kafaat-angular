@@ -1,0 +1,18 @@
+<div class="attachments-container">
+    <div class="row g-4">
+        <div class="col-12 col-md-4" *ngFor="let item of files">
+            <div class="attachments-item">
+                <div class="attachments-item-image">
+                    <img src="/assets/images/file.svg" width="100%" height="100%">
+                </div>
+                <div class="attachments-item-details">
+                    <div class="truncate-2-lines attachments-item-details-title">
+                       {{item.title}}
+                    </div>
+                    <button class="bg-primary-btn mt-3" (click)="download(item.id)"><img src="/assets/images//cloud-arrow-down.svg" class="me-2 " width="30" height="30"/>تحميل الملف </button>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</div>

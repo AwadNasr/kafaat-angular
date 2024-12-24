@@ -1,0 +1,203 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-bread-crumb title="الرئسية"  [subSubSubTitle]="readClubTrip.title" subSubSubTitleRouteLink="/kafaat/articles"></app-bread-crumb>
+
+<div class="container-fluid">
+
+  <div class="row justify-content-around align-items-center py-5">
+    <div class="col-12 col-md-5 row justify-content-center align-items-center">
+    <div class="col-12 col-md-3 mx-4 text-center d-flex flex-column justify-content-center align-items-center">
+      <div style="width: 125px; height: 125px; border-radius: 50%; background-color: #BFA972;" class="d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 45px; height: 51px;">
+          <img src="../../../../assets/images/icon-park-outline_read-book.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{readClubTrip.reader}}+</p>
+      </div>
+      <p class="text-dark my-4 text-center p-title" >قارئ</p>
+    </div>
+
+    <div class="col-12 col-md-3 mx-4 text-center d-flex flex-column justify-content-center align-items-center">
+      <div style="width: 125px; height: 125px; border-radius: 50%; background-color: #005183;" class="d-flex flex-column justify-content-center align-items-center ">
+        <figure style="width: 45px;height: 51px;">
+          <img src="../../../../assets/images/ph_books-fill.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{readClubTrip.books}}+</p>
+      </div>
+      <p class="text-dark my-4 p-title" >كتاب</p>
+    </div>
+    <div class="col-12 col-md-3 mx-4 text-center d-flex flex-column justify-content-center align-items-center">
+      <div style="width: 125px; height: 125px; border-radius: 50%; background-color: #699466;" class="d-flex flex-column justify-content-center align-items-center ">
+        <figure style="width: 45px;height: 51px;">
+          <img src="../../../../assets/images/mdi_head-lightbulb.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{readClubTrip.benefits}}+</p>
+      </div>
+      <p class="text-dark my-4 p-title" >فائدة</p>
+    </div>
+    </div>
+    <div class=" col-12 col-md-3 d-flex justify-content-center">
+      <button class="bg-primary-btn-block mt-2 col-10 my-sm-3 me-sm-3"  >
+        <a href="{{readClubTrip.report}}" target="_blank"  class="text-white  p-btn" style="text-decoration: none;" > تحميل التقرير السنوي</a>
+       </button>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #FBFBFB;">
+
+
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-12 col-md-3">
+      <figure class="w-75 h-75 mx-auto" style="margin-top: 10px;height: 300px;">
+        <img [src]="readClubTrip.clubImage"  class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+    <div class="col-sm-12 col-md-6 my-sm-5">
+      <p class="text-dark p-title m-2" >{{readClubTrip.title}} </p>
+      <p class="p-2 my-2 p-desc" style="color: #525252; margin-inline: 1rem;"[innerHTML]="readClubTrip.description"></p>
+      <div class="row justify-content-around align-items-center my-3 my-text" style=" margin-inline: 1rem;">
+<div class="col-10 col-md-5">
+  <img src="../../../../assets/images/Vector (1).png" alt="" width="24" height="24" class="d-inline">
+  <p class=" p-info" > عدد المشاركين :{{readClubTrip.participants}}</p>
+</div>
+<div class="col-10 col-md-5">
+  <img src="../../../../assets/images/mingcute_location-line.png" alt="" width="24" height="24" class="d-inline">
+  <p class=" p-info" > المكان  :{{readClubTrip.location}}</p>
+</div>
+<div class="col-10 col-md-5 ">
+  <img src="../../../../assets/images/calender-blue.svg" alt="" width="24" height="24"  class="d-inline">
+  <p class=" p-info" > التاريخ  :{{readClubTrip.date | date: 'yyyy/MM/dd'}}</p>
+</div>
+
+      </div>
+    </div>
+
+    <div class="col-1"></div>
+  </div>
+</div>
+
+
+
+  <div  style="background-color: #005183; width:200px;font-family: 600;padding: 20px 10px;" class="text-center ms-3 p-title  text-white mt-4">
+    <p>الكتب</p>
+  </div>
+
+
+
+
+<div class="container mt-2">
+  <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 my-4 justify-content-center align-items-center">
+    <div class="col-10 col-md " *ngFor="let item of pageResponse1">
+      <div class="card card-custom1 shadow-lg" >
+        <div class="card-body d-flex flex-row align-items-center" >
+
+          <div class="book-details">
+            <div class="book-title "> {{item.title}} </div>
+            <div class="book-author">{{item.author}}  </div>
+            <div class="p-desc book-description  "  (click)="navigateToParticipant(item.bookId)">
+              <!-- <p [innerHTML]="SubStringFun(item.description)"> -->
+                <p>
+                  <span *ngIf="item.description.length <= 100" >{{ item.description }}</span>
+                  <span *ngIf="item.description.length > 100">
+                    {{ item.description | slice: 0:100 }}...
+                    <button class="read-more" (click)="toggleReadMore(item)">
+                      {{ item.showMore ? 'عرض أقل' : 'قراءة المزيد' }}
+                    </button>
+                  </span>
+                </p>
+              <!-- </p> -->
+            </div>
+            <div class="book-level" *ngIf="item.booksQualification[0].qualificationId==10013">المرحلة: المتوسط</div>
+            <div class="book-level" *ngIf="item.booksQualification[0].qualificationId==10012">المرحلة: الثانوي</div>
+            <div class="book-level" *ngIf="item.booksQualification[0].qualificationId==10007 || item.booksQualification[0].qualificationId==10009 ||
+            item.booksQualification[0].qualificationId==10010 || item.booksQualification[0].qualificationId==10011">المرحلة: الجامعي</div>
+        </div>
+
+            <img [src]="item.image" alt="Book Image" class="book-image">
+
+
+        </div>
+        <!-- Bottom Button -->
+        <div class="text-center ">
+            <button class="bg-primary-btn-block mt-2 col-10 my-3 me-sm-3 " >
+              <a href="{{item.link}}" target="_blank"  class="text-white p-btn" style="text-decoration: none;" >قراءة الكتاب</a>
+            </button>
+        </div>
+    </div>
+    </div>
+
+  </div>
+  <app-empty-data *ngIf="pageResponse1.length==0" [inputText]="'لا يوجد كتب لهذا النادي'"></app-empty-data>
+</div>
+
+
+<div style="background-color: #005183;padding: 20px 10px; width:200px;" class="text-center ms-3 p-title  text-white mt-4">
+  <p>ابطال النادي</p>
+</div>
+
+<div class="page-padding">
+  <div class="card shadow-X-Large p-4">
+    <div class="manashet-list-content text-center my-2">
+      <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+   </div>
+      <div class="card-body">
+          <div *ngIf="items.length>0" class="row text-center g-2 d-flex justify-content-center align-items-center ">
+              <div class="col-12 col-md-6 col-lg-4 col-lg-4" *ngFor="let item of items">
+                <div class="card shadow-medium" >
+                  <div class="d-inline-block d-sm-none p-4" style="width: auto ;height: 400px;">
+                    <app-masked-image [inputImageUrl]="item.image"  inputWidth="150" inputHeight="150"></app-masked-image>
+                    <p style="color: #585555;">{{item.userDisplayName}}</p>
+                    <div>
+                      <img src="../../../../assets/images/hugeicons_note.png" alt="" class="d-inline">
+                      <p class="d-inline text-dark m-2" style="font-size: 14px;">{{item.benefits}} فائدة</p>
+                    </div>
+                    <div  *ngIf="item.badge.length>0">
+                      <img src="../../../../assets/images/v1.png" alt="" class="d-inline">
+                      <p class="d-inline text-dark m-2" style="font-size: 14px;">{{item.badge}}</p>
+                    </div>
+
+                    <div>
+                      <button class="bg-primary-btn-block mt-2 col-10 my-sm-3 me-sm-3 " >
+                        <a href="{{item.shareLink}}" target="_blank"  class="text-white p-btn" style="text-decoration: none;" > استعراض المشاركة</a>
+                      </button>
+                    </div>
+
+
+
+
+                </div>
+                </div>
+                <div class="card shadow-medium" >
+                  <div class="d-none d-md-inline-block p-4" style="width: auto ;height: 400px;">
+                      <app-masked-image [inputImageUrl]="item.image"  inputWidth="215" inputHeight="215"></app-masked-image>
+                      <p style="color: #585555;">{{item.userDisplayName}}</p>
+                      <div>
+                        <img src="../../../../assets/images/hugeicons_note.png" alt="" class="d-inline">
+                        <p class="d-inline text-dark m-2" style="font-size: 14px;">{{item.benefits}} فائدة</p>
+                      </div>
+                      <div *ngIf="item.badge.length>0">
+                        <img src="../../../../assets/images/v1.png" alt="" class="d-inline">
+                        <p class="d-inline text-dark m-2" style="font-size: 14px;">{{item.badge}}</p>
+                      </div>
+                      <div>
+                        <button class="bg-primary-btn-block mt-2 col-10 my-sm-3 me-sm-3 " >
+                          <a href="{{item.shareLink}}" target="_blank"  class="text-white p-btn" style="text-decoration: none;" > استعراض المشاركة</a>
+                        </button>
+                      </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+          <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد ابطال لهذا المؤهل'"></app-empty-data>
+          <!-- *ngIf="pageResponse.totalCount>16" -->
+          <app-paginations *ngIf="items.length>0" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+          [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+          (next)="next($event)" (back)="back($event)"></app-paginations>
+      </div>
+  </div>
+</div>
+<div class="divider-section">

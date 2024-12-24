@@ -1,0 +1,10 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="البرامج" Label="جميع البرامج التي قامت عليها أسرة الماجد"></app-page-header-labeled>
+    <app-bread-crumb title="الرئسية" subTitles="البرامج" subTitlesRouteLink="kafaat/programs"></app-bread-crumb>
+    <div *ngFor="let item of items; let i=index">
+        <app-program-min  *ngIf="i%2==0"  direction="ltr" [idProgram]="item.id" [image]="item.imagePath" [image2]="item.imageDescription" [title]="item.title"
+        [numActivites]="item.activityCount" [numpaticipants]="item.numberParticipants" [description]="item.description"></app-program-min>
+        <app-program-min *ngIf="i%2!=0" [idProgram]="item.id" direction="rtl" [image]="item.imagePath" [image2]="item.imageDescription" [title]="item.title"
+        [numActivites]="item.activityCount" [numpaticipants]="item.numberParticipants" [description]="item.description"></app-program-min>
+
+    </div>

@@ -1,0 +1,261 @@
+.details-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--neutral90-color);
+}
+.person-icon{
+    background-image: url('/assets/images/user.svg');
+}
+
+.email-icon{
+    background-image: url('/assets/images/email.svg');
+}
+
+.phone-icon{
+    background-image: url('/assets/images/call.svg');
+}
+.password-icon{
+    background-image: url('/assets/images/lock.svg');
+}
+
+.divider{
+    height: 1px;
+    background-color: var(--Primary-border-color);
+    margin: 50px 0px 20px 0px;
+}
+.sub-title{
+    font-size: 14px;
+    color: var(--neutral90-color);
+    line-height: 22px;
+    font-weight: 400;
+    display: inline-block;
+}
+.input-main-container{
+    border: 1px solid grey;
+    overflow: hidden;
+}
+
+.details-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--neutral90-color);
+    margin-bottom: 20px;
+}
+.lock-icon{
+    background-image: url('/assets/images/lock.svg');
+    /* background-position: 99%; */
+}
+
+
+.input-element {
+    position: relative;
+    outline: none;
+    box-shadow: none;   
+    border: none;
+    /* border: 1px solid var(--neutral90-color); */
+  }
+  
+  .input-element input,.input-element textarea,.input-element select {
+    width: 100%;
+    padding: 25px 35px 5px 5px;
+    border-radius: 8px;  
+  }
+  .input-element label {
+    position: absolute;
+    top:0;
+    right: 8px;
+    padding:10px 25px;
+    color: var(--neutral90-color);
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .input-element-icon-end label{
+    top: -10px;
+    left: 0;
+    color: var(--neutral90-color);
+    font-size: 10px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .input-element select:focus ~ label,
+  .input-element select:valid ~ label .input-element input:focus ~ label,
+  .input-element input:valid ~ label ,.input-element textarea:focus ~ label,
+  .input-element textarea:valid ~ label{
+    top: -10px;
+    left: 0;
+    color: var(--neutral90-color);
+    font-size: 10px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .input-element-icon {
+      background-position: 99%;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+      outline: none;
+      box-shadow: none;     
+      border: 1px solid var(--neutral40-color);
+  }
+  .input-surrounding{
+    margin-top: 15px;
+  }
+  /* ==================================================================================================== */
+  
+.input-element-none-icon {
+    position: relative;
+    outline: none;
+    box-shadow: none;   
+    border: none;
+    /* border: 1px solid var(--neutral90-color); */
+  }
+  
+  .input-element-none-icon input,.input-element-none-icon textarea,.input-element-none-icon select {
+    width: 100%;
+    padding: 25px 10px 5px 5px;
+    border-radius: 8px;  
+  }
+  .input-element-none-icon label {
+    position: absolute;
+    top:0;
+    right: 8px;
+    padding:10px 0px;
+    color: var(--neutral90-color);
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  
+  .input-element-none-icon select:focus ~ label,
+  .input-element-none-icon select:valid ~ label 
+  .input-element-none-icon input:focus ~ label,
+  .input-element-none-icon input:valid ~ label ,.input-element-none-icon textarea:focus ~ label,
+  .input-element-none-icon textarea:valid ~ label{
+    top: -10px;
+    left: 0;
+    color: var(--neutral90-color);
+    font-size: 10px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .none-icon {
+      background-position: 100%;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+      outline: none;
+      box-shadow: none;     
+      border: 1px solid var(--neutral40-color);
+  }
+  .dropdown-button-icon{
+    background-image: url('/assets/images/down-arrow.svg');
+  }
+  .input-element-icon-end{
+        background-position: 1%;
+        background-repeat: no-repeat;
+        padding-right: 40px;
+        outline: none;
+        box-shadow: none;     
+        border: 1px solid var(--neutral40-color);
+        width: 100%;
+        display: inline-block;
+  }
+
+  /* ======================================================================================== */
+  .select-element {
+    position: relative;
+    outline: none;
+    box-shadow: none;   
+    border: none;
+    /* border: 1px solid var(--neutral90-color); */
+  }
+  .select-element select {
+    width: 100%;
+    padding: 25px 10px 5px 5px;
+    border-radius: 8px;  
+    color: var(--neutral90-color);
+  }
+  .select-element label {
+    position: absolute;
+    top:0;
+    right: 8px;
+    padding:10px 10px;
+    color: var(--neutral90-color);
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .select-element select:focus ~ label,
+  .select-element select:valid ~ label {
+    top: -10px;
+    left: 0;
+    color: var(--neutral90-color);
+    font-size: 10px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  input:focus,input:hover,select:focus,select:hover,textarea:focus,textarea:hover{
+    border: 1px solid var(--main-color);
+    outline: none !important;
+}
+
+.select-file-bg:hover{
+  background-color: var(--neutral40-color);
+  cursor: pointer;
+}
+.user-profile-container{
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border-radius: 50% 50%;
+  /* border: 1px solid var(--main-color); */
+  overflow: hidden;
+  box-shadow: 0px 0px 5px var(--main-color);
+}
+.user-profile-image{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50% 50%;
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.user-profile-camera{
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 130px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.212);
+  cursor: pointer;
+}
+.camera-icon{
+  font-size: 30px;
+  color: var(--main-color);
+}
+.profile-popup-container{
+  padding: 0px 20px 30px 20px;
+  max-height: calc(100vh - 50px);/* Set the maximum height of the content */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.input-element-none-icon[_ngcontent-ego-c139] label[_ngcontent-ego-c139] {
+  top: -10px !important;
+}
+.input-element-none-icon label,.input-element label,.select-element label{
+  top:-10px !important;
+}

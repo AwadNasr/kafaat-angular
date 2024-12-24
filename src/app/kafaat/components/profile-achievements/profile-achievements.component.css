@@ -1,0 +1,87 @@
+.divider{
+    height: 1px;
+    background-color: var(--Primary-border-color);
+    margin: 20px 0px;
+}
+.musharakat-list-content::-webkit-scrollbar {
+    display: none; 
+}
+.musharakat-list-content {
+    overflow-x: scroll;
+    /* display: inline-flex;  */
+    white-space: nowrap; 
+    /* padding-top: 50px; */
+    margin-bottom: 30px;
+  }
+  .active-navigation-button,.inactive-navigation-button{
+    size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    padding:  16px;
+    line-height: 8px;
+}
+.program-name{
+    font-weight: 400px;
+    font-size: 12px;
+    line-height: 17.5px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+.main-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--neutral90-color);
+    margin-bottom: 15px;
+}
+
+.card-item{
+    border-radius: 8px;
+    border: 1px solid var(--Primary-border-color);
+    margin-bottom: 20px;
+}
+
+.tabs-container{
+    position: relative;
+}
+.musharakat-options{
+    position: absolute;
+    left: 25px;
+    top: 50px;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 8px;
+    z-index: 6;
+}
+.shared-user-info{
+    z-index: 1;
+}
+.shared-user-info-list-options-item-update,.shared-user-info-list-options-item-delete{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    padding: 18px 16px 18px 16px;
+    color: var(--neutral90-color);
+    background-color: white;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.shared-user-info-list-options-item-delete{
+    color: red;
+    border-radius: 0px 0px 8px 8px;
+    background-color: white;
+    bottom: 0px;
+    top: 50px;
+}
+.shared-user-info-list-options-item-update:hover,.shared-user-info-list-options-item-delete:hover{
+    color: var(--main-color);
+    background-color: var(--Primary-Surface-color);
+}

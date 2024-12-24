@@ -1,0 +1,54 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<div style="padding-top: 50px;">
+  <div style="background-color: #005183;font-size: 22px; padding: 20px 10px; width:400px;padding-top: 50px 0px;" class="text-center ms-5 rounded-3 text-white">
+    <p> الأبطال في مجال التطوع</p>
+  </div>
+  </div>
+
+
+<div class="page-padding" style="padding-top: 40px;">
+  <div class="card shadow-X-Large p-4">
+    <div class="manashet-list-content text-center my-2">
+      <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+   </div>
+      <div class="card-body">
+          <div *ngIf="items.length>0" class="row text-center g-2 d-flex justify-content-center align-items-center ">
+              <div class="col-12 col-md-3" *ngFor="let item of items">
+                <div class="card shadow-medium" >
+                  <div class="d-inline-block d-sm-none p-4" style="width: auto ;height: 350px;">
+                    <app-masked-image [inputImageUrl]="item.image"  inputWidth="150" inputHeight="150"></app-masked-image>
+                    <p style="color: #4B4949;">{{item.userDisplayName}}</p>
+                     <div>
+                      <p class="d-inline text-dark m-2" style="font-size: 14px;color: #4B4949;">{{item.volunteerHours}} ساعة</p>
+                    </div>
+
+
+
+
+                </div>
+                </div>
+                <div class="card shadow-medium" >
+                  <div class="d-none d-md-inline-block p-4" style="width: auto ;height: 350px;">
+                      <app-masked-image [inputImageUrl]="item.image"  inputWidth="215" inputHeight="215"></app-masked-image>
+                      <p style="color: #4B4949;">{{item.userDisplayName}}</p>
+                       <div>
+
+                        <p class="d-inline text-dark m-2" style="font-size: 14px;color: #4B4949;">{{item.volunteerHours}} ساعة</p>
+                      </div>
+
+
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+          <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد أبطال لهذا المؤهل'"></app-empty-data>
+          <!-- *ngIf="pageResponse.totalCount>16" -->
+          <app-paginations *ngIf="items.length>0" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+          [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+          (next)="next($event)" (back)="back($event)"></app-paginations>
+      </div>
+  </div>
+</div>
+<div class="divider-section">

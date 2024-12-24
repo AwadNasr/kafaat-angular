@@ -1,0 +1,199 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-2"></div>
+        <div class="col-12 col-md-8">
+            <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="mb-4 fw-bolder fs-5 pb-4 d-flex justify-content-start align-items-center"> <div class="info-image image-logo"></div> <div class="d-inline-block ms-3" style="border-bottom: 4px solid #005183; padding-bottom: 15px;">معلومات التواصل</div> </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="title" id="title" formControlName="title" placeholder="العنوان">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- <img  appTooltip="" src="/assets/images/location_contact_info.png" appTooltip="" class="image-logo"> -->
+                    <div appTooltip="نص العنوان فى صفحات اتصل بنا" class="image-1 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="location" id="location" formControlName="location" placeholder="الموقع">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- <img  appTooltip="" src="/assets/images/email_contact_info.png" class=""> -->
+                    <div appTooltip="الموقع" class="image-2 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="email" id="email" formControlName="email" placeholder="البريد الإليكترونى">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- <img  appTooltip="" src="/assets/images/title_contact_info.png" appTooltip="" class="image-logo"> -->
+                    <div appTooltip="البريد الإليكترونى" class="image-3 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="facebookLink" id="facebookLink" formControlName="facebookLink" placeholder="رابط الفيسبوك">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رابط الفيسبوك" src="/assets/images/facebook_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="whatsapp" id="whatsapp" formControlName="whatsapp" placeholder="رقم الواتساب">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رقم واتســـاب" src="/assets/images/whatsApp_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="twitterLink" id="twitterLink" formControlName="twitterLink" placeholder="رابط تويتر">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رابط تويتر" src="/assets/images/twitter_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="instagramLink" id="instagramLink" formControlName="instagramLink" placeholder="رابط انستجرام">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رابط انستجرام" src="/assets/images/instagram_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="telegramLink" id="telegramLink" formControlName="telegramLink" placeholder="رابط تيليجرام">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رابط تليجرام" src="/assets/images/telegram_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="snapchatLink" id="snapchatLink" formControlName="snapchatLink" placeholder="رابط سناب شات">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img  appTooltip="رابط سناب شات" src="/assets/images/snapChat_contact_info.svg">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="linkedInLink" id="linkedInLink" formControlName="linkedInLink" placeholder="رابط  لينكد إن">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- <img  appTooltip="" src="/assets/images/title_contact_info.png" appTooltip="" class="image-logo"> -->
+                    <div appTooltip="رابط لنكد إن" class="image-5 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="youtubeLink" id="youtubeLink" formControlName="youtubeLink" placeholder="رابط قناة اليوتيوب">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div appTooltip="قناة اليوتيوب" class="image-4 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" (blur)="handleIntroductoryVideoLink()" name="introductoryVideoLink" id="introductoryVideoLink" formControlName="introductoryVideoLink" placeholder="رابط  الفيديو التعريفى">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div appTooltip="رابط الفيديو التعريفى" class="image-6 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" (blur)="handleLiveFeedLink()" spellcheck="false"  name="liveFeedLink" id="liveFeedLink" formControlName="liveFeedLink" placeholder="رابط البث المباشر">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div appTooltip="رابط  البــث المباشر" class="image-7 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="year" id="year" formControlName="year" placeholder="عرض الاحصائيات لعام">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <!-- <div appTooltip="قناة اليوتيوب" class="image-4 image-logo"></div> -->
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="userNum" id="userNum" formControlName="userNum" placeholder="عدد المستفيدين">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div appTooltip="عدد المستفيدين" class="image-9 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-10">
+                    <div class="input-box">
+                        <input type="text" spellcheck="false" name="activityNum" id="activityNum" formControlName="activityNum" placeholder="عدد المناشط">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div appTooltip="عدد المناشط" class="image-8 image-logo"></div>
+                </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-10">
+                  <div class="input-box">
+
+                      <input  (change)="onFileSelected($event)" formControlName="homeImage" type="file" name="homeImage" id="homeImage" class="form-control">
+                  </div>
+
+                  <div class="text-center my-2">
+                    <img [src]="image" alt="Current Field Image" width="200px" height="200px">
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div appTooltip=" صورة الصفحة الرئيسية" > صورة الصفحة الرئيسية</div>
+              </div>
+          </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-2"></div>
+                <div class="col-12 col-md-6">
+                    <button class="bg-primary-btn-block">حفظ</button>
+                </div>
+                <div class="col-12 col-md-4"></div>
+            </div>
+        </form>
+        </div>
+        <div class="col-12 col-md-2">
+            <!-- <div class="imageBg"></div> -->
+        </div>
+    </div>
+</div>

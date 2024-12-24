@@ -1,0 +1,139 @@
+.manashet-card-container{
+    border: 1px solid var(--Primary-border-color);
+    border-radius: 8px;
+    min-height: 560px ;
+    margin: 10px 0px;
+    background-color: white;
+    box-shadow: 1px 1px 7px lightgray;
+    /* display: flex; */
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+}
+.manashet-card-container:hover{
+    background-color: #E6F1F9;
+    box-shadow: 1px 1px 7px #E6F1F9;
+}
+.manashet-card-container img{
+    display: inline-block;
+    border-radius: 8px 8px 0px 0px;
+    object-fit: cover;
+}
+.manashet-card-details{
+    padding: 16px 16px 0px 16px;
+    height: 100%;
+}
+.manashet-card-details-title-container{
+    display: block;
+    direction: rtl;
+    justify-content: space-between;
+    align-items: start;
+    text-align: justify;
+}
+.manashet-card-details-title{
+    /* position: absolute;
+    top: 0px;
+    right: 0px; */
+    color: var(--neutral90-color);
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    padding-left: 5px;
+}
+
+.manashet-card-details-program-name{
+    color: var(--main-color);
+    font-size: 12px;
+    font-weight: 400;
+    padding: 15px 0px;
+}
+.manashet-card-details-program-details-words{
+    font-size: 14px;
+    columns: var(--neutral70-color);
+    font-weight: 400;
+    line-height: 22px;
+    text-align: justify;
+    color: black;
+}
+.manashet-card-details-more-link{
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 0px 0px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--main-color);
+    width: 100%;
+}
+
+/* --------------------------------------------- */
+.image-container-circle{
+    height: 230px;
+    /* width: ; */
+    margin: 0px auto;
+    position: relative;
+    overflow: hidden;
+    width: auto;
+}
+.circle-image-container{
+    position: relative;
+    /* width: 100%; */
+    height: 230px;
+    /* border: 1px solid #005183; */
+}
+.circle-image{
+    position: absolute;
+    top: 5px;
+    left: 1%;
+    width: calc(98%);
+    height: 220px;
+    background-image: url('/assets/images/people.jpg');
+    clip-path: ellipse(39% 56% at 50% 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.circle-image-back{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* width: 100%; */
+    height: 230px;
+    background-image: url('/assets/images/people.jpg');
+    clip-path: ellipse(39% 56% at 50% 50%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 20%;
+}
+.card-image-cont{
+    height: 230px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 8px 8px 0px 0px;
+}
+.card-image-cont2 {
+  height: 230px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 8px 8px 0 0;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+.image-circle-container-element{
+    position: absolute;
+    height: 260px;
+    width: 260px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -15px;
+    border: 10px solid rgb(197 192 192 / 15%);
+    border-radius: 50% 50%;
+    /* background-image: url('/assets/images/p5.png'); */
+    border-image-outset: 4px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-clip: content-box;
+}

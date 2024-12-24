@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="dropdown float-end">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        ادارة رحلة نادي القراءة
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" [routerLink]="['/admin/judging-reading-club',club.id]">التحكيم</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/admin/reading-club-trip-participants',club.id]">المشاركون</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/admin/reading-club-trip-heros',club.id]">ابطال النادي</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/admin/reading-club-trip-books',club.id]"> كتب النادي </a></li>
+
+      </ul>
+    </div>
+  <div class="row g-3 w-100">
+      <div class="col-12 col-md-4 border">
+          <img [src]="club.clubImage" width="100%" height="200px"  alt="not found">
+      </div>
+      <div class="col-12 col-md-8 row g-4">
+          <div class="col-4">
+              الاسم
+          </div>
+          <div class="col-8">
+              {{club.title}}
+          </div>
+          <div class="col-4">
+              عدد القراء
+          </div>
+          <div  class="col-8">
+              {{club.reader}}
+          </div>
+          <div class="col-4">
+              عدد الكتب
+          </div>
+          <div  class="col-8">
+              {{club.books}}
+          </div>
+          <div class="col-4">
+            عدد الفوائد
+        </div>
+        <div  class="col-8">
+            {{club.benefits}}
+        </div>
+        <div class="col-4">
+          عدد المشاركين
+      </div>
+      <div  class="col-8">
+          {{club.participants}}
+      </div>
+      </div>
+      <div class="col-12 row mt-4 border align-items-center py-3">
+          <div class="col-2">
+              التفاصيل
+          </div>
+          <div class="col-10" [innerHTML]="club.description">
+          </div>
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,18 @@
+.image-galley-item{
+    height: 300px;
+    border-radius: 8px;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 10px;
+}
+@media(500px <= width <= 2500px){
+    .image-galley-item{
+        width: 100%;
+    }
+}
+@media(0px <= width <= 500px){
+    .image-galley-item{
+        width: auto;
+    }
+}

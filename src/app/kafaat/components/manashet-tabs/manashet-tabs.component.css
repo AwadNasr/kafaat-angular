@@ -1,0 +1,31 @@
+.tabs .col-6{
+    background-image: url('../../../../assets/images/section-title-unselected.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transform: scale(1.25);
+    transform-origin: right center;
+    cursor: pointer;
+    text-align: center;  
+}
+.tabs .row{
+    padding-left: 4%;
+}
+
+.tabs .col-6:nth-child(1) {
+    z-index: 6;
+    
+}
+.tabs .col-6:nth-child(2) {
+    z-index: 5;
+    
+}
+
+.tab-selected{
+    background-image: url('../../../../assets/images/section-title-selected.svg') !important;
+    color: white !important;
+}
+.bg-light[_ngcontent-ohw-c43]{
+    background-color: white;
+}

@@ -1,0 +1,24 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">تغيير فئة المستخدم</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label class="input-label" for="userId">البريد الإليكترونى</label>
+        <input formControlName="userId" type="text" name="userId" id="userId" readonly class="form-control my-1">
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="userCategoryId">التصنيف</label>
+        <select formControlName="userCategoryId" type="text" name="userCategoryId" id="userCategoryId" [class.is-invalid]="userCategoryId?.invalid && userCategoryId?.touched" [class.is-valid]="userCategoryId?.valid" class="form-control my-1">
+            <option value="0" [disabled]="true" [selected]="userCategoryId.value<1">اختر التصنيف</option>
+            <option *ngFor="let item of subItems" [selected]="userCategoryId.value==item.id" [value]="item.id" >{{item.name}}</option>
+        </select>
+        <div *ngIf="userCategoryId?.errors && userCategoryId?.touched">
+            <small *ngIf="userCategoryId?.hasError('required')"  class="text-danger">يجب اختيار تصنيف للمستخدم</small>
+            <small *ngIf="userCategoryId?.hasError('min')"  class="text-danger">يجب اختيار تصنيف للمستخدم</small>
+        </div>
+    </div>
+    <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+</form>
+</div>

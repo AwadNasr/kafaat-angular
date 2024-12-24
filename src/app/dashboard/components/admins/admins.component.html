@@ -1,0 +1,65 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+    <div class="col-12 col-md-7">
+      <div class="mainPageTitle mb-3">المشـــرفـــين</div>
+      <button class="bg-primary-outline-btn p-2 d-block" (click)="addAdmin()">اضافة مشرف</button>
+    </div>
+    <div class="col-12 col-md-5">
+      <input type="text" style="outline: none; border: 1px solid var(--main-color);box-shadow: none;" (keyup.enter)="getPageByName()" [(ngModel)]="pagedRequest.name" placeholder="ابحث عن مستخدم" class="form-control">
+    </div>
+  </div>
+  
+  <div>
+      <table class="table table-responsive table-hover">
+          <tr class="tableHeader">
+              <td>الصورة </td>
+              <td>اسم العضو</td>
+              <td>البريد الإليكترونى</td>
+              <td>الحالة</td>
+              <td>الوظيفة</td>
+              <td>التحكم</td>
+          </tr>
+           <tr class="mt-3">
+              <td colspan="7"></td>
+           </tr>
+          <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate: 
+              { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount };let i = index">
+              <tr id="first_{{i}}" >
+                  <td class="table-date" style="cursor: pointer;">
+                    <div class="user-image" style="background-image: url('{{item.imagePath}}');"></div>
+                </td>
+                  <td class="table-date" style="cursor: pointer;">{{item.name}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.email}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.isApproved?'تم الموافقة':'معلق'}}</td>
+                  <td class="table-date" style="cursor: pointer;">{{item.role=='admin'?'مشرف':'عضو'}}</td>
+                  <td class="table-date">
+                    <div>
+                      <button appTooltip="وضع المستخدم فى حالة طلب إنضمام" class="btn action-button" (click)="restoreUserToJoinRequestState(item.id)"><i class="fa-solid fa-user-xmark" style="color: red;"></i></button>
+                      <!-- <button appTooltip="عرض الملف الشخصى" class="btn action-button" (click)="viewUserProfile(item.id)"><i class="fa-solid fa-eye" style="color: var(--main-color)"></i></button> -->
+                      <button appTooltip="تغيير الدور الوظيفى" class="btn action-button" (click)="changeUserRoleship(item.id)"><i class="fa-solid fa-arrows-rotate" style="color: var(--dark-default-color);"></i></button>
+                      <button appTooltip="إرسال رسالة عبر البريد الإليكترونى" class="btn action-button" (click)="sendEmailToUser(item.id)"><i class="fa-solid fa-paper-plane" style="color: var(--dark-default-color)"></i></button>
+                      <button appTooltip="تغيير فئة المستخدم" class="btn action-button" (click)="changeUserCategory(item.id)"><i class="fa-solid fa-restroom" style="color: var(--dark-default-color);"></i></button>
+                      <button appTooltip="حذف الحساب" class="btn action-button" (click)="deleteAccount(item.email)"><i class="far fa-trash-alt" style="color: rgb(245, 29, 29);"></i></button>
+                    </div>    
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <div *ngIf="pageResponse.totalCount==0" class="emptyData">لا يوجد بيانات  . . .</div>
+  </div>
+  <div class="row my-5 mb-1 m-0">
+      <div class="d-flex align-items-center justify-content-center">
+        <div>
+          <pagination-controls (pageChange)="changePageNumber($event)" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+        </div>
+        <div >
+          <select style="margin-bottom: 15px;padding: 5px;display: inline-block;width: 70px;" name="pageSize" id="pageSize" (change)="changePageSize()" [(ngModel)]="pagedRequest.pageSize" class="select-size">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </select>
+        </div>
+      </div>
+  </div>
+  <div class="text-center">إجمالى عدد المشرفين : {{ pageResponse.totalCount}}</div>
+    

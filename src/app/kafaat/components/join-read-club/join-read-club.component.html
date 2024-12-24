@@ -1,0 +1,11 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up" style="border-bottom: none;font-size: 16px; font-weight: 400; margin: 30px 15px !important;"> هــل أنت متأكد من برغبتك بالانضمام للنادي ؟</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+
+  <button type="submit" routerLink="#" class="bg-primary-btn-block  my-3 mb-4 p-2" > تقدم الأن </button>
+  <button  type="button" (click)="closeDialog()" class="bg-sec-btn-block  my-3 mb-4 p-2">  لا ربما لاحقا </button>
+</form>
+</div>

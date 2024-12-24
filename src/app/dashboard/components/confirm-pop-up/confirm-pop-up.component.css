@@ -1,0 +1,18 @@
+.pop-up-container{
+    padding: 20px;
+}
+.input-label{
+    color: var(--neutral90-color);
+}
+.title-pop-up{
+    font-size: 18px;
+    border-bottom: 2px solid var(--main-color);
+}
+.form-control{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--neutral40-color);
+}
+.dark-default-color{
+    color: var(--dark-default-color);
+}

@@ -1,0 +1,57 @@
+.magazinePageContainer{
+    border: 2px solid var(--main-color);
+    height: 230px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.magazinePageNumber{
+    width: 100%;
+    height: 40px;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #005183;
+    color: white;
+}
+.magazinePageImage{
+position: relative;
+height: calc(230px - 40px);
+background-position: center;
+background-repeat: no-repeat;
+background-position: center; 
+border-radius: 10px 10px 0px 0px; 
+overflow: hidden;
+-webkit-background-clip: padding-box;
+background-clip: padding-box; 
+}
+.magazinePageControl{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    transition: all .2s ease-in-out;
+}
+.magazinePageControl:hover{
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 10px 10px 0px 0px;   
+}
+
+.btn{
+    background-color: rgba(0, 0, 0, 0.308);
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,48 @@
+.registeration-container{
+    background: linear-gradient(to right ,#A18131, #005183);
+    min-height: calc(100vh);
+}
+.registeration{
+    background-color: white;
+    border-radius: 8px;
+}
+@media (767px <= width <= 3000px){
+    .registeration-container{
+        padding: 40px 30%;
+    }   
+    .registeration{
+        padding: 15px 15px;
+    }
+}
+@media (0px <= width <= 767px){
+    .registeration-container{
+        padding: 40px 10px;
+    }
+    .registeration{
+        padding: 15px 10px;
+    }
+}
+
+.payment-cuccess-container{
+    padding: 0px;
+    text-align: center;
+}
+.payment-cuccess-container img{
+display: inline-block;
+width: 100px;
+height: 100px;
+margin: 30px 0px;
+}
+.payment-success-title{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--neutral90-color);
+    line-height: 40px;
+}
+.payment-success-details{
+
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--neutral80-color);
+    line-height: 22px;
+}

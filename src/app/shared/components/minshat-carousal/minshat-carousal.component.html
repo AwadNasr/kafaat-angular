@@ -1,0 +1,64 @@
+
+<div *ngIf="slides.length>0" class="container pb-4" dir="ltr">
+    <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+        <div  [class]="slides[i].title?'manashet-card-container zoom slide mx-2':'manashet-card-container slide mx-2 item-hover-top zoom'" style="transition: 400ms"  ngxSlickItem *ngFor="let slide of slides;let i = index"
+        (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave(i)" (click)="naviagteToDetails(slides[i].id)">
+            <img [src]="slides[i].imagePath" width="100%" height="230" loading="lazy">
+             <div class="manashet-card-details">
+                <div class="manashet-card-details-title-container">
+                    <div class="manashet-card-details-badge">
+                        <span class="primary-padge">جاري</span>
+                    </div>
+                    <div class="manashet-card-details-title" *ngIf="slides[i].name">{{slides[i].name}}</div>
+
+                </div>
+               <div [class]="slides[i].programs?'':'item-hover-top-details'" [id]="'d'+i" dir="rtl" >
+                <div class="manashet-card-details-program-name">{{slides[i].subTitle}}</div>
+                <div class="manashet-card-details-program-details-words truncate-6-lines" [innerHTML]="slides[i].description"></div>
+                <a [routerLink]="['/kafaat/activity-details',slides[i].id]" class="manashet-card-details-more-link">عرض المزيد</a>
+               </div>
+             </div>
+        </div>
+
+        <div  [class]="prizeSlide.name?'manashet-card-container zoom slide mx-2':'manashet-card-container slide mx-2 item-hover-top zoom'" style="transition: 400ms"  ngxSlickItem
+        (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave(i)" (click)="naviagteToDetails1(prizeSlide.id)">
+            <img [src]="prizeSlide.prizeImage" width="100%" height="230" loading="lazy">
+             <div class="manashet-card-details">
+                <div class="manashet-card-details-title-container">
+                    <div class="manashet-card-details-badge">
+                        <span class="primary-padge">جاري</span>
+                    </div>
+                    <div class="manashet-card-details-title" style="margin-bottom: 25px;" *ngIf="prizeSlide.name">{{prizeSlide.name}}</div>
+
+                </div>
+               <div  >
+                <div class="manashet-card-details-program-details-words truncate-6-lines">{{prizeSlide.description}}</div>
+                <a [routerLink]="['/kafaat/excellence-prize',prizeSlide.id]" class="manashet-card-details-more-link text-start">عرض المزيد</a>
+               </div>
+             </div>
+        </div>
+        <div  [class]="readClub.readingClubTrips[0].title?'manashet-card-container zoom slide mx-2':'manashet-card-container slide mx-2 item-hover-top zoom'" style="transition: 400ms"  ngxSlickItem
+        (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave(i)" (click)="naviagteToDetails2(readClub.readingClubTrips[0].id)">
+            <img [src]="readClub.readingClubTrips[0].clubImage" width="100%" height="230" loading="lazy">
+             <div class="manashet-card-details">
+                <div class="manashet-card-details-title-container">
+                    <div class="manashet-card-details-badge">
+                        <span class="primary-padge">جاري</span>
+                    </div>
+                    <div class="manashet-card-details-title" style="margin-bottom: 25px;" *ngIf="readClub.readingClubTrips[0].title">{{readClub.readingClubTrips[0].title}}</div>
+
+                </div>
+               <div  >
+                <div class="manashet-card-details-program-details-words truncate-6-lines" [innerHTML]="readClub.readingClubTrips[0].description"></div>
+                <a [routerLink]="['/kafaat/reading-club-trip',readClub.readingClubTrips[0].id]" class="manashet-card-details-more-link text-start">عرض المزيد</a>
+               </div>
+             </div>
+        </div>
+    </ngx-slick-carousel>
+    <div class="text-center mt-4">
+        <img src="assets/images/back-carousal.svg" loading="lazy" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+        <img src="assets/images/next-carousal.svg"loading="lazy" (click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+    </div>
+    </div>
+<app-empty-data *ngIf="slides.length==0 "  [inputText]="'لا يوجد مناشط لعرضها'"></app-empty-data>

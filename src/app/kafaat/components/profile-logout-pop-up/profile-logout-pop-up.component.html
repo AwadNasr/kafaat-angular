@@ -1,0 +1,21 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="text-start p-2  m-0 row d-flex align-items-center justify-content-center">
+   <div class="col-2 d-flex align-items-center justify-content-center rounded " style="background-color: #F7FBFE;">
+    <img src="assets/images/out.svg" height="100%" alt="">
+   </div>
+    <div class="col-10 pt-2">
+        <p class="main-title-text">هل تود تسجيل الخروج</p>
+        <p class="pop-up-warning-text">هل أنت متأكد ان تود تسجيل الخروج ؟</p>
+    </div>
+
+    <div class="container d-flex justify-content-around">
+        <a (click)="logout()" class="bg-primary-btn text-center w-100 me-2">
+            تسجيل الخروج
+        </a>
+        <a (click)="closeDialog()" class="bg-primary-btn w-100 ms-2 text-center text-main bg-light border">
+            إلغاء
+        </a>
+    </div>
+</div>

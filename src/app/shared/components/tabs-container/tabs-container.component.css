@@ -1,0 +1,77 @@
+
+.tabs .col-6{
+    background-image: url('../../../../assets/images/section-title-unselected.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transform: scale(1.28);
+    transform-origin: right center;
+    cursor: pointer;
+    text-align: center;
+
+}
+.tabs .row{
+    padding-left: 4%;
+}
+
+.tabs .col-6:nth-child(1) {
+    z-index: 6;
+
+}
+.tabs .col-6:nth-child(2) {
+    z-index: 5;
+
+}
+.tabs .col-6:nth-child(3) {
+    z-index: 4;
+}
+.tabs .col-6:nth-child(4) {
+
+    z-index: 3;
+}
+.tabs .col-6:nth-child(5) {
+
+    z-index: 2;
+}
+.tabs .col-6:nth-child(6) {
+    z-index: 1;
+}
+
+.tab-selected{
+    background-image: url('../../../../assets/images/section-title-selected.svg') !important;
+    color: white !important;
+}
+
+.tabs{
+    z-index: 200;
+}
+.tabs .card-header{
+    background-color: white !important; width: 99%;
+}
+@media (0px <= width <=767px){
+    .tabs .card-header{
+        overflow-y: hidden;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: 0px;
+    }
+}
+
+/* .fix-tabs{
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 80%;
+    z-index: 200;
+}
+.card-hea{
+    height: 80px;
+    background-color:   #F5F5F5;
+     position: fixed;
+     transform: scaleX(4);
+     top: 0;
+     width: 100%;
+     z-index: 200;
+     display: none;
+} */

@@ -1,0 +1,82 @@
+.shared-user-info-image{
+    width: 40px;
+    height: 40px;
+    border: 5px solid var(--bg-outline-color);
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.shared-user-info-container{
+    position: relative;
+}
+.shared-user-info-username{
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: var(--neutral80-color);
+}
+.shared-title{
+    margin: 20px 0px 10px 0px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    color: var(--neutral90-color);
+}
+.shared-desctiption{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--neutral70-color);
+    text-align: justify;
+}
+.line-separator{
+    margin: 40px 0px;
+    color: var(--Primary-border-color);
+}
+.shared-user-info-list{
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    cursor: pointer;
+    width: 5px;
+    height: 20px;
+}
+.shared-user-info-list-image{
+    width: 5px;
+    height: 20px;
+    cursor: pointer;
+}
+.shared-user-info-list-options{
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    width: 200px;
+    height: 100px;
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 8px;
+}
+.shared-user-info-list-options-item-update,.shared-user-info-list-options-item-delete{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    padding: 18px 16px 18px 16px;
+    color: var(--main-color);
+    background-color: var(--Primary-Surface-color);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17.5px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+.shared-user-info-list-options-item-delete{
+    color: red;
+    border-radius: 0px 0px 8px 8px;
+    background-color: white;
+    bottom: 0px;
+    top: 50px;
+}

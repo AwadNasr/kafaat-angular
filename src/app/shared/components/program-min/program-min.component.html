@@ -1,0 +1,46 @@
+<div class="divider-section">
+
+</div>
+<div class="page-padding">
+    <div class="card  container mx-auto p-0 my-4 border-0  shadow-X-Large">
+        <div class="card-body row p-0 m-0" [dir]="direction">
+            <div class="col-12 col-md-6 p-0 m-0" style="overflow: hidden">
+
+                <img [src]="image2" height="500px" [class]="direction=='rtl'?'custom-border-right':'custom-border-left'" width="100%"  height="100%" alt="">
+
+        </div>
+            <div class="col-12 col-md-6 p-4 " dir="rtl">
+               <div class="p-4 m-4">
+                <figure class="w-100 text-center" >
+                  <img [src]="image" class=""  alt="" width="150px" height="135px">
+
+                </figure>
+                <div class="title-program text-center ">{{title}}</div>
+                <p class="truncate-30-lines body-program text-justify" [innerHTML]="description"></p>
+                <div class="row p-0 m-0" style="padding-top: 24px;">
+                    <div class="col-6 col-md-5 border-right d-flex">
+                        <div><img src="assets/images/light.svg" width="32px" height="32px" alt=""></div>
+                        <div class="ps-2">
+                            <p class="small lh-sm " style="font-size: 11px;">عدد المناشط</p>
+                            <p class="text-main fs-6 fw-bold lh-sm">{{numActivites}}</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-5 border-right d-flex">
+                        <div><img src="assets/images/light.svg" alt=""></div>
+                        <div class="ps-2">
+                            <p class="small lh-sm" style="font-size: 11px;">عدد المشاركات</p>
+                            <p class="text-main fs-6 fw-bold lh-sm">{{numpaticipants}}</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="mt-4 pt-4">
+                <a class="bg-primary-btn mt-4" [routerLink]="['/kafaat/program-details/',idProgram]">
+                    عرض المناشط
+                </a>
+               </div>
+               </div>
+            </div>
+
+        </div>
+    </div>
+</div>

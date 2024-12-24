@@ -1,0 +1,73 @@
+<div class="add-kafaat-founder-container">
+    <div class="text-end p-2">
+        <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+    </div>
+    <div class="pop-up-container">
+    <div class="title-pop-up">إضافة مجلة</div>
+    <form [formGroup]="form" (ngSubmit)="submit()"  enctype="multipart/form-data">
+        <div class="user-profile-container">
+            <div style="width: 220px;" class="mx-auto">
+                <img src="{{coverImage}}" class="coverImage" alt="">
+            </div>
+            <div class="user-profile-camera d-pointer">
+                <div (click)="coverImage1.click()" class="d-pointer"  class="d-flex align-items-center justify-content-center" style="height: 60px;">
+                    <i class="fas fa-camera camera-icon" ></i>
+                </div>
+                <div class="ps-3">
+                    <input type="file" name="coverPath" id="coverPath" formControlName="coverPath" accept="image/*" (change)="onCoverImageSelected($event)" #coverImage1 style="display:none">
+                </div>
+            </div>
+            <div *ngIf="coverPath?.errors && coverPath?.touched" class="text-center">
+                <small *ngIf="coverPath?.hasError('required')"  class="text-danger">يجب ادخال غلاف للمجلة</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="title">العنوان</label>
+            <input formControlName="title" type="text" name="title" id="title" [class.is-invalid]="title?.invalid && title?.touched" [class.is-valid]="title?.valid" class="form-control my-1">
+            <div *ngIf="title?.errors && title?.touched">
+                <small *ngIf="title?.hasError('required')"  class="text-danger">يجب ادخال العنوان</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="magazineissue">العدد</label>
+            <input formControlName="magazineissue" type="text" name="magazineissue" id="magazineissue" [class.is-invalid]="magazineissue?.invalid && magazineissue?.touched" [class.is-valid]="magazineissue?.valid" class="form-control my-1">
+            <div *ngIf="magazineissue?.errors && magazineissue?.touched">
+                <small *ngIf="magazineissue?.hasError('required')"  class="text-danger">يجب ادخال العدد</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="year">السنة</label>
+            <input formControlName="year" type="text" name="year" id="year" [class.is-invalid]="year?.invalid && year?.touched" [class.is-valid]="year?.valid" class="form-control my-1">
+            <div *ngIf="year?.errors && year?.touched">
+                <small *ngIf="year?.hasError('required')"  class="text-danger">يجب ادخال السنة</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="numberOfPages">عدد الصفحات</label>
+            <input formControlName="numberOfPages" type="text" name="numberOfPages" id="numberOfPages" [class.is-invalid]="numberOfPages?.invalid && numberOfPages?.touched" [class.is-valid]="numberOfPages?.valid" class="form-control my-1">
+            <div *ngIf="numberOfPages?.errors && numberOfPages?.touched">
+                <small *ngIf="numberOfPages?.hasError('required')"  class="text-danger">يجب ادخال عدد الصفحات</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="pdfPath">ملف المجلة</label>
+            <input  readonly type="file" [value]="pdfFile"  (change)="onMagazinePdfFileSelected($event)" formControlName="pdfPath" name="pdfPath" id="pdfPath" [class.is-invalid]="pdfPath?.invalid && pdfPath?.touched" [class.is-valid]="pdfPath?.valid" class="form-control"  [accept]="'.pdf,.docx'">
+            <div *ngIf="pdfPath?.errors && pdfPath?.touched">
+                <small *ngIf="pdfPath?.hasError('required')" class="text-danger">يجب ادخال ملف المجلة</small>
+            </div>
+            <div *ngIf="isLoading" class="loading-container mt-2">
+              <div class="loading-bar"></div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="input-label" for="description">الوصف</label>
+            <textarea type="text" rows="4" name="description" formControlName="description" id="description" style="resize: none;" [class.is-invalid]="description?.invalid && description?.touched" [class.is-valid]="description?.valid"  class="input-fields form-control my-1 message-icon"></textarea>
+            <div *ngIf="description?.errors && description?.touched">
+                <small *ngIf="description?.hasError('required')"  class="text-danger">يجب ادخال الوصف </small>
+            </div>
+        </div>
+
+        <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+    </form>
+    </div>
+    </div>

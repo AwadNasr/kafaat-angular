@@ -1,0 +1,36 @@
+/* .code input {
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    margin-right: 10px;
+    font-size: large;
+    font-weight: bold;
+    
+}
+.code input:focus,.code input:valid{
+    border-color:  var(--main-color);
+} */
+.code-input-item{
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--main-color);
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    margin: 4px;
+    text-align: center;
+}
+.code-input-item:focus{
+    border: 1px solid var(--Primary-focus-color);
+    box-shadow: 0px 0px 5px  var(--Primary-focus-color);
+}
+.input-non-value-border{
+    border: 1px solid var(--neutral50-color);
+}
+.input-value-border{
+    border: 1px solid var(--main-color);
+}
+.input-error-border{
+    border: 1px solid red;
+}

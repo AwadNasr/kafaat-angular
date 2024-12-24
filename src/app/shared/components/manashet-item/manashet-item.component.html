@@ -1,0 +1,48 @@
+
+    <div class="col-12 mb-4" >
+        <div class="manashet-card-container">
+             <div class="card-image-cont" [style.background-image]="'url(' + imagePath + ')'"></div>
+             <div class="manashet-card-details">
+                <div class="manashet-card-details-title-container">
+                    <div class="manashet-card-details-title truncate-4-lines">{{title}}</div>
+                    <div class="manashet-card-details-badge">
+                        <span class="primary-padge" *ngIf="statusActivity==0">جاري</span>
+                        <span class="success-padge" *ngIf="statusActivity==1">قادم</span>
+                        <span class="warning-padge" *ngIf="statusActivity==2">سابق</span>
+                    </div>
+                </div>
+                <div class="manashet-card-details-program-name">{{programTitle}}</div>
+                <div class="manashet-card-details-program-details-words" [ngClass]="isMoreReadEnabled?'truncate-4-lines':''" [innerHTML]="description">
+
+                </div>
+                <a routerLink="#" (click)="isMoreReadEnabled=!isMoreReadEnabled" *ngIf="isMoreReadEnabled" class="manashet-card-details-more-link">عرض المزيد</a>
+                <a routerLink="#" (click)="isMoreReadEnabled=!isMoreReadEnabled" *ngIf="!isMoreReadEnabled" class="manashet-card-details-more-link">عرض اقل</a>
+
+             </div>
+        </div>
+    </div>
+ <!-- <div class="col-12  mb-4" *ngIf="circle">
+        <div class="manashet-card-container">
+             <div class="image-container-circle">
+                <div class="image-circle-container-element shadow-large" [style.background-image]="'url(' + imagePath + ')'"></div>
+             </div>
+             <div class="manashet-card-details">
+                <div class="manashet-card-details-title-container">
+                    <div class="manashet-card-details-title truncate-3-lines">
+                        {{title}}
+                    </div>
+                    <div class="manashet-card-details-badge">
+                        <span class="primary-padge" *ngIf="statusActivity==0">جاري</span>
+                        <span class="success-padge" *ngIf="statusActivity==1">قادم</span>
+                        <span class="warning-padge" *ngIf="statusActivity==2">سابق</span>
+                    </div>
+                </div>
+                <div class="manashet-card-details-program-name">{{programTitle}}</div>
+                <div class="manashet-card-details-program-details-words" [ngClass]="isMoreReadEnabled?'truncate-4-lines':''" [innerHTML]="description">
+                </div>
+                <a routerLink="#" (click)="isMoreReadEnabled=!isMoreReadEnabled" *ngIf="isMoreReadEnabled" class="manashet-card-details-more-link">عرض المزيد</a>
+                <a routerLink="#" (click)="isMoreReadEnabled=!isMoreReadEnabled" *ngIf="!isMoreReadEnabled" class="manashet-card-details-more-link">عرض اقل</a>
+
+             </div>
+        </div>
+    </div> -->

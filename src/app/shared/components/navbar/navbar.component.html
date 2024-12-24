@@ -1,0 +1,285 @@
+<nav [class]="typeNav=='dark'?'navbar navbar-light navbar-expand-lg bg-transparent border-bottom border-main':'navbar navbar-dark navbar-expand-lg bg-transparent border-bottom border-light'">
+    <div class="container">
+        <a class="navbar-brand mb-1" routerLink="/"><img [src]="typeNav=='dark'?'assets/images/logo-blue.svg':'assets/images/logo.svg'" alt="logo.svg"></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation" (click)="openNav()">
+            <i class="fa-solid fa-bars" style="color: black;border: none;"></i>
+        </button>
+        <div class="container collapse navbar-collapse mx-4">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-around align-items-center">
+                <li class="nav-item">
+                    <a routerLinkActive="active" style="background-color: transparent !important;color: #d1d1d1 !important;margin-left: 10px !important;" [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page" routerLink="/"><span [class]="active==0?'active':''">الرئيسية</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a routerLink="/kafaat/programs"  [class]="typeNav=='dark'?'d-inline text-dark text-decoration-none':'d-inline text-light text-decoration-none'"><span [class]="active==1?'active':''">البرامج</span></a>
+                    <a [class]="typeNav=='dark'?'nav-link dropdown-toggle text-dark d-inline':'nav-link dropdown-toggle text-light d-inline'" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span [class]="active==1?'active':''"></span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngFor="let item of programs;">
+                            <a class="dropdown-item py-2" routerLinkActive="active" [routerLink]="['/kafaat/program-details', item.id]" *ngIf="!isLast">{{ item.title }}</a>
+                          </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a  routerLink="/kafaat/magazine" routerLinkActive="active"  [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page" >المجلة</a>
+                </li>
+                <li class="nav-item">
+                  <a  routerLink="/kafaat/read-club" routerLinkActive="active"  [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page" >نادي القراءة</a>
+              </li>
+                <li class="nav-item">
+                  <a   routerLink="/kafaat/excellence-prize" routerLinkActive="active" [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page"> جائزة التفوق</a>
+              </li>
+
+            <li class="nav-item">
+              <a   routerLink="/kafaat/volunteer" routerLinkActive="active" [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page">  التطوع</a>
+          </li>
+          <li class="nav-item">
+            <a   routerLink="/kafaat/family-writings" routerLinkActive="active" [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page">  مؤلفات الأسرة</a>
+        </li>
+                <li class="nav-item">
+                    <a  routerLink="/kafaat/articles" routerLinkActive="active"  [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page" >مقالات</a>
+                </li>
+                <li class="nav-item">
+                    <a  routerLink="/kafaat/about" routerLinkActive="active"  [class]="typeNav=='dark'?'nav-link text-dark':'nav-link text-light'" aria-current="page" >من نحن</a>
+                </li>
+                <li class="nav-item">
+                    <a  [class]="typeNav=='dark'?'nav-link  text-dark':'nav-link text-light'" routerLinkActive="active"  aria-current="page" routerLink ="/kafaat/contact-us">تواصل معنا</a>
+                </li>
+                <li *ngIf="!isUserAuth"  class="nav-item">
+                    <a routerLink="/login" class="bg-primary-btn text-light py-3" aria-current="page" routerLinkActive="active" >تسجيل دخول</a>
+                </li>
+                <li *ngIf="!isUserAuth" class="nav-item">
+                    <a [class]="typeNav=='dark'?'nav-link text-main':'nav-link text-light'" routerLink="/registeration" outerLinkActive="active"  aria-current="page" href="#">طلب انضمام</a>
+                </li>
+                <!-- <li *ngIf="isUserAuth"  class="nav-item">
+                    <a (click)="logout()" class="bg-primary-btn text-light py-3" aria-current="page" routerLinkActive="active" >تسجيل خروج</a>
+                </li> -->
+                <!-- <li *ngIf="isUserAuth" class="nav-item">
+                    <a [class]="typeNav=='dark'?'nav-link text-main':'nav-link text-light'"  class="d-pointer d-flex align-items-center" routerLink="/kafaat/profile"   outerLinkActive="active"  aria-current="page" >{{userName}} <div style="background-image: url({{userImage}});" class="user-profile-image"></div> </a>
+                </li> -->
+
+                <li class="nav-item dropdown">
+                  <a routerLink="/kafaat/profile" [class]="typeNav=='dark'?'d-inline text-dark text-decoration-none':'d-inline text-light text-decoration-none'"><span [class]="active==1?'active':''">{{userName}} </span></a>
+                  <a [class]="typeNav=='dark'?'nav-link dropdown-toggle text-dark d-inline':'nav-link dropdown-toggle text-light d-inline'"  id="navbarDropdown" role="button"
+                      data-bs-toggle="dropdown" aria-expanded="false"    outerLinkActive="active"  aria-current="page">
+                      <span [class]="active==1?'active':''" routerLink="/kafaat/profile"> <div style="background-image: url({{userImage}});" class="user-profile-image"></div></span>
+                  </a>
+                  <ul  *ngIf="isUserAuth" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li  class="nav-item">
+                      <a (click)="logout()" class="bg-primary-btn text-light py-3" aria-current="page" routerLinkActive="active" >تسجيل خروج</a>
+                  </li>
+                  </ul>
+              </li>
+
+
+                <li class="nav-item">
+                    <!-- <hr class="d-none d-sm-block bg-light mx-3 my-0 h-100" style="width: 2px;"> -->
+                    <div [class]="typeNav=='dark'?'divider-line bg-dark mx-3 my-0':'divider-line bg-light mx-3 my-0'" >&nbsp;</div>
+                </li>
+                <li class="d-flex align-items-center">
+
+                    <a href="{{contactInformationLinks.facebookLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="{{contactInformationLinks.twitterLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'foPnt-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="{{contactInformationLinks.snapchatLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-square-snapchat"></i></a>
+                    <a href="{{contactInformationLinks.instagramLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="{{contactInformationLinks.telegramLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="{{contactInformationLinks.linkedInLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="{{contactInformationLinks.youtubeLink}}" target="_blank" class="me-2" [style]="typeNav=='dark'?'font-size: 19px;color: var(--main-color);':'font-size: 19px;color: white'"><i class="fa-brands fa-youtube"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<nav id="navbar"  class="navbar navbar-light navbar-expand-lg bg-transparent border-bottom border-main  w-100 top-0 position-fixed bg-light">
+    <div class="container ">
+        <a class="navbar-brand mb-1" href="#"><img src="assets/images/logo-blue.svg"></a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation" (click)="openNav()">
+            <i class="fa-solid fa-bars" style="color: var(--neutral90-color);border: none;"></i>
+        </button>
+        <div class="container collapse navbar-collapse mx-4">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-around align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==0?'active':''" style="background-color: transparent !important;">الرئيسية</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a routerLink="/kafaat/programs" class="d-inline text-dark text-decoration-none d-pointer"><span [class]="active==1?'active':''">البرامج</span></a>
+                    <a class="nav-link d-inline dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li *ngFor="let item of programs;">
+                            <a class="dropdown-item py-2" routerLinkActive="active" [routerLink]="['/kafaat/program-details', item.id]" >{{ item.title }}</a>
+
+                        <!-- <li><a class="dropdown-item" outerLinkActive="active"   [routerLink]="['/kafaat/program-details',programs[programs.length-1].id]">{{programs[programs.length-1].title}}</a></li> -->
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a   routerLink="/kafaat/magazine" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">المجلة </span></a>
+                </li>
+                <li class="nav-item">
+                    <a   routerLink="/kafaat/read-club" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">نادي القراءة</span></a>
+                </li>
+                <li class="nav-item">
+                  <a   routerLink="/kafaat/excellence-prize" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''"> جائزة التفوق</span></a>
+              </li>
+              <li class="nav-item">
+                <a   routerLink="/kafaat/volunteer" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">  التطوع</span></a>
+            </li>
+            <li class="nav-item">
+              <a   routerLink="/kafaat/family-writings" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">  مؤلفات الأسرة</span></a>
+          </li>
+                <li class="nav-item">
+                    <a   routerLink="/kafaat/articles" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">مقالات</span></a>
+                </li>
+                <li class="nav-item">
+                    <a   routerLink="/kafaat/about" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">من نحن</span></a>
+                </li>
+                <li class="nav-item">
+                    <a  class="nav-link text-dark" aria-current="page" routerLinkActive="active"  aria-current="page" routerLink ="/kafaat/contact-us"><span [class]="active==3?'active':''">تواصل معنا</span></a>
+                </li>
+                <li *ngIf="!isUserAuth" class="nav-item">
+                    <a class="bg-primary-btn text-light py-3" aria-current="page" href="#" routerLink="/login" outerLinkActive="active"><span>تسجيل دخول</span></a>
+                </li>
+                <li *ngIf="!isUserAuth" class="nav-item">
+                    <a class="nav-link text-main" aria-current="page" routerLink="/registeration" outerLinkActive="active" ><span>طلب انضمام</span></a>
+                </li>
+
+                <!-- <li *ngIf="isUserAuth" class="nav-item">
+                    <a class="bg-primary-btn text-light py-3" aria-current="page" (click)="logout()" outerLinkActive="active"><span>تسجيل خروج</span></a>
+                </li>
+                <li *ngIf="isUserAuth" class="nav-item">
+                    <a class="nav-link text-main" aria-current="page" outerLinkActive="active" style="color: var(--main-color);" class="d-pointer d-flex align-items-center text-decoration-none" routerLink="/kafaat/profile"  >{{userName}}<div style="background-image: url({{userImage}});" class="user-profile-image"></div></a>
+                </li> -->
+
+                <li class="nav-item dropdown">
+                  <a routerLink="/kafaat/profile" class="d-inline text-dark text-decoration-none d-pointer"><span [class]="active==1?'active':''">{{userName}}</span></a>
+                  <a class="nav-link d-inline dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                      <span [class]="active==1?'active':''" routerLink="/kafaat/profile"> <div style="background-image: url({{userImage}});" class="user-profile-image"></div></span>
+                  </a>
+                  <ul  *ngIf="isUserAuth" class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li  class="nav-item">
+                      <a class="bg-primary-btn text-light py-3" aria-current="page" (click)="logout()" outerLinkActive="active"><span>تسجيل خروج</span></a>
+                  </li>
+                  </ul>
+              </li>
+
+                <li class="nav-item">
+                    <!-- <hr class="d-none d-sm-block bg-light mx-3 my-0 h-100" style="width: 2px;"> -->
+                    <div class="divider-line bg-dark mx-3 my-0">&nbsp;</div>
+                </li>
+                <li class="d-flex align-items-center">
+                    <!-- <a href="{{contactInformationLinks.snapchatLink}}" target="_blank"><img src='/assets/images/Snapchat-white-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.telegramLink}}" target="_blank"><img src='/assets/images/telegram-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.twitterLink}}" target="_blank"><img src='/assets/images/Twitter-light-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.instagramLink}}" target="_blank"><img src='/assets/images/Instagram-light-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.youtubeLink}}" target="_blank"><img src='/assets/images/Youtube-light-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.facebookLink}}" target="_blank"><img src='/assets/images/Facebook-light-d.svg' class="social-icon ms-1"></a>
+                    <a href="{{contactInformationLinks.facebookLink}}" target="_blank"  class="mx-2"><img src="assets/images/facebook-dark.svg" alt="facebook.svg"></a>
+                    <a href="{{contactInformationLinks.twitterLink}}"  target="_blank" class="mx-2"><img src="assets/images/twitter-dark.svg" alt="twitter.svg"></a>
+                    <a href="{{contactInformationLinks.linkedInLink}}" target="_blank"  class="mx-2"><img src="assets/images/linkedin-dark.svg" alt="linkedin.svg"></a> -->
+                    <a href="{{contactInformationLinks.facebookLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="{{contactInformationLinks.twitterLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="{{contactInformationLinks.snapchatLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-square-snapchat"></i></a>
+                    <a href="{{contactInformationLinks.instagramLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-square-instagram"></i></a>
+                    <a href="{{contactInformationLinks.telegramLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-telegram"></i></a>
+                    <a href="{{contactInformationLinks.linkedInLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="{{contactInformationLinks.youtubeLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-youtube"></i></a>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div id="mySidenav" class="sidenav">
+    <div class="text-end">
+        <a href="javascript:void(0)" class="fs-1 fw-bold p-2 text-decoration-none text-dark" (click)="closeNav()">&times;</a>
+    </div>
+    <hr>
+    <div class="ps-2">
+
+        <nav class="navbar navbar-expand-lg navbar-light w-100 ">
+            <div class="container">
+              <ul class="navbar-nav w-100">
+                <li class="nav-item">
+                    <a routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==0?'active':''">الرئيسية</span></a>
+                  </li>
+                <li class="nav-item dropdown w-100">
+                  <a class="nav-link dropdown-toggle w-100 text-main" href="#" id="navbarDropdown" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                    <span [class]="active==1?'active':''"> البرامج</span>
+                  </a>
+                  <ul class="dropdown-menu w-100 border-0" aria-labelledby="navbarDropdown">
+                    <li *ngFor="let item of programs">
+                        <a class="dropdown-item py-2" routerLinkActive="active" [routerLink]="['/kafaat/program-details', item.id]">{{ item.title }}</a>
+                      </li>
+
+
+                  </ul>
+                </li>
+
+          <li class="nav-item">
+            <a   routerLink="/kafaat/magazine" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span>المجلة </span></a>
+          </li>
+          <li class="nav-item">
+            <a   routerLink="/kafaat/read-club" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span>نادي القراءة </span></a>
+          </li>
+          <li class="nav-item">
+            <a  routerLink="/kafaat/excellence-prize"  routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span>جائزة التفوق </span></a>
+          </li>
+          <li class="nav-item">
+            <a   routerLink="/kafaat/volunteer" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">  التطوع</span></a>
+        </li>
+        <li class="nav-item">
+          <a   routerLink="/kafaat/family-writings" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span [class]="active==2?'active':''">  مؤلفات الأسرة</span></a>
+      </li>
+          <li class="nav-item">
+            <a  routerLink="/kafaat/articles"  routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span> مقالات </span></a>
+          </li>
+          <li class="nav-item">
+            <a   routerLink="/kafaat/about" routerLinkActive="active" class="nav-link text-dark" aria-current="page" href="#"><span>من نحن</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink ="/kafaat/contact-us" routerLinkActive="active" >تواصل معنا</a>
+          </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+    <hr>
+    <div *ngIf="!isUserAuth" class="px-2 text-center">
+        <a class="bg-primary-btn w-100" routerLink="/login" outerLinkActive="active">تسجيل دخول</a>
+        <a routerLink="/registeration" outerLinkActive="active"  class="text-decoration-none " href="#"><h5 class="text-main fw-bold mt-2 fs-3">طلب انضمام</h5></a>
+    </div>
+    <div *ngIf="isUserAuth" class="px-2 text-center">
+        <a class="bg-primary-btn w-100" (click)="logout()" outerLinkActive="active">تسجيل خروج</a>
+        <!-- small screen -->
+        <a routerLinkActive="active"   style="color: var(--main-color);text-decoration: none; text-align: center; display: block;font-size: 16px;" class="d-pointer text-decoration-none my-3 justify-content-center d-flex align-items-center" routerLink="/kafaat/profile"  >{{userName}} <div style="background-image: url({{userImage}});" class="user-profile-image"></div></a>
+    </div>
+    <hr>
+    <div class="d-flex align-items-center justify-content-around w-50 mx-auto">
+        <!-- <a href="{{contactInformationLinks.facebookLink}}" target="_blank"  class="mx-2"><img src='assets/images/facebook-dark.svg' alt="facebook.svg"></a>
+        <a href="{{contactInformationLinks.twitterLink}}"  target="_blank"  class="mx-2"><img src='assets/images/twitter-dark.svg' alt="twitter.svg"></a>
+        <a href="{{contactInformationLinks.linkedInLink}}" target="_blank"  class="mx-2"><img src='assets/images/linkedin-dark.svg' alt="linkedin.svg"></a> -->
+        <a href="{{contactInformationLinks.facebookLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="{{contactInformationLinks.twitterLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-twitter"></i></a>
+        <a href="{{contactInformationLinks.snapchatLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-square-snapchat"></i></a>
+        <a href="{{contactInformationLinks.instagramLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-square-instagram"></i></a>
+        <a href="{{contactInformationLinks.telegramLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-telegram"></i></a>
+        <a href="{{contactInformationLinks.linkedInLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="{{contactInformationLinks.youtubeLink}}" target="_blank" class="me-2" style="font-size: 19px;color: var(--main-color);"><i class="fa-brands fa-youtube"></i></a>
+
+    </div>
+</div>

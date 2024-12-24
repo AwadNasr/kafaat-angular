@@ -1,0 +1,36 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="الأبطال" Label="أبطال الشهر في جميع البرامج"></app-page-header-labeled>
+    <app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/winners" subSubSubTitle="الأبطال"></app-bread-crumb>
+<div class="page-padding">
+    <div class="card shadow-X-Large p-4">
+        <app-scroll-nav (numberSelected)="onselect($event)"></app-scroll-nav>
+        <div class="card-body">
+            <div *ngIf="items.length>0" class="row text-center g-2 d-flex justify-content-center align-items-center ">
+                <div class="col-12 col-md-3" *ngFor="let item of items">
+                    <div class="d-inline-block d-sm-none p-4" style="width: auto ;">
+                        <app-masked-image [inputImageUrl]="item.imagePath"  inputWidth="150" inputHeight="150"></app-masked-image>
+                        <p>{{item.nameParticipant}}</p>
+                    <p class="primary-padge">{{item.programName}}</p>
+                    <p class="text-main">{{item.activityName}}</p>
+                    </div>
+                    <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+                        <app-masked-image [inputImageUrl]="item.imagePath"  inputWidth="215" inputHeight="215"></app-masked-image>
+                        <p>{{item.nameParticipant}}</p>
+                    <p class="primary-padge">{{item.programName}}</p>
+                    <p class="text-main">{{item.activityName}}</p>
+                    </div>
+
+                </div>
+
+            </div>
+            <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد أبطال فى هذا برنامج  لـــهذا الشهر'"></app-empty-data>
+            <!-- *ngIf="pageResponse.totalCount>16" -->
+            <app-paginations *ngIf="items.length>0" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+            [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+            (next)="next($event)" (back)="back($event)"></app-paginations>
+        </div>
+    </div>
+</div>
+<div class="divider-section">
+
+</div>

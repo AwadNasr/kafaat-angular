@@ -1,0 +1,20 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="معرض الفيديوهات" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/photo-album" subSubSubTitle="معرض الفيديوهات"></app-bread-crumb>
+<div class="page-padding py-4 my-4 border">
+
+  <div class="row g-3 p-2">
+      <!-- <app-album-card *ngFor="let item of items" [item]="item" class="col-md-4"></app-album-card> -->
+       <div class="col-md-4" *ngFor="let item of items">
+<p>{{item.videoPath}}</p>
+<button class="bg-primary-outline-btn p-2" (click)="openModal(item.videoPath)"> عرض الفيديو</button>
+       </div>
+
+  </div>
+  <div class="mt-4"></div>
+
+  <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+      [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+      (next)="next($event)" (back)="back($event)"></app-paginations>
+</div>
+<app-dialog-video-image #dialog></app-dialog-video-image>

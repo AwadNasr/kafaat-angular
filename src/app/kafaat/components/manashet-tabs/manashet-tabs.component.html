@@ -1,0 +1,10 @@
+<div class="tabs container card border-0">
+    <div class="card-header bg-light border-0  row ps-0 py-0" style="background-color: white;">
+        <div  [ngClass]="indexSelected==0?'tab-selected col-6 col-md-2 p-4 m-0':'col-6 col-md-2 p-4 m-0'" (click)="onTap(0)">
+             المناشط
+        </div>
+        <div [ngClass]="indexSelected==1?'tab-selected col-6 col-md-2 p-4 m-0':'col-6 col-md-2 p-4 m-0'" (click)="onTap(1)">
+            المشاركات
+        </div>
+    </div>
+</div>

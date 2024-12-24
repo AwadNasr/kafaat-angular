@@ -1,0 +1,116 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="الفائزون" Label="الفائزون في جائزة التفوق"></app-page-header-labeled>
+    <app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/excellence-prize-winners" subSubSubTitle="الفائزون في جائزة التفوق"></app-bread-crumb>
+    <div class="card shadow-X-Large">
+    <div class="row p-3">
+      <diV class="col-md-8 col-12 my-2 py-3">
+          <h1 class="p-title">تقرير جائزة التفوق</h1>
+      </diV>
+      <diV class="col-md-4 col-12 d-flex justify-content-md-end justify-content-center align-items-center">
+
+          <button class="bg-primary-btn-block mt-2 p-btn" (click)="goToLink(report.reportPath)">تحميل التقرير</button>
+
+      </diV>
+  </div>
+  <hr>
+    <div style="margin: 40px 0px;background-color: #F1F1F1;">
+      <div class="d-flex justify-content-center align-items-center py-4">
+        <div class=" text-center mx-3">
+          <img src="../../../../assets/images/clarity_users-line.png" class="my-1"  width="64px" height="64px"><br>
+            <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.approvedCount}}</label><br>
+            <label class="titleLabel" class="my-1">مشارك</label><br>
+        </div>
+        <div class="text-center">
+          <img src="../../../../assets/images/game-icons_champions.png" class="my-1" width="64px" height="64px"><br>
+            <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.winnerCount}}</label><br>
+            <label class="titleLabel" class="my-1">فائز</label><br>
+        </div>
+      </div>
+      <div class="row  row-cols-md-6 justify-content-evenly align-items-center">
+
+        <div class="col statisticsCol">
+          <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+            <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationPrepCount}}</label><br>
+            <label class="titleLabel" class="my-1">متوسط</label><br>
+      </div>
+      <div class="col statisticsCol">
+        <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+          <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationSecondaryCount}}</label><br>
+          <label class="titleLabel" class="my-1">ثانوي</label><br>
+    </div>
+    <div class="col statisticsCol">
+      <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+        <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationBachelorCount}}</label><br>
+        <label class="titleLabel" class="my-1">بكالويوس</label><br>
+  </div>
+  <div class="col statisticsCol">
+    <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+      <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationDiplomaCount}}</label><br>
+      <label class="titleLabel" class="my-1">دبلوم</label><br>
+</div>
+<div class="col statisticsCol">
+  <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+    <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationMasterCount}}</label><br>
+    <label class="titleLabel" class="my-1">ماجستير</label><br>
+</div>
+<div class="col statisticsCol">
+  <img src="../../../../assets/images/charm_certificate.png" class="my-1" width="64px" height="64px"><br>
+    <label class="text-dark" style="font-size: 20px;font-weight: 600;" class="my-1">{{statics.qualificationPhdCount}}</label><br>
+    <label class="titleLabel" class="my-1">دكتوراه</label><br>
+</div>
+      </div>
+
+    </div>
+    </div>
+<div class="page-padding">
+    <div class="card shadow-X-Large p-4">
+      <div class="manashet-list-content text-center my-2">
+        <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+     </div>
+        <div class="card-body">
+            <div *ngIf="items.length>0" class="row text-center g-2 d-flex justify-content-center align-items-center ">
+                <div class="col-12 col-md-3" *ngFor="let item of items">
+                    <div class="d-inline-block d-sm-none p-4" style="width: auto ;">
+                        <app-masked-image [inputImageUrl]="item.image"  inputWidth="150" inputHeight="150"></app-masked-image>
+                        <p>{{item.name}}</p>
+                    <p class="primary-padge">المركز {{item.place}}</p>
+
+                    </div>
+                    <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+                        <app-masked-image [inputImageUrl]="item.image"  inputWidth="215" inputHeight="215"></app-masked-image>
+                        <p>{{item.name}}</p>
+                    <p class="primary-padge">المركز {{item.place}}</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد فائزين لهذا المؤهل'"></app-empty-data>
+            <!-- *ngIf="pageResponse.totalCount>16" -->
+            <app-paginations *ngIf="items.length>0" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+            [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+            (next)="next($event)" (back)="back($event)"></app-paginations>
+        </div>
+    </div>
+</div>
+<div class="divider-section">
+
+</div>
+<div style="margin: 40px 0px;" >
+  <div class="row justify-content-around align-items-center">
+    <div class="col-sm-12 col-md-1"></div>
+    <div class="col-sm-12 col-md-4">
+      <div style="background-color: #005183;padding: 50px 30px;" class="text-center p-title text-white">
+        <p> المواسم السابقة</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 row justify-content-around align-items-center">
+      <div class="col-5 my-2" *ngFor="let item of prizes" >
+        <p  style="color: #005183;cursor: pointer;" class="my-2 p-btn" [routerLink]="['/kafaat/excellence-prize-winners',item.id]"> {{item.name}}</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-1"></div>
+  </div>
+</div>
+

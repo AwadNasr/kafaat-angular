@@ -1,0 +1,36 @@
+<div class="row" dir="ltr">
+  <div class="col-12 col-md-5">
+    <img src="assets/images/img-contact.png" loading="lazy"alt="img-contact" width="100%" height="100%">
+  </div>
+  <div class="col-12 col-md-7 contact d-flex align-items-center p-4 p-md-0">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="w-75 mx-auto" action="" dir="rtl">
+
+      <div class="form-group input-container w-100 mt-4 name-user">
+        <input type="text" name="userName" formControlName="userName" id="userName" class="input-fields input-container-icon person-icon" required="">
+        <label for="userName">الاسم</label>
+    </div>
+    <div *ngIf="userName?.errors && userName?.touched">
+      <small *ngIf="userName?.hasError('required')" class="error-text">يجب إدخال الاسم</small>
+  </div>
+    <div class="form-group input-container w-100 mt-4 ">
+        <input type="text" name="email" formControlName="email" id="email" class="input-fields input-container-icon email-user" required="">
+        <label for="email"> البريد الإلكتروني</label>
+        <div *ngIf="email?.errors && email?.touched">
+          <small *ngIf="email?.hasError('required')" class="error-text">يجب إدخال البريد الإليكتـرونى</small>
+          <small *ngIf="email?.hasError('email')" class="error-text">يجب إدخال البريد الإليكترونى بشكل صحيح</small>
+      </div>
+    </div>
+    <div class="form-group input-advanced input-container w-100 mt-4">
+        <textarea type="text" rows="4" name="message" formControlName="message" id="message" class="input-fields message-icon details" required=""></textarea>
+        <label for="message">الرسالة</label>
+        <div *ngIf="message?.errors && message?.touched">
+          <small *ngIf="message?.hasError('required')" class="error-text">يجب إدخال الرسالة</small>
+          <small *ngIf="message?.hasError('maxLength')" class="error-text">تجاوزت الحد المسموح به</small>
+      </div>
+      </div>
+      <button type="submit" class="bg-primary-btn w-100 text-center mt-4">
+        إرسال
+      </button>
+    </form>
+  </div>
+</div>

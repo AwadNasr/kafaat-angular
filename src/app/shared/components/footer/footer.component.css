@@ -1,0 +1,68 @@
+.footer-container{
+    width: 100%;
+    min-height: calc(30vh);
+    background: #005183;
+    /* linear-gradient(to right , #005183,#A18131); */
+    color: white;
+    font-size: 15px;
+    
+}
+.footer-lg-screen{
+    padding: 100px 8% 50px 8%;
+    border: 1px solid white;
+}
+.links-title{
+    font-family: 'alex-700';
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+.link-item{
+    font-family: 'alex-400';
+    line-height: 21px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    display: block;
+    opacity: 70%;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.line-separator{
+    display: block;
+    margin: 30px 0px;
+    height: 1px;
+    background-color: var(--primary-color);
+    opacity: 10%;
+}
+.rights{
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    opacity: 70%;
+}
+.kafaat-logo{
+    background-image: url('/assets/images/kafaat-logo-light.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-position: right; */
+    width: 70%;
+    height: 100px;  
+    margin-bottom: 35px;
+}
+.social-icon{
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.phone{
+    padding: 15px 0px;
+}
+.social-icon-container{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.page-padding{
+    padding-top: 50px;
+}

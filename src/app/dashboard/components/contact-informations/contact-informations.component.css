@@ -1,0 +1,64 @@
+.input-box input {
+    text-align: right;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(104, 101, 101, 0.5);
+    transition: all 0.2s linear;
+    padding: 10px 10px;
+  }
+  .imageBg{
+    height: calc(75vh);
+    width: 100%;
+    background-image: url('/assets/images/Logo_animation.gif');
+    background-position: center;
+    background-size: 70% 70%;
+    background-repeat: no-repeat;
+  }
+  .image-logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50% 50%;
+    /* border: 1px solid green; */
+    background-image: url('/assets/images/');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;
+  }
+  .image-1{
+    background-image: url('/assets/images/title_contact_information.png');
+  }
+  .image-2{
+    background-image: url('/assets/images/location_contact_info.png');
+  }
+  .image-3{
+    background-image: url('/assets/images/email_contact_info.png');
+  }
+  .image-4{
+    background-image: url('/assets/images/youtube_contact_information.png');
+  }
+  .image-5{
+    background-image: url('/assets/images/linkedIn.png');
+  }
+  .image-6{
+    background-image: url('/assets/images/introductortVideo.png');
+  }
+  .image-7{
+    background-image: url('/assets/images/live.png');
+    background-size: 95% 95%;
+  }
+  .image-8{
+    background-image: url('/assets/images/3588658.png');
+    background-size: 95% 95%;
+  }
+  .image-9{
+    background-image: url('/assets/images/users-group-computer-icons-clip-art-user-cliparts.jpg');
+    background-size: 95% 95%;
+  }
+  .info-image{
+    background-image: url('/assets/images/information.png');
+  }

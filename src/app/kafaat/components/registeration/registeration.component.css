@@ -1,0 +1,94 @@
+
+.registeration-container{
+    /* background: linear-gradient(to right ,#A18131, #005183); */
+    background-color:#005183 ;
+    min-height: calc(100vh);
+}
+.registeration{
+    background-color: white;
+    border-radius: 8px;
+}
+@media (767px <= width <= 3000px){
+    .registeration-container{
+        padding: 70px 20%;
+    }
+    .registeration{
+        padding: 30px 30px;
+    }
+}
+@media (0px <= width <= 767px){
+    .registeration-container{
+        padding: 70px 10px;
+    }
+    .registeration{
+        padding: 30px 10px;
+    }
+}
+.password-container{
+    position: relative;
+}
+.passwordImage{
+position: absolute;
+top: 15px;
+left: 20px;
+cursor: pointer;
+}
+input[type='checkbox'],input[type='checkbox']:hover{
+    border: none;
+}
+input:focus,input:hover,select:focus,select:hover,textarea:focus,textarea:hover{
+    border: 1px solid var(--main-color);
+    outline: none !important;
+}
+
+.select-file-bg:hover{
+  background-color: var(--neutral40-color);
+  cursor: pointer;
+}
+.defaultRadioButton{
+    width: 30px;
+    height: 30px;
+}
+.back-arrow:hover{
+    transform: translateX(30px);
+    transition: all .5s ease-in-out;
+}
+.back-arrow:hover .back-btn{
+    color: transparent;
+    transition: all .5s ease-in-out;
+}
+.user-profile-container{
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 50% 50%;
+    /* border: 1px solid var(--main-color); */
+    overflow: hidden;
+    box-shadow: 0px 0px 5px var(--main-color);
+}
+.user-profile-image{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 130px;
+    height: 130px;
+    border-radius: 50% 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.user-profile-camera{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 130px;
+    height: 60px;
+    /* background-color: rgba(0, 0, 0, 0.212); */
+    background-color: rgba(0, 0, 0, 0.425);
+    cursor: pointer;
+}
+.camera-icon{
+    font-size: 30px;
+    /* color: var(--main-color); */
+    color: white;
+}

@@ -1,0 +1,7 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="برنامج التفوق" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/excellenceProgram" subSubSubTitle="برنامج التفوق"></app-bread-crumb>
+<app-layout-section [componentToDisplay]="12" title="جائزة التفوق" (idChange2)="handleValueFromChild($event)"></app-layout-section>
+<app-excellence-award-condition  [sharedId]="sharedId"></app-excellence-award-condition>
+<app-layout-section [componentToDisplay]="13" title="معلومات عن الجائزة"></app-layout-section>
+

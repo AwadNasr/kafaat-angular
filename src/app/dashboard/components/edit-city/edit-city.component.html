@@ -1,0 +1,25 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">تعديل مدينة</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label class="input-label" for="name">اسم المدينة</label>
+        <input formControlName="name" type="text" name="name" id="name" [class.is-invalid]="name?.invalid && name?.touched" [class.is-valid]="name?.valid" class="form-control my-1">
+        <div *ngIf="name?.errors && name?.touched">
+            <small *ngIf="name?.hasError('required')"  class="text-danger">يجب ادخال اسم المدينة</small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="countryId">اسم الدولة</label>
+        <select formControlName="countryId" type="text" name="countryId" id="countryId" [class.is-invalid]="countryId?.invalid && countryId?.touched" [class.is-valid]="countryId?.valid" class="form-control my-1">
+            <option *ngFor="let item of subItems" [value]="item.id" [selected]="item.id == countryId.value" >{{item.name}}</option>
+        </select>
+        <div *ngIf="countryId?.errors && countryId?.touched">
+            <small *ngIf="countryId?.hasError('required')"  class="text-danger">يجب ادخال اسم الدولة</small>
+        </div>
+    </div>
+    <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2"> حفــظ التعديل</button>
+</form>
+</div>

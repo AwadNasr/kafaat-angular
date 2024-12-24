@@ -1,0 +1,84 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+<div  style="background-color: #005183;">
+  <div class="text-center" style="padding: 50px 0px;">
+    <p class="text-white p-title" >إحصائيات رقمية</p>
+    <button class="bg-primary-outline-btn mt-2 p-2 w-25 p-btn"  (click)="goToLink(report.reportFile)">  تقرير التطوع </button>
+  </div>
+
+</div>
+
+<div   class="my-3">
+  <div class="p-5">
+    <div class="row row-cols-2 row-cols-md-2 row-cols-lg-5 justify-content-around align-items-center">
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../../assets/images/ci_clock.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="p-title" style="color: #005183;">{{volunteer.hours}}+</p>
+      <p class=" my-2 text-center p-title" style="color: #005183;">ساعة</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../../assets/images/mynaui_users.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="p-title" style="color: #005183;">{{volunteer.volunteers}}+</p>
+      <p class=" my-2 text-center p-title" style="color: #005183;">متطوع</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../../assets/images/majesticons_money-hand-line.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="p-title" style="color: #005183;">{{volunteer.riyal}}+</p>
+      <p class=" my-2 text-center p-title" style="color: #005183;">ريال</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../../assets/images/heroicons_calendar-days.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="p-title" style="color: #005183;">{{volunteer.day}}+</p>
+      <p class=" my-2 text-center p-title" style="color: #005183;">يوم</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../../assets/images/hugeicons_computer-programming-02.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="p-title" style="color: #005183;">{{volunteer.minshat}}+</p>
+      <p class=" my-2 text-center p-title" style="color: #005183;">منشط</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="volunteerFields.length>0" style="background-color: #005183;padding: 20px 10px; width:250px;" class="text-center p-title ms-3 text-white">
+  <p>مجالات التطوع</p>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row row-cols-sm-1 row-cols-md-2  row-cols-lg-4 justify-content-around align-items-center">
+    <div class="col-10 col-md" *ngFor="let item of volunteerFields">
+      <div class="reading-club-card shadow-lg">
+        <p class="text-center my-4 p-title1">{{item.title}}</p>
+
+        <div class="text-center p-2">
+          <p class="my-3 p-btn">عدد المتطوعين :{{item.participants}}</p>
+          <button class="bg-primary-btn-block mt-2 col-10 my-sm-3 me-sm-3 p-btn" [routerLink]="['/kafaat/volunteer-field-participants',item.id]">عرض المتطوعين</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container my-3" >
+  <div class="row row-cols-1  justify-content-around align-items-center">
+      <div class="col d-flex mb-2" *ngFor="let item of volunteers">
+        <figure style="width: 16px; height: 16px;">
+          <img src="../../../../assets/images/ph_users-four-thin.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="mx-2 p-btn" style="cursor: pointer;" (click)="navigateToParticipant(item.id)">{{item.title}}</p>
+     </div>
+  </div>
+  </div>

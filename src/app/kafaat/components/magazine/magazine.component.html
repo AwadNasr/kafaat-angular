@@ -1,0 +1,15 @@
+<app-navbar typeNav="dark"  [active]=1></app-navbar>
+<app-page-header-labeled Header="المجلة" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/magazine" subSubSubTitle="المجلة"></app-bread-crumb>
+<div class="page-padding py-4 my-4 border">
+    <!-- <app-scroll-magazine (numberSelected)="onselect($event)"></app-scroll-magazine> -->
+    <div class="row g-3 p-2">
+        <app-magazine-cart *ngFor="let item of items" [item]="item" class="col-md-4" (click)="naviagteToDetails(item.id)"></app-magazine-cart>
+
+    </div>
+    <div class="mt-4"></div>
+
+    <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+        [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+        (next)="next($event)" (back)="back($event)"></app-paginations>
+</div>

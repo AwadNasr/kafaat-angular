@@ -1,0 +1,73 @@
+<app-navbar typeNav="dark"></app-navbar>
+<app-page-header-labeled Header="تواصل معنا" Label="نسعد بتواصلكم. الدائم مع مؤسسة كفاءات"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitles="تواصل معنا"></app-bread-crumb>
+<div style="height: 30px;"></div>
+<div class="page-padding">
+    <div class="contact-us-container">
+        <div class="row">
+            <div class="col-12 col-md-5 p-0">
+                <div class="contact-information-container">
+                    <div class="image-bg"></div>
+                    <div class="content-contact-info">
+                    <div class="contact-information-title">معلومات التواصل</div>
+                    <div class="contact-information-item">
+                        <img src="/assets/images/envelope-light.svg" alt="">
+                        <span>{{contactInformationItems.email}}</span>
+                    </div>
+                    <div class="contact-information-item">
+                        <img src="/assets/images/phone-light.svg" alt="">
+                        <span>{{contactInformationItems.whatsapp}}</span>
+                    </div>
+                    <div class="contact-information-item">
+                        <img src="/assets/images/map-pin-light.svg" alt="">
+                        <span>{{contactInformationItems.location}}</span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="contact-information-title">تابعنا على</div>
+                    <div class="social-icon-container">
+                        <a href="{{contactInformationItems.snapchatLink}}" target="_blank" ><img src='/assets/images/Snapchat-white.svg' class="social-icon"></a>
+                        <a href="{{contactInformationItems.telegramLink}}" target="_blank" ><img src='/assets/images/telegram.svg' class="social-icon"></a>
+                        <a href="{{contactInformationItems.twitterLink}}" target="_blank" ><img src='/assets/images/Twitter-light.svg' class="social-icon"></a>
+                        <a href="{{contactInformationItems.instagramLink}}" target="_blank" ><img src='/assets/images/Instagram-light.svg' class="social-icon"></a>
+                        <a href="{{contactInformationItems.youtubeLink}}" target="_blank" ><img src='/assets/images/Youtube-light.svg' class="social-icon"></a>
+                        <a href="{{contactInformationItems.facebookLink}}" target="_blank" ><img src='/assets/images/Facebook-light.svg' class="social-icon"></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-7 p-0">
+                <div class="contact-information-fields">
+                <form [formGroup]="form" (ngSubmit)="submit()">
+                <div class="details-title">نسعد بتواصلكم معنا</div>
+                <span class="under-line"></span>
+                <div class="details-label">{{contactInformationItems.title}}</div>
+                 <div class="form-group input-container w-100 mt-4 ">
+                    <input type="text" name="userName" formControlName="userName" id="userName" class="input-fields input-container-icon person-icon" required="">
+                    <label for="userName">الاسم</label>
+                </div>
+                <div *ngIf="userName?.errors && userName?.touched">
+                    <small *ngIf="userName?.hasError('required')" class="error-text">يجب إدخال الاسم</small>
+                </div>
+                <div class="form-group input-container w-100 mt-4 ">
+                    <input type="text" name="email" formControlName="email" id="email"  class="input-fields input-container-icon email-icon" required="">
+                    <label for="email"> البريد الإلكتروني</label>
+                </div>
+                <div *ngIf="email?.errors && email?.touched">
+                    <small *ngIf="email?.hasError('required')" class="error-text">يجب إدخال البريد الإليكتـرونى</small>
+                    <small *ngIf="email?.hasError('email')" class="error-text">يجب إدخال البريد الإليكترونى بشكل صحيح</small>
+                </div>
+                <div class="form-group input-advanced input-container w-100 mt-4">
+                    <textarea type="text" rows="4" name="message" formControlName="message" id="message" class="input-fields message-icon" required=""></textarea>
+                    <label for="name">الرسالة</label>
+                  </div>
+                  <div *ngIf="message?.errors && message?.touched">
+                    <small *ngIf="message?.hasError('required')" class="error-text">يجب إدخال الرسالة</small>
+                    <small *ngIf="message?.hasError('maxLength')" class="error-text">تجاوزت الحد المسموح به</small>
+                </div>
+                <button class="bg-primary-btn-block mt-5">إرسال</button> 
+            </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

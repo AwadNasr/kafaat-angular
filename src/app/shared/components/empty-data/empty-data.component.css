@@ -1,0 +1,39 @@
+.empty-container{
+    width: 100%;
+    min-height: 400px;
+    position: relative;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+}
+.image-container{
+    width: 100%;
+    min-height: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    /* background-image: url('/assets/images/empty.png'); */
+    background-image: url('../../../../assets/images/صورة بديلة1.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+}
+.text-container{
+    width: 100%;
+    min-height: 400px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #00518388;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+}

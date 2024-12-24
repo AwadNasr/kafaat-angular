@@ -1,0 +1,65 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="التطوع" Label="متطوعين اسرة الماجد"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/volunteering" subSubSubTitle="التطوع"></app-bread-crumb>
+<div class="shadow-X-Large card">
+  <div class="row p-3">
+      <diV class="col-md-8 col-12 my-3">
+          <h1 style="font-size: 20px;font-weight: 600;"> مجال {{field.title}} </h1>
+      </diV>
+  </div>
+  <hr>
+  <div class="row  gx-2 my-3  d-flex justify-content-center" >
+    <div class="col-7">
+      <h3 style="font-size: 18px;font-weight: 600;"> وصف مجال {{field.title}} </h3>
+      <p style="font-size: 16px;font-weight: 400;color: #757575;" [innerHTML]="field.description"></p>
+      <h3 style="font-size: 18px;font-weight: 600;">متطلبات التطوع</h3>
+      <p style="font-size: 16px;font-weight: 400;color: #757575;">يوضع وصف متطلبات التطوع</p>
+      <a class="bg-primary-btn my-4 " style="border-radius: 25px !important;" (click)="joinVolunteer()" *ngIf="!IsParticipant">  تقدم للتطوع   </a>
+
+    </div>
+    <div class="col-4">
+<figure class="h-100 rounded-3 overflow-hidden">
+  <img [src]="fieldImage" width="100%" class="h-100" alt="">
+</figure>
+    </div>
+  </div>
+</div>
+
+  <div class="shadow-X-Large card">
+    <div class="d-flex justify-content-center align-items-center py-5" >
+      <div class="w-50 mx-auto">
+        <p style="font-size: 20px;font-weight: 400;color: #002034;">{{field.notes}}</p>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- <div class="page-padding"> -->
+      <div class="shadow-X-Large card">
+        <div class="row p-3">
+            <diV class="col-md-8 col-12 my-1">
+                <a  class="bg-primary-btn" style="border-radius: 25px !important;">جميع المتطوعين</a>
+            </diV>
+        </div>
+        <hr>
+        <div class="row row-cols-md-2 row-cols-lg-4  g-2 my-3  d-flex justify-content-center" >
+          <div class="col" *ngFor="let item of items" (click)="navigateToParticipant(item.userId)">
+            <div class="d-inline-block d-sm-none p-4" style="width: auto ;">
+              <app-masked-image [inputImageUrl]="item.imageUser" inputWidth="150" inputHeight="150"></app-masked-image>
+              <p class="profile-name text-center">{{item.userDisplayName}}</p>
+          </div>
+          <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+              <app-masked-image [inputImageUrl]="item.imageUser" inputWidth="215" inputHeight="215"></app-masked-image>
+              <p class="profile-name text-center" style="font-size: 16px;font-weight: 600;">{{item.userDisplayName}}</p>
+          </div>
+
+          </div>
+
+        </div>
+        <div class="mt-4"></div>
+      <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+  [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+  (next)="next($event)" (back)="back($event)"></app-paginations>
+
+      </div>
+    <!-- </div> -->

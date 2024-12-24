@@ -1,0 +1,8 @@
+<div *ngIf="Header == '';else other_content">
+</div>
+
+<ng-template #other_content><div [class]="header=='a'?'bg-header p-3 ps-4  d-flex align-items-center':'bg-header2 p-3 ps-4 d-flex align-items-center text-light'">
+    <!-- <span class="page-header-container-image-container"><img src="/assets/images/leaf.svg" width="18" height="30"></span> -->
+    <span class="page-header-container-title">{{Header}}</span>
+    </div></ng-template>
+

@@ -1,0 +1,23 @@
+<div class="pop-up-container">
+  <div class="title-pop-up" style="border-bottom: none;font-size: 16px; font-weight: 400; margin: 30px 15px !important;"> تقدم للتطوع</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-12 ">
+        <div class="mb-3">
+          <label for="typeOfVolunteering" class="mb-3">اختر نوع التطوع الذي ترغب بالتقدم به</label>
+              <select formControlName="typeOfVolunteering" type="text" name="typeOfVolunteering" id="typeOfVolunteering"
+                  [class.is-invalid]="typeOfVolunteering?.invalid && typeOfVolunteering?.touched" [class.is-valid]="typeOfVolunteering?.valid"
+                  class="form-select my-1">
+                  <option *ngFor="let item of typesOfVolunteer" [value]="item.name">{{item.name}}</option>
+
+              </select>
+              <div *ngIf="typeOfVolunteering?.errors && typeOfVolunteering?.touched">
+                <small *ngIf="typeOfVolunteering?.hasError('required')" class="text-danger"> يجب اختيار نوع التطوع</small>
+            </div>
+      </div>
+    </div>
+    </div>
+    <button type="submit"  class="bg-primary-btn-block  my-3 mb-4 p-2" > تقدم الأن </button>
+    <button type="button"  class="bg-sec-btn-block  my-3 mb-4 p-2" (click)="closeDialog()">  لا ربما لاحقا </button>
+  </form>
+  </div>

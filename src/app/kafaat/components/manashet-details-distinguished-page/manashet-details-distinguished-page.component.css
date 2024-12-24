@@ -1,0 +1,13 @@
+.distinguished-item{
+    text-align: center;
+    justify-content: center;
+    margin: 20px 0px;
+}
+.distinguished-title{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    display: block;
+    padding: 15px;
+}

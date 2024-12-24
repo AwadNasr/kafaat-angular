@@ -1,0 +1,21 @@
+<div class="video-player-container">
+<div class="row">
+    <div *ngFor="let item of items" class="col-12 col-md-4">
+        <div class="video-player-item-container">
+            <div class="card-image" (click)="openModal(item.title)">
+                <div class="card-displayed-image" [style]="'background-image:url('+item.path+');'">
+                </div>
+                <!-- <div class="card-image-outline"></div> -->
+                <div class="card-image-video-player"></div>
+            </div>
+            <div class="video-player-item-details">
+                <div class="video-player-item-title truncate-1-lines">{{item.videoTitle}}</div>
+                <div class="video-player-item-description truncate-2-lines" [innerHTML]="item.videoDescription"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<app-dialog-video-image #dialog></app-dialog-video-image>

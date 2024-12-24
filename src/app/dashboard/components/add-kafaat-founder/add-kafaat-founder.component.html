@@ -1,0 +1,82 @@
+<div class="add-kafaat-founder-container">
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">إضافة عضو مؤســس</div>
+<form [formGroup]="form" (ngSubmit)="submit()"  enctype="multipart/form-data">
+    <div class="user-profile-container">
+        <div style="width: 220px;" class="mx-auto">
+            <app-item-carousal-angle imgPath="{{kafaatFounderImage}}"></app-item-carousal-angle>
+        </div>
+        <div class="user-profile-camera d-pointer">
+            <div (click)="userImage.click()" class="d-pointer"  class="d-flex align-items-center justify-content-center" style="height: 60px;">
+                <i class="fas fa-camera camera-icon" ></i>
+            </div>
+            <div class="ps-3">
+                <input type="file" name="imageFile"  accept="image/*" (change)="onUserImageSelected($event)" #userImage style="display:none">
+            </div>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="name">اسم العضو</label>
+        <input formControlName="name" type="text" name="name" id="name" [class.is-invalid]="name?.invalid && name?.touched" [class.is-valid]="name?.valid" class="form-control my-1">
+        <div *ngIf="name?.errors && name?.touched">
+            <small *ngIf="name?.hasError('required')"  class="text-danger">يجب ادخال اسم العضو</small>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="input-label" for="position">الوظيفة</label>
+        <input formControlName="position" type="text" name="position" id="position" [class.is-invalid]="position?.invalid && position?.touched" [class.is-valid]="position?.valid" class="form-control my-1">
+        <div *ngIf="position?.errors && position?.touched">
+            <small *ngIf="position?.hasError('required')"  class="text-danger">يجب ادخال اسم العضو</small>
+        </div>
+    </div>
+    <div>
+        <div class="sub-title my-3">النوع</div> 
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    <div class="col-3 col-md-6">
+                        <div class="d-flex justify-content-start align-items-start pb-2">
+                            <input style="width: 25px;" type="radio" class="defaultRadioButton" (change)="changeGender()" value="m" formControlName="gender"
+                                name="gender" id="male">
+                            <span for="make d-inline-block" style="margin-right: 20px;">ذكر</span>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-6">
+                        <div class="d-flex justify-content-start align-items-start pb-2">
+                            <input style="width: 25px;" type="radio" class="defaultRadioButton" (change)="changeGender()"  value="f" formControlName="gender"
+                                name="gender" id="female">
+                            <span for="female d-inline-block" style="margin-right: 20px;">انثى</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8"></div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="form-check checkbox-lg form-check-inline">
+                <input class="form-check-input" type="checkbox" (change)="isOrderVisibale = !isOrderVisibale" name="ordervisible" id="ordervisible">
+                <label class="form-check-label" for="ordervisible">اضافة ترتيب لظهور العضو المؤســـس فى الموقع</label>
+              </div>
+        </div>
+        <div *ngIf="isOrderVisibale" class="col-12">
+            <div class="input-surrounding">
+                <div class="select-element select-input w-100">
+                    <label class="input-label" for="positionOrder">الترتيب</label>
+                    <select type="text" name="positionOrder" id="positionOrder"  formControlName="positionOrder" required="">
+                        <option selected="{{true}}" value="0"> ليس لديه ترتيب , سيظهر حسب اضافته </option>
+                        <option *ngFor="let item of orderArray" value="{{item}}">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+</form>
+</div>
+</div>

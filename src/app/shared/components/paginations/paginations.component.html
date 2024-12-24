@@ -1,0 +1,36 @@
+<div class="container mx-auto" dir="ltr">
+    <div class="row">
+        <div class="col-12 col-md-3">
+
+        </div>
+        <div class="col-12 col-md-6 d-flex justify-content-center">
+          <!-- <img src="assets/images/next-carousal.svg" (click)="onNextSubMit()" alt=""> -->
+          <img src="assets/images/back-carousal.svg" (click)="onNextSubMit()"  alt="">
+
+
+            <div class="d-flex align-items-center">
+                <div [class]="pagesNumber==currentPage?'text-main  mx-2 mx-sm-4': 'small fs-6 mx-2 mx-sm-4'" *ngIf="getSecondIndex()>1">
+                    {{pagesNumber}}
+                </div>
+                <div class="small fs-6 mx-2 mx-sm-4" *ngIf="pagesNumber>1">
+                    ....
+                </div>
+                <div [class]="getThiredIndex()==currentPage?'text-main  mx-2 mx-sm-4': 'small fs-6 mx-2 mx-sm-4'" *ngIf="pagesNumber>3">
+                    {{getThiredIndex()}}
+                </div>
+                <div [class]="getSecondIndex()==currentPage?'text-main  mx-2 mx-sm-4': 'small fs-6 mx-2 mx-sm-4'" *ngIf="pagesNumber>2">
+                    {{getSecondIndex()}}
+                </div>
+                <div [class]="getfirstIndex()==currentPage?'text-main  mx-2 mx-sm-4': 'small fs-6 mx-2 mx-sm-4'" *ngIf="pagesNumber>1">
+                    {{getfirstIndex()}}
+                </div>
+            </div>
+            <!-- <img src="assets/images/next-carousal.svg" (click)="onNextSubMit()" alt=""> -->
+            <!-- <img src="assets/images/back-carousal.svg" (click)="onBackSubmit()"  alt=""> -->
+            <img src="assets/images/next-carousal.svg" (click)="onBackSubmit()" alt="">
+        </div>
+        <div class="col-12 col-md-3">
+
+        </div>
+    </div>
+</div>

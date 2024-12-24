@@ -1,0 +1,21 @@
+
+    <div class="row">
+        <app-nav-activities [programId]="programId" (numberSelected)="selectActivity($event)"></app-nav-activities>
+        <p class="col-12 text-center" *ngIf="listItems.length<=0">لا توجد مشاركات حالية</p>
+    <div *ngFor="let item of listItems;let i = index" class="col-12 col-md-4">
+        <div  class="manashet-card d-pointer">
+        <div class="manashet-card-container">
+             <div class="card-image" [style.background-image]="'url(' + item.imagePath + ')'"             >
+             </div>
+             <div class="manashet-card-details">
+                 <div class="manashet-card-details-title">{{item.nameParticipant}}</div>
+                <div class="manashet-card-details-program-details-words" [ngClass]="!isMoreReadEnabled[i]?'truncate-4-lines':''" [innerHTML]="item.description">
+
+                                  </div>
+                <a  (click)="toggleMoreRead(i)" *ngIf="!isMoreReadEnabled[i]" class="manashet-card-details-more-link">عرض المزيد</a>
+                <a  (click)="toggleMoreRead(i)" *ngIf="isMoreReadEnabled[i]" class="manashet-card-details-more-link">عرض اقل</a>
+             </div>
+        </div>
+    </div>
+    </div>
+</div>

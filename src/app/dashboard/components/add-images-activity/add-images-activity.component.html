@@ -1,0 +1,19 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">إضافة صورة</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    
+    <div class="mb-3">
+        <label class="input-label" for="ImageFile">ملف صورة (العرض لايقل عن {{minWidth}} والطول عن {{minHeight}}) </label>
+        <input  [accept]="'image/*'" (change)="onFileSelected($event)" formControlName="fileAttach" type="file" name="fileAttach" id="fileAttach" [class.is-invalid]="fileAttach?.invalid && fileAttach?.touched" [class.is-valid]="fileAttach?.valid" class="form-control my-1">
+        <div *ngIf="fileAttach?.errors && fileAttach?.touched">
+            <small *ngIf="fileAttach?.hasError('required')"  class="text-danger">يجب ادخال ملف  صورة</small>
+        </div>
+    </div>
+
+
+    <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+</form>
+</div>

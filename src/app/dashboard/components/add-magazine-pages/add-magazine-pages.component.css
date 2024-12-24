@@ -1,0 +1,79 @@
+.magazinePageContainer{
+    border: 2px solid var(--main-color);
+    height: 250px;
+    border-radius: 10px;
+    /* margin-bottom: 20px; */
+}
+.magazinePageNumber{
+    width: 100%;
+    height: 40px;
+    /* border: 1px solid red; */
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #005183;
+    color: white;
+}
+.magazinePageImage{
+position: relative;
+height: calc(230px - 20px);
+/* border: 1px solid blue; */
+background-position: center;
+background-repeat: no-repeat;
+background-size: 90% 90%;
+padding: 30px 20px;
+
+}
+.magazinePageControl{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    transition: all .2s ease-in-out;
+}
+.magazinePageControl:hover{
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 10px 10px 0px 0px;
+}
+
+
+
+
+.imagesNotInserted{
+    background-image: url('/assets/images/light-true.svg');
+}
+/* .imagesAdded{
+    background-image: url('/assets/images/deep-true.svg');
+} */
+.changeImageIcon{
+    z-index: 10;
+    width: 35px;
+    height: 35px;
+    border-radius: 50% 50%;
+
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+
+    bottom: 10px;
+    left: 10px;
+    background-image: url('/assets/images/edit-image.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+    transition:  all .2s ease-in-out;
+}
+.changeImageIcon:hover{
+    background-color: #0051832a;
+    cursor: pointer;
+}
+

@@ -1,0 +1,131 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+<div class="my-2 shadow">
+  <div class="row justify-content-sm-center justify-content-md-around align-items-center ">
+    <div class="col-sm-12 col-md-4 text-center">
+      <figure class="w-75 mx-auto h-100" style="margin-top: 10px;height: 300px;">
+        <img [src]="photos[4].image"  class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+
+    <div class="col-sm-12 col-md-5 my-sm-5  text-center ">
+      <p  class="my-sm-3 p-title"> مؤلفات أبناء وبنات الاسرة  </p>
+      <div class="row justify-content-center align-items-center my-3 my-text" style=" margin-inline: 1rem;">
+        <button class="bg-primary-btn-block mt-2 col-5 my-sm-3 me-sm-3 rounded-5 p-btn" style="border:2px solid #FFFFFF !important;font-size: 18px;" (click)="joinVolunteer()">   شاركنا نجاحك </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  style="margin: 50px 0px;">
+  <div class="p-5" *ngIf="navList.length>0"  dir="ltr">
+    <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+      <div ngxSlickItem *ngFor="let slide of navList;let i = index" >
+<div class="d-flex justify-content-center align-items-center">
+  <p class="my-2 text-center mx-3" style="font-size: 20px;margin: 0;">{{slide.label}}</p>
+  <div class="rounded-circle row justify-content-center align-items-center text-center" style="width: 77px;height: 77px;background-color: #D9D9D9;color: #005183;font-size: 18px;margin-left: 1px;">
+    <p class="mt-2">+{{slide.statics}}</p>
+  </div>
+
+</div>
+
+      </div>
+
+    </ngx-slick-carousel>
+
+  </div>
+  <div class="text-center d-block d-lg-none">
+
+    <img src="assets/images/next-carousal.svg" (click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+    <img src="assets/images/back-carousal.svg" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+  </div>
+
+</div>
+
+<div class="my-2">
+  <div class="manashet-list-content text-center my-2">
+    <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+  </div>
+</div>
+
+
+<div class="page-padding py-4 my-4 border">
+  <div class="row g-3 p-2">
+    <div
+      *ngFor="let item of items"
+      class="col-md-4 col-lg-3"
+      (click)="navigateToDetails(item.id)"
+    >
+      <div class="card shadow h-100 d-flex flex-column" style="max-height: 750px; ">
+
+        <figure class="w-75 mx-auto mt-3" style="max-height: 250px;">
+          <img
+            [src]="item.imageBook"
+            class="w-100 h-100 rounded-2 "
+style="object-fit: contain;"
+            alt="Book Image"
+          />
+        </figure>
+
+
+        <div class="text-center flex-grow-1 d-flex flex-column justify-content-between">
+          <p
+            class="my-3  "
+            style="line-height: 1.5; height: 5.5rem;font-size: 17px;font-weight: 500;">
+            {{ item.bookName }}
+          </p>
+          <p class="fw-bold mb-3" style="color: #C69F47;">
+            {{ item.familyWritingsName }}
+          </p>
+          <p class="mb-1" style="font-size: 14px;">
+            اسم الباحث: {{ item.userDisplayName }}
+          </p>
+          <p class="mb-3" style="font-size: 14px;">
+            دار النشر: {{ item.publishingHouse }}
+          </p>
+
+
+          <div class="my-2">
+            <button
+              class="bg-primary-btn-block w-75 rounded-pill"
+              [routerLink]="['/kafaat/family-writings-details', item.id]"
+            >
+              قراءة المزيد
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row g-3 p-2">
+      <div *ngFor="let item of items" [item]="item" class="col-md-2 col-lg-3 " (click)="naviagteToDetails(item.id)">
+        <div class="card shadow" style="height: 700px;">
+          <figure class="w-75 mx-auto" style="margin: 10px 0px;height: 300px;">
+            <img [src]="item.imageBook"  class="w-100 h-100 rounded-2 " alt="">
+          </figure>
+          <div class="text-center">
+            <p  class="my-3 p-title" style="line-height: 1.5;height: 130px;">{{item.bookName}}</p>
+            <p style="font-size: 20px; color: #C69F47;" class="mb-3">{{item.familyWritingsName}}</p>
+            <p style="font-size: 14px;" class="mb-2">اسم الباحث: {{item.userDisplayName}}</p>
+            <p style="font-size: 14px;" class="mb-2"> دار النشر: {{item.publishingHouse}}</p>
+            <div class="row justify-content-center align-items-center  my-text" style=" margin-inline: 1rem;">
+              <button class="bg-primary-btn-block my-2 col-10 my-sm-3 me-sm-3 rounded-5 p-btn" style="border:2px solid #FFFFFF !important;" [routerLink]="['/kafaat/family-writings-details',item.id]"> قراءة المزيد </button>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+  </div> -->
+  <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد مؤلفات لعرضها'"></app-empty-data>
+
+  <div class="mt-4"></div>
+
+  <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+      [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+      (next)="next($event)" (back)="back($event)"></app-paginations>
+</div>

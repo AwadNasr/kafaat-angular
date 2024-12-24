@@ -1,0 +1,160 @@
+
+<div class="navbar-container" id="beginningOfAbout">
+    <div class="navbar-element-container">
+        <app-navbar typeNav="light" (handleOpenNav)="openOrClosNav($event)"></app-navbar>
+    </div>
+    <div class="row page-padding">
+        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center p-4">
+            <div class="p-5">
+                <div class="about-we mb-4">من نحن ؟</div>
+                <p class="text-light fs-5 lh-base mb-5" style="text-align: justify;font-weight: 300;">كفاءات: هي مؤسسة تابعة لصندوق أسرة آل ماجد، تُعنى بتنمية معارف ومهارات أبناء الأسرة؛ من خلال برامج نوعية: (نبلاء -قارئ -متحدث -كاتب -مثقف - قائد - ماهر - موهوب - متفوق - مبتكر - رياضي).
+                </p>
+                <button (click)="openModal()" class="btn bg-light p-2"> <img src="assets/images/play-circle.svg" class="me-2"
+                        alt="play-circle.svg" (click)="openModal()">شاهد الفيديو التعريفي</button>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 text-light">
+            <div class="p-4">
+                <app-image-third img1="assets/images/h1.png" img3="assets/images/h2.png" img2="assets/images/h3.png"></app-image-third>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="divider-section">
+
+</div>
+<div class="page-padding position-relative mt-4">
+    <div class="row  mx-auto shadow-X-Large p-0 m-0" dir="ltr">
+        <div class="col-12 col-md-6 p-0 m-0">
+            <img src="assets/images/about1.png" width="100%" height="100%" class="rounded border-none" alt="about1">
+        </div>
+        <div class="col-12 col-md-6 pt-3">
+            <p class="text-dark text-start px-4" style="font-size: 1.3rem;"> ما هي كفاءات ؟</p>
+            <!-- <div class="title-documented px-4 text-start">هدفنا الرئيس: تنمية المعارف والمهارات لأبناء أسرة آل ماجد وأنساب القوم منهم.</div> -->
+            <hr>
+           <div class="card-about-Redesign">
+
+             <p class="px-3 lh-base">هدفنا الرئيس: تنمية المعارف والمهارات لأبناء أسرة آل ماجد وأنساب القوم منهم.</p>
+            <p class="px-3 lh-base ">من أجل تمام العبودية لله تعالى وطاعته.. ولإيجاد مفاتيحَ لخبرةٍ تختزل المدى، وتحدد الاتجاهات؛
+                فالعمر لا يُعاد مرة أخرى لتعديل المسارات.. ولأن "أحب الناس إلى الله أنفعهم للناس" كما وجه المصطفى صلى الله
+                </p>
+                <p class="px-3 lh-base ">عليه وسلم.. ومشاركةً في مسيرة تنمية الأسرة وبناء الوطن..
+                    لأجل ذلك كله نشأت "كفاءات".. لتحقيق تلك الغايات.. بأهداف ساميات.. منها: "القراءة" النـــاقدة، و"الحديث"
+                    </p>
+                    <p class="px-3 lh-base ">
+                        البليغ، و"الكتابة" المؤثـــــرة، و"الثقافة" المعطاء، و"القيادة" الملهمة، و"التدريب" المتقـن، و"المـوهبة"
+                    المتجددة، و"التحصيل" المتين، و"الابتكار" النافع.
+                    وها هي تقدم مجلتها في إشراقتها الثانية، ومن خلالها: تزجي باكورة البرامج.. وتستقبل طلائع المنتجين.. وتستشرف
+                    بناة المستقبل.. وتقدم حماة الوطن.. وتزف عرائس النور وعرسانه في أبهى حلة..
+                    </p>
+                    </div>
+        </div>
+    </div>
+    <!-- <div class="card w-75 card-about shadow pt-3 p-4 ">
+        <p class="px-3 lh-base small">من أجل تمام العبودية لله تعالى وطاعته.. ولإيجاد مفاتيحَ لخبرةٍ تختزل المدى، وتحدد الاتجاهات؛
+            فالعمر لا يُعاد مرة أخرى لتعديل المسارات.. ولأن "أحب الناس إلى الله أنفعهم للناس" كما وجه المصطفى صلى الله
+            </p>
+            <p class="px-3 lh-base small">عليه وسلم.. ومشاركةً في مسيرة تنمية الأسرة وبناء الوطن..
+                لأجل ذلك كله نشأت "كفاءات".. لتحقيق تلك الغايات.. بأهداف ساميات.. منها: "القراءة" النـــاقدة، و"الحديث"
+                </p>
+                <p class="px-3 lh-base small">
+                    البليغ، و"الكتابة" المؤثـــــرة، و"الثقافة" المعطاء، و"القيادة" الملهمة، و"التدريب" المتقـن، و"المـوهبة"
+                المتجددة، و"التحصيل" المتين، و"الابتكار" النافع.
+                وها هي تقدم مجلتها في إشراقتها الثانية، ومن خلالها: تزجي باكورة البرامج.. وتستقبل طلائع المنتجين.. وتستشرف
+                بناة المستقبل.. وتقدم حماة الوطن.. وتزف عرائس النور وعرسانه في أبهى حلة..
+                </p>
+    </div> -->
+</div>
+<div style="margin-top: 150px;"></div>
+<app-page-header Header="أهداف كفاءات" header="a"></app-page-header>
+<div  class="row main-padge rounded-0 ">
+    <div class="col-12 col-md-5 d-flex align-items-top pe-5 ps-5 mt-4 pt-4 justify-content-center">
+     <div style="margin: auto;">
+             <!--   <p class="text-light text-start" style="font-size: 16px;"></p> -->
+
+            <div class="title-documented text-light text-start">تنمية وتطوير أبناء وبنات الأسرة مهارياً ومعرفيا هو هدفنا الأول</div></div>
+    </div>
+    <div class="col-12 col-md-7">
+        <div class="row p-4 mt-4">
+            <div class="col-12 col-md-5 p-4 card item-card"  (mouseenter)="itemCardEnter(1)" (mouseleave)="itemCardLeave(1)">
+              <div class="text-center p-4">
+                <img id="img1" src="assets/images/رفع مستوى التميز.svg" alt="">
+                <p id="p1" class="mt-4 fw-bold  fs-5 lh-base" >رفع مستوى التميز
+                    في كل مجال</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-1 mt-4 pt-4 pt-sm-0 mt-sm-0">
+
+            </div>
+            <div class="col-12 col-md-5 p-4  card  item-card" (mouseenter)="itemCardEnter(2)" (mouseleave)="itemCardLeave(2)">
+                <div class="text-center p-4">
+                  <img id="img2" src="assets/images/رعاية الموهوبين.svg" alt="">
+                  <p id="p2" class="mt-4 fw-bold  fs-5 lh-base">رعاية الموهوبين
+                    والمبدعين</p>
+                </div>
+              </div>
+        </div>
+        <div class="row p-4 mb-4">
+            <div class="col-12 col-md-5 p-4 card  item-card" (mouseenter)="itemCardEnter(3)" (mouseleave)="itemCardLeave(3)">
+              <div class="text-center p-4">
+                <img id="img3" src="assets/images/اكتشاف المواهب.svg" alt="">
+                <p id="p3" class="mt-4 fw-bold  fs-5 lh-base">
+                    إكتشاف وتنمية المهارات</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-1 mt-4 pt-4 pt-sm-0 mt-sm-0 ">
+
+            </div>
+            <div class="col-12 col-md-5 p-4 card  item-card" (mouseenter)="itemCardEnter(4)" (mouseleave)="itemCardLeave(4)">
+                <div class="text-center p-4">
+                  <img id="img4" src="assets/images/تنمية الجوانب الثقافية.svg" alt="">
+                  <p id="p4" class="mt-4 fw-bold  fs-5 lh-base" >
+                    تنمية الجوانب الثقافية</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider-section"></div>
+<app-goals-kafaat></app-goals-kafaat>
+<div class="divider-section"></div>
+<div class="page-padding">
+<app-page-header Header="معرض الصور والفيديوهات" header="a" ></app-page-header>
+</div>
+<div class="page-padding pt-4  mb-5" style="background-color: #F7FBFE;">
+    <div class="text-center  mx-auto">
+        <!-- <p class="text-dark" style="font-size: 16px;">معرض الصور والفيديوهات</p> -->
+
+    <div class="title-documented">نوثق أهم اللحظات</div>
+
+</div>
+<div class="mt-4">
+    <img class="image-catalog" src="{{imageNumber1}}" alt="about2" style="width: 100%; height: 450px;object-fit: cover;" >
+</div>
+<div class="row ">
+    <div class="col-12 col-md-6 mt-4">
+        <img class="image-catalog" src="{{imageNumber2}}" alt="about-kafaat" style="width: 100%; height: 300px;object-fit: cover;">
+    </div>
+
+    <div class="col-12 col-md-6 mt-4">
+        <img class="image-catalog" src="{{imageNumber3}}" alt="about-kafaat" style="width: 100%; height: 300px;object-fit: cover;">
+    </div>
+</div>
+<div class="row pb-5">
+    <div class="col-12 col-md-6 mt-4">
+        <div>
+            <img class="image-catalog" src="{{imageNumber4}}" alt="about-kafaat" style="width: 100%; height: 342px;object-fit: cover;">
+        </div>
+        <div class="mt-4">
+            <img class="image-catalog" src="{{imageNumber5}}" alt="about-kafaat" style="width: 100%; height: 342px;object-fit: cover;">
+        </div>
+    </div>
+    <div class="col-12 col-md-6  mt-4">
+
+        <img class="image-catalog" src="{{imageNumber6}}" alt="about-kafaat" style="width: 100%; height: 710px;object-fit: cover;">
+
+    </div>
+</div>
+</div>
+<app-dialog-video-image #dialog></app-dialog-video-image>

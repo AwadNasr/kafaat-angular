@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="registeration-container">
+        <div class="pb-4">
+            <img src="/assets/images/logo.svg" width="100%" height="80px" alt="">
+        </div>
+        <div class="registeration">
+            <div class="nextPage">
+                <div class="details-title">تسجيل الدخول  _  خاص  بـــلوحة التحكم</div>
+                            <!-- email -->
+                            <div class="input-surrounding">
+                                <div class="input-element w-100">
+                                    <input type="text" name="email" id="email" formControlName="email" class="input-element-icon email-icon"
+                                        required="">
+                                    <label for="email">البريد الإلكتروني</label>
+                                </div>
+                                <div *ngIf="email?.errors && email?.touched">
+                                    <small *ngIf="email?.hasError('required')" class="error-text"> حقل البريد الإلكتروني مطلوب</small>
+                                </div>
+                            </div>                       
+                            <!-- password -->
+                            <div class="input-surrounding">
+                                <div class="input-element w-100">
+                                    <div class="password-container">
+                                    <input type="{{isPasswordVisible?'text':'password'}}" name="password" id="password" formControlName="password" class="input-element-icon  lock-icon" required="">
+                                    <label for="password">كلمة المرور</label>
+                                    <img *ngIf="isPasswordVisible"  (click)="isPasswordVisible=!isPasswordVisible" src="/assets/images/show.svg" width="25" height="25" class="passwordImage" alt="">
+                                    <img *ngIf="!isPasswordVisible" (click)="isPasswordVisible=!isPasswordVisible" src="/assets/images/eye.svg" width="25" height="25" class="passwordImage" alt="">
+                                </div>
+                                </div>
+                                <div *ngIf="password?.errors && password?.touched">
+                                    <small *ngIf="password?.hasError('required')" class="error-text"> حقل كلمة المرور مطلوب</small>
+                                </div>
+                            </div>
+                             <button type="submit" class="bg-primary-btn-block my-3 mb-4">تسجيل الدخول</button>
+            </div>
+            
+        </div>
+       
+    </div>
+    </form>

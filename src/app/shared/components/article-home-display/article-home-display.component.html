@@ -1,0 +1,11 @@
+<ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig" dir="ltr">
+<!-- <div class="row" ngxSlickItem style="display: inline-flex;justify-content: center;" dir="rtl"> -->
+    <div  [class]="'manashet-card-container slide mx-2'" style="transition: 400ms"  ngxSlickItem *ngFor="let item of articles;let i = index">
+    <app-article-card class="col-md-4 col-12"  [item]="item" (click)="naviagteToDetails(item.id)" dir="rtl"></app-article-card>
+</div>
+</ngx-slick-carousel>
+<div class="text-center mt-4 mb-4" dir="ltr">
+    <img src="assets/images/back-carousal.svg"loading="lazy" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+    <img src="assets/images/next-carousal.svg" loading="lazy"(click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+</div>
+

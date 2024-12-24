@@ -1,0 +1,110 @@
+.main-title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    color: var(--neutral90-color);
+    margin-bottom: 15px;
+}
+.manashet-not-found-details{
+    margin: 40px 5px;
+}
+.sub-title{
+    font-size: 14px;
+    color: var(--neutral90-color);
+    line-height: 22px;
+    font-weight: 400;
+    display: inline-block;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------ */
+.manashet-list-content::-webkit-scrollbar {
+    display: none; 
+}
+.manashet-list-content {
+    overflow-x: scroll;
+    /* display: inline-flex;  */
+    white-space: nowrap; 
+    /* padding-top: 50px; */
+    margin-bottom: 30px;
+  }
+
+.manashet-items{
+    margin-top: 35px;
+    text-align: right;
+}
+.active-navigation-button,.inactive-navigation-button{
+    size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    padding:  16px 16px;
+    line-height: 8px;
+}
+/* ================================================================================================= */
+
+.manashet-element{
+    margin-top: 0px;
+    cursor: pointer;
+}
+.element-image img{
+    width: 100%;
+    border-radius: 8px;
+    justify-content: center;
+}
+.element-image{
+    display: inline-block;
+    height: 100%;
+}
+.element-details{
+    display: inline-block;
+    height: 100%;
+    padding: 3px 20px;
+}
+.program-name{
+    font-weight: 400px;
+    font-size: 12px;
+    line-height: 17.5px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+}
+.divider{
+    height: 1px;
+    background-color: var(--Primary-border-color);
+    margin: 10px 0px;
+}
+.manashet-element:hover .main-title{
+    color: var(--main-color);
+    transform: scale(1.01);
+    transition: all .5s ease-in-out;
+    text-decoration: underline;
+    text-decoration-color: var(--Primary-border-color);
+    text-decoration-thickness: 3px;
+}
+@media(0px <= width <=700px){
+    .element-image{
+        width: 100%;
+    }
+    .element-details{
+        width: 100%;
+    }
+    .image-details-container{
+        display: block;
+        justify-content: center;
+    }
+    .program-name{
+        padding-top: 20px;
+    }
+    .divider{
+        margin: 30px 0px;
+    }
+}
+@media(767px <= width <=3000px){
+    .element-image{
+        width: 30%;
+    }
+    .element-details{
+        width: 70%;
+    }
+    .image-details-container{
+        display: flex;
+        justify-content: center;
+    }
+}

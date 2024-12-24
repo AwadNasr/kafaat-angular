@@ -1,0 +1,132 @@
+.contact-us-container{
+    margin: 30px 0px;
+}
+.contact-information-container{
+    background-color: #005183;
+    opacity: 90%;
+    color: white;
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+.image-bg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/IMG_4009.JPG');
+    background-size: cover;
+    opacity: 20%;
+    z-index: 3;
+}
+.content-contact-info{
+    position: relative;
+    z-index: 7;
+}
+.contact-information-title{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 30px;
+}
+
+.contact-information-item img{
+    width: 25px;
+    height: 25;
+}
+.contact-information-item span{
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 15px 0px;
+}
+.divider{
+    height: 1px;
+    background-color: var(--Primary-border-color);
+    margin: 40px 0px;
+}
+.social-icon-container{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    justify-content: center;
+    text-align: center;
+}
+
+.social-icon{
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #387093BF;
+    padding: 5px;
+    border-radius: 50% 50%;
+    margin-bottom: 5px;
+}
+.details-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 40px;
+    color: var(--neutral90-color);
+}
+.details-label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--neutral70-color);
+    margin-top: 30px;
+}
+.contact-information-fields{
+    height: 100%;
+    padding-bottom: 100px;
+    padding: 40px 16px;
+    box-shadow: 0px 0px 7px lightgray;
+}
+.person-icon{
+    background-image: url('/assets/images/user.svg');
+}
+.password-icon{
+    background-image: url('/assets/images/password.svg');
+}
+.email-icon{
+    background-image: url('/assets/images/email.svg');
+    background-color: transparent;
+}
+.message-icon{
+    background-image: url('/assets/images/pencil.svg');
+    top: 0px;
+    background-position: 99% 8px;
+    resize: none;
+    background-repeat: no-repeat;
+}
+.input-fields{
+    outline: none;
+    border: 1px solid var(--neutral40-color);
+    border-radius: 8px;
+    display: inline-block;
+    transition: all .7s ease-in-out;
+}
+input:focus,input:hover,select:focus,select:hover,textarea:focus,textarea:hover{
+    border: 1px solid var(--main-color);
+    outline: none !important;
+}
+@media (500px<width<=3000px){
+    .contact-information-container{
+        padding: 40px 48px;
+        height: 100%;
+        border-radius: 0px 8px 8px 0px;
+    }
+    .contact-information-fields {
+        border-radius: 8px 0px 0px 8px;
+    }
+}
+@media (0px< width <= 700px){
+    .contact-information-container{
+        padding: 40px 16px;
+        border-radius: 8px 8px 0px 0px;
+    }
+    .contact-information-fields {
+        border-radius: 0px 0px 8px 8px;
+    }
+}

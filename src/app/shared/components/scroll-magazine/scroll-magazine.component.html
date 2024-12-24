@@ -1,0 +1,43 @@
+
+<div class="tabs-container">
+    <div class="musharakat-list-content">
+        <a *ngFor="let nav of itemsDisplay;let i=index" [id]="nav.title=='المزيد'?'open':'asd'" (click)="onTap(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">
+            <img  *ngIf="nav.title=='المزيد'" class="me-1" src="/assets/images/list.svg" height="10px" alt="">
+            <span>{{nav.title}}</span>   
+        </a> 
+    </div>
+    <div *ngIf="isDropDownVisible" class="musharakat-options">
+        <a *ngFor="let nav of items" class="shared-user-info-list-options-item-update" style="width: 170px;" (click)="onTap(nav.id)"> {{nav.title}}</a>
+        <!-- <a class="shared-user-info-list-options-item-delete" style="width: 100px;">حذف المشاركة</a> -->
+    </div>
+</div>
+<!-- <ngx-slick-carousel dir="ltr" #slickCarousel  class="card-header w-100 d-flex justify-content-center" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem [ngClass]="index==0?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(0)">
+        جميع البرامج
+    </div>
+    <div  *ngFor="let item of itemsDisplay; let i=index" ngxSlickItem [ngClass]="index==item.id?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(item.id)">
+       {{item.title}}
+    </div>
+     <div ngxSlickItem [ngClass]="index==2?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(2)">
+        برنامج كاتب
+    </div>
+    <div ngxSlickItem [ngClass]="index==2?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(2)">
+        برنامج كاتب
+    </div>
+    <div ngxSlickItem [ngClass]="index==2?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(2)">
+        برنامج كاتب
+    </div>
+    <div ngxSlickItem [ngClass]="index==3?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(3)">
+        برنامج مبتكر
+    </div> 
+    <div *ngFor="let i of getIterationCount()"></div>
+
+    <div ngxSlickItem *ngIf="itemsDisplay.length>5" [ngClass]="index==6?'active-navigation-button':'inactive-navigation-button'" (click)="onTap(-1)">
+        المزيد <img src="assets/images/list.svg" alt="" class="me-2 d-inline"> 
+    </div>
+    
+</ngx-slick-carousel>
+<div *ngIf="isDropDownVisible" class="shared-user-info-list-options">
+    <a class="shared-user-info-list-options-item-update" >تعديل المشاركة</a>
+    <a class="shared-user-info-list-options-item-delete" >حذف المشاركة</a>
+</div> -->

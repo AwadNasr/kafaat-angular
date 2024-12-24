@@ -1,0 +1,147 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+<div class="container-fluid">
+    <div class=" shadow">
+      <div class="row justify-content-around align-items-center">
+        <div class="col-12 col-md-3">
+          <figure class="w-75 mx-auto" style="margin-top: 10px;max-height: 250px;">
+            <img [src]="publisher.image"  class="w-100 h-100 rounded-2" alt="" style="object-fit: contain;">
+          </figure>
+          <div class="text-center" >
+            <ngx-qrcode [elementType]="elementType" [value]="publisher.qrCode" cssClass="aclass"
+             errorCorrectionLevel="M" (click)="openLink(publisher.qrCode)">
+            </ngx-qrcode>
+          </div>
+          <figure class="mx-auto" style="margin-top: 10px;height: 70px;width: 107px;cursor: pointer;" (click)="openLink(publisher.qrCode)">
+            <img src="/assets/images/Frame 196.png"  class="w-100 h-100 " alt="" style="object-fit: contain;" >
+          </figure>
+
+        </div>
+        <div class="col-12 col-md-6 " >
+        <p  class="my-3 pt-3 p-title" style="line-height: 1.5;margin-inline: 1rem !important;">
+{{publisher.bookName}}
+        </p>
+
+        <p  class="mb-3 p-desc" style="margin-inline: 1rem !important;">
+          {{publisher.briefAboutMessage}}
+
+        </p>
+        <p  class="my-3 " style="font-size: 18px;font-weight: 600;margin-inline: 1rem !important;">
+         الباحث : <span class="p-btn">{{publisher.userDisplayName}}</span>
+        </p>
+        <p style="font-size: 18px;font-weight: 600;margin-inline: 1rem !important;" class="my-3">
+          دار النشر : <span class="p-btn">{{publisher.publishingHouse}}</span>
+        </p>
+        <p style="font-size: 18px;font-weight: 600; margin-inline: 1rem !important;" class="my-3">
+           المرحلة : <span class="p-btn">{{publisher.qualification}}</span>
+        </p>
+        <div class="row justify-content-center align-items-center  my-text" style=" margin-inline: 1rem;">
+          <a class="bg-primary-btn-block my-2 col-6 my-sm-3 me-sm-3 rounded-5 p-btn" href="{{publisher.link}}" target="_blank" style="border:2px solid #FFFFFF !important;" >  تحميل </a>
+        </div>
+        </div>
+        <div class="col-12 col-md-3">
+          <figure class="w-75 mx-auto" style="margin-top: 10px;">
+            <img [src]="publisher.imageBook"  class="w-100 h-100 rounded-2" alt="" style="object-fit: contain;">
+          </figure>
+
+
+        </div>
+
+      </div>
+
+    </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="items.length>0" style="padding: 40px 15px;">
+<figure style="height: 30px;width: 30px;" class="d-inline-block" >
+  <img src="../../../../assets/images/mingcute_book-5-line.png" class="w-100" alt="">
+</figure>
+<p  class="d-inline-block mx-3 p-title">
+  مؤلفات أخرى للكاتب
+</p>
+</div>
+<div class="page-padding py-4 my-4 border" *ngIf="items.length>0">
+<div  style="margin: 50px 0px;" class="container"  >
+  <div class="p-5" *ngIf="items.length>0"  dir="ltr">
+    <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+      <div ngxSlickItem *ngFor="let item of items;let i = index" style="box-sizing: border-box;padding: 1rem;">
+        <div class="card shadow h-100 d-flex flex-column" style="max-height: 700px; ">
+          <figure class="w-75 mx-auto mt-3" style="height: 300px;">
+            <img
+              [src]="item.imageBook"
+              class="w-100 h-100 rounded-2 "
+style="object-fit: contain;"
+              alt="Book Image"
+            />
+          </figure>
+          <div class="text-center">
+            <p  style="line-height: 1.5; height: 4rem;font-size: 17px;font-weight: 500;"  class="my-3">{{item.bookName}}</p>
+            <p style="color: #C69F47;" class="mb-3">{{item.familyWritingsName}}</p>
+            <p style="font-size: 14px;" class="mb-2">اسم الباحث: {{item.userDisplayName}}</p>
+            <p style="font-size: 14px;" class="mb-2"> دار النشر: {{item.publishingHouse}}</p>
+            <div class="row justify-content-center align-items-center  my-text" style=" margin-inline: 1rem;">
+              <button class="bg-primary-btn-block my-2 col-10 my-sm-3 me-sm-3 rounded-5" style="border:2px solid #FFFFFF !important;font-size: 18px;" [routerLink]="['/kafaat/family-writings-details',item.id]"> قراءة المزيد </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </ngx-slick-carousel>
+
+  </div>
+  <div class="text-center ">
+    <img src="assets/images/back-carousal.svg" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+    <img src="assets/images/next-carousal.svg" (click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+</div>
+
+</div>
+</div>
+
+<div class="container-fluid" *ngIf="items1.length>0" style="padding: 40px 15px;">
+  <figure style="height: 30px;width: 30px;" class="d-inline-block" >
+    <img src="../../../../assets/images/mingcute_book-5-line.png" class="w-100" alt="">
+  </figure>
+  <p style="font-size: 25px; font-weight: 700;" class="d-inline-block mx-3">
+    مؤلفات  مقترحة
+  </p>
+  </div>
+  <div class="page-padding py-4 my-4 border">
+  <div  style="margin: 50px 0px;" class="container"  *ngIf="items1.length>0">
+    <div class="p-5" *ngIf="items1.length>0"  dir="ltr">
+      <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig" >
+        <div ngxSlickItem *ngFor="let item of items1;let i = index" style="box-sizing: border-box;padding: 1rem;">
+          <div class="card shadow h-100 d-flex flex-column" style="max-height: 700px; ">
+            <figure class="w-75 mx-auto mt-3" style="height: 300px;">
+              <img
+                [src]="item.imageBook"
+                class="w-100 h-100 rounded-2 "
+                style="object-fit: contain;"
+
+                alt="Book Image"
+              />
+            </figure>
+            <div class="text-center">
+              <p  style="line-height: 1.5; height: 4rem;font-size: 17px;font-family: 600;"  class="my-3">{{item.bookName}}</p>
+              <p style="color: #C69F47;" class="mb-3">{{item.familyWritingsName}}</p>
+              <p style="font-size: 14px;" class="mb-2">اسم الباحث: {{item.userDisplayName}}</p>
+              <p style="font-size: 14px;" class="mb-2"> دار النشر: {{item.publishingHouse}}</p>
+              <div class="row justify-content-center align-items-center  my-text" style=" margin-inline: 1rem;">
+                <button class="bg-primary-btn-block my-2 col-10 my-sm-3 me-sm-3 rounded-5" style="border:2px solid #FFFFFF !important;font-size: 18px;" [routerLink]="['/kafaat/family-writings-details',item.id]"> قراءة المزيد </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </ngx-slick-carousel>
+
+    </div>
+    <div class="text-center ">
+      <img src="assets/images/back-carousal.svg" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+      <img src="assets/images/next-carousal.svg" (click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+  </div>
+
+  </div>
+  </div>

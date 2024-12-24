@@ -1,0 +1,32 @@
+.attachments-item{
+    border-radius: 8px;
+    margin: 10px;
+    border:1px solid var(--Primary-border-color);
+}
+.attachments-item-image{
+padding: 15% 35%;
+}
+.attachments-item-details{
+    border-top:1px solid var(--Primary-border-color);
+    padding: 20px 15px;
+}
+.attachments-item-details-title{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--neutral90-color);
+    line-height: 32px;
+}
+.bg-primary-btn{
+    font-size: 14px;
+}
+
+@media(500px <= width <= 2500px){
+    .attachments-item{
+        width: 100%;
+    }
+}
+@media(0px <= width <= 500px){
+    .attachments-item{
+        width: auto;
+    }
+}

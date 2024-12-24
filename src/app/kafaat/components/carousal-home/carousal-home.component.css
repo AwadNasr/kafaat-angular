@@ -1,0 +1,17 @@
+.carousal-home-item{
+    /* background-image: url('/assets/images/border-image-home.svg'); */
+    background-image: url('/assets/images/in-active-circle.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    transition: 400ms;
+}
+
+.carousal-home-item:hover{
+    /* background-image: url('/assets/images/border-hover.svg'); */
+    background-image: url('/assets/images/active-circle.svg');
+}
+.carousel-home-item:hover .p-title {
+    color: var(--main-color);
+}

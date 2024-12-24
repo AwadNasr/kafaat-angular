@@ -1,0 +1,63 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+<div class=" row justify-content-center align-items-center shadow mb-4 pb-3">
+  <div class="col-sm-10 col-md-7 text-center">
+<p class="p-title mt-3">
+  ابدأ رحلتك القرائية مع مكتبة كفاءات
+</p>
+<p style="color: #393737;margin-top: 50px;" class="p-btn ">محرك البحث بالذكاء الاصطناعي</p>
+<div class="search-wrapper mx-auto" style="margin-top: 50px;" >
+  <i class="fas fa-search search-icon" (click)="getPageByName()"></i>
+  <input type="text"
+         style="border: 1px solid var(--main-color);box-shadow: none;background-color: #226894;color: white;border-radius: 20px;"
+         placeholder="ابحث عن الكتاب أو المؤلف"
+         class="form-control custom-placeholder"
+         (keyup.enter)="getPageByName()"
+         [(ngModel)]="pagedRequest.name">
+</div>
+
+  </div>
+  <div class="col-sm-10 col-md-4">
+    <figure class="w-75 h-75 mx-auto">
+      <img src="../../../../assets/images/International Book Day (1) 1.png" class="w-100" alt="">
+    </figure>
+
+  </div>
+
+</div>
+
+<div style="background-color: #005183; padding: 20px 10px; width:250px;margin: 50px 0px;" class="text-center ms-3 p-title  text-white mb-3">
+  <p>المجالات</p>
+</div>
+
+
+<div class="page-padding mt-5">
+  <div class="card shadow-X-Large p-4">
+    <div class="manashet-list-content text-center my-2">
+      <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+   </div>
+      <div class="card-body">
+          <div *ngIf="items.length>0" class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 text-center g-2 d-flex justify-content-center align-items-center ">
+              <div class="col my-3 " *ngFor="let item of items" >
+                <div class="book-card shadow " [routerLink]="['/kafaat/book-details',item.id]">
+                  <figure class="w-100 h-100">
+                    <img [src]="item.image" class="w-100" alt="Book Cover" style="object-fit: contain;"/>
+                  </figure>
+                  <p  class="p-2 p-title1" >{{item.title}}</p>
+                  <p style="color: #2D2A2A;" class="p-1 p-desc text-center">{{item.author}}</p>
+                  <div class="py-2">
+                    <a style="text-decoration: none; color: #005183;cursor: pointer;"  >قراءة المزيد</a>
+                  </div>
+
+                </div>
+              </div>
+          </div>
+          <app-empty-data *ngIf="items.length==0" [inputText]="'لا يوجد كتب لهذا المجال'"></app-empty-data>
+          <app-paginations *ngIf="items.length>0" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+          [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+          (next)="next($event)" (back)="back($event)"></app-paginations>
+      </div>
+  </div>
+</div>
+<div class="divider-section">
+

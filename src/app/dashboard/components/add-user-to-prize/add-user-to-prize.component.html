@@ -1,0 +1,22 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">اضافة مستخدم لجائزة التفوق</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="mb-3">
+          <label for="ExcellencePrizeId" class="mb-3">اختر الجائزة</label>
+          <select formControlName="ExcellencePrizeId" type="text" name="ExcellencePrizeId" id="ExcellencePrizeId"
+              [class.is-invalid]="ExcellencePrizeId?.invalid && ExcellencePrizeId?.touched" [class.is-valid]="ExcellencePrizeId?.valid"
+              class="form-select my-1">
+              <option *ngFor="let item of prizes" [value]="item.id">{{item.name}}</option>
+          </select>
+          <div *ngIf="ExcellencePrizeId?.errors && ExcellencePrizeId?.touched">
+              <small *ngIf="ExcellencePrizeId?.hasError('required')" class="text-danger"> يجب اختيار الجائزة</small>
+          </div>
+      </div>
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>
+

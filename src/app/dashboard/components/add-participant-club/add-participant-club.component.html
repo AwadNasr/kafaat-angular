@@ -1,0 +1,30 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">اضافة مشارك</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="mb-3">
+
+          <div class="w-100 form-group">
+            <label for="participantId" class="mb-3">اسم  المشارك</label>
+            <mat-select class="border rounded p-2" [formControl]="participantId" placeholder="المشارك" #singleSelect name="participantId" id="participantId"
+            [class.is-invalid]="participantId?.invalid && participantId?.touched"
+            [class.is-valid]="participantId?.valid">
+                <mat-option style="z-index:1000;background-color: white;">
+                    <ngx-mat-select-search  [formControl]="filterInput2"   noEntriesFoundLabel="لا يوجد  اسم مشارك مماثل لكلمة البحث"
+                        placeholderLabel="البحث عن مشارك"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let element of supervisors" [value]="element.id">
+                    {{element.displayName}}
+                </mat-option>
+            </mat-select>
+            <div *ngIf="participantId?.errors && participantId?.touched">
+                <small *ngIf="participantId?.hasError('required')" class="text-danger">    يجب اختيار المشارك</small>
+            </div>
+        </div>
+      </div>
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>

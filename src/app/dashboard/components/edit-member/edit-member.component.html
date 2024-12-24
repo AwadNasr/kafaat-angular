@@ -1,0 +1,510 @@
+<div  class="container">
+  <div *ngIf="!isPasswordPageVisible" class="input-container">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="details-title">معلومات الحساب</div>
+        <div class="user-profile-container">
+            <div class="user-profile-image" style="background-image: url('{{userProfileImage}}');">
+            </div>
+            <div class="user-profile-camera d-pointer">
+                <div (click)="userImage.click()" class="d-pointer"  class="d-flex align-items-center justify-content-center" style="height: 60px;">
+                    <i class="fas fa-camera camera-icon" ></i>
+                </div>
+                <div class="ps-3">
+                    <input type="file" name="userImage"  accept="image/*" (change)="onUserImageSelected($event)" #userImage style="display:none">
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- username -->
+        <div class="input-surrounding">
+            <div class="input-element w-100">
+                <input type="text" name="userName" id="userName" (blur)="EditField('UserName')"  [(ngModel)]="profile.displayName"
+                    class="input-element-icon person-icon" >
+                <label for="userName">الاسم الرباعي للعضو</label>
+            </div>
+            <div *ngIf="false">
+                <small class="error-text"> حقل الاسم الرباعي للعضو مطلوب</small>
+            </div>
+        </div>
+        <!-- email -->
+        <div class="input-surrounding">
+            <div class="input-element w-100">
+                <input type="text" name="email" id="email" (blur)="EditField('Email')"  [(ngModel)]="profile.email" class="input-element-icon email-icon">
+                <label for="email">البريد الإلكتروني</label>
+            </div>
+            <div *ngIf="false">
+                <small  class="error-text"> حقل البريد الإلكتروني مطلوب</small>
+            </div>
+        </div>
+        <!-- Category -->
+        <div class="input-surrounding">
+          <div class="select-element select-input w-100">
+            <select type="text" name="userCategoryId" id="userCategoryId" (change)="EditField('userCategoryId')" [(ngModel)]="profile.userCategoryId" >
+                <option [selected]="profile.userCategoryId == null" [disabled]="profile.userCategoryId != null" value="null"style="color: var(--neutral50-color);font-size: 12px;">اختر نوع تصنيف المستخدم</option>
+                <option [selected]="item.id==profile.userCategoryId" *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+            </select>
+            <label for="workType"> تصنيف المستخدم</label>
+        </div>
+        <div *ngIf="false">
+            <small class="error-text"> حقل تصنيف المستخدم مطلوب</small>
+        </div>
+      </div>
+        <!-- phone -->
+        <div class="input-surrounding">
+            <div class="input-element w-100">
+                <input type="number" name="phoneNumber" id="phoneNumber" (blur)="EditField('Phone')" [(ngModel)]="profile.phoneNumber" class="input-element-icon phone-icon"
+                    >
+                <label for="phoneNumber">رقم الجوال</label>
+            </div>
+            <div *ngIf="false">
+                <small class="error-text"> حقل رقم الجوال مطلوب</small>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="details-title">كلمة المرور</div>
+        <!-- password -->
+        <!-- <div class="input-surrounding">
+            <div class="input-element w-100">
+                <input type="text" [readonly]="true" name="password"
+                    id="password"  value="xxxxxxxxxxxxxxxx" style="background-color: var(--neutral50-color);"
+                    class="input-element-icon lock-icon" >
+                <label for="password" style="top:-10px">كلمة المرور</label>
+            </div>
+        </div> -->
+        <!-- <button class="bg-primary-btn mt-3" (click)="openchange();isPasswordPageVisible=!isPasswordPageVisible">تغيير كلمة
+            المرور</button> -->
+            <button class="bg-primary-btn mt-3" (click)="resetPasswrd();isPasswordPageVisible=!isPasswordPageVisible">
+              اعادة تعيين كلمة المرور
+              </button>
+        <div class="divider"></div>
+        <div class="details-title">معلومات شخصية</div>
+        <!-- first, middle and last name -->
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="input-surrounding">
+                    <div class="input-element-none-icon w-100">
+                        <input type="text" name="firstName" id="firstName" (blur)="EditField('FirstName')" [(ngModel)]="profile.firstName" class="none-icon"
+                            >
+                        <label for="firstName">الاسم الاول</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل الاسم الاول مطلوب</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="input-surrounding">
+                    <div class="input-element-none-icon w-100">
+                        <input type="text" name="middleName" id="middleName" (blur)="EditField('MiddleName')" [(ngModel)]="profile.middleName"
+                            class="none-icon" >
+                        <label for="middleName">الاسم الاوسط</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل الاسم الاوسط
+                            مطلوب</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <div class="input-surrounding">
+                    <div class="input-element-none-icon w-100">
+                        <input type="text" name="lastName" id="lastName" (blur)="EditField('LastName')" [(ngModel)]="profile.lastName" class="none-icon"
+                            >
+                        <label for="lastName">الاسم الاخير</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل الاسم الاخير مطلوب</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="input-surrounding">
+                    <div class="input-element-none-icon w-100">
+                        <input type="text" name="nickName" id="nickName" (blur)="EditField('NickName')" [(ngModel)]="profile.nickName" class="none-icon"
+                            >
+                        <label for="nickName">الكنية</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل الكنية مطلوب</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="input-surrounding">
+                    <div class="select-element select-input w-100">
+                        <select type="text" name="familyBranch" id="familyBranch" (change)="EditField('FamilyBranch')" [(ngModel)]="profile.familyBranchId" >
+                            <option [selected]="profile.familyBranchId == null" [disabled]="profile.familyBranchId != null" value="null"style="color: var(--neutral50-color);font-size: 12px;">اختر فرع العائلة</option>
+                            <option [selected]="item.id==profile.familyBranchId" *ngFor="let item of familyBranches" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                        <label for="familyBranch">فرع الأسرة</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل فرع الأسرة مطلوب</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-title my-3">النوع</div>
+        <!-- gender -->
+        <div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="row">
+                        <div class="col-3 col-md-6">
+                            <div class="d-flex justify-content-start align-items-start pb-2">
+                                <input type="radio" class="defaultRadioButton" style="width: 30px;" (change)="EditField('Gender')" value="m" [(ngModel)]="profile.gender"
+                                    name="gender" id="male">
+                                <span for="make d-inline-block" style="margin-right: 20px;">ذكر</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6">
+                            <div class="d-flex justify-content-start align-items-start pb-2">
+                                <input type="radio" class="defaultRadioButton" style="width: 30px;" (change)="EditField('Gender')" value="f" [(ngModel)]="profile.gender"
+                                    name="gender" id="female">
+                                <span for="female d-inline-block" style="margin-right: 20px;">انثى</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8"></div>
+            </div>
+        </div>
+
+        <!--   identityNumber -->
+        <div class="input-surrounding mt-4">
+            <div class="input-element-none-icon w-100">
+                <input type="number" name="identityNumber" id="identityNumber"  [(ngModel)]="profile.identityNumber"
+                    class="none-icon" >
+                <label for="identityNumber">رقم الهوية</label>
+            </div>
+            <div *ngIf="false">
+                <small class="error-text"> حقل رقم الهوية مطلوب</small>
+            </div>
+        </div>
+        <!-- birth data milady and hijry -->
+        <div class="row">
+            <!-- <div class="col-12 col-md-6">
+                <div class="input-element-none-icon w-100 mt-4 ">
+                    <div class="input-group flex-nowrap" style="height: 60px;">
+                       <input  matInput  [matDatepicker]="picker"  [(ngModel)]="profile.birthDateInAD"
+                       (dateChange)="onChangeDate($event)"  placeholder="DD/MM/YYYY" type="text" name="birthDateInAD" id="birthDateInAD"
+                         class="none-icon form-control"
+                        aria-describedby="addon-wrapping">
+                        <mat-datepicker-toggle matSuffix class="border" [for]="picker"></mat-datepicker-toggle>
+                       <mat-datepicker #picker></mat-datepicker>
+                    <label for="birthDateInAD">تاريخ الميلاد (ميلادي)</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="input-element-none-icon w-100 mt-4 ">
+                    <div class="input-group flex-nowrap" style="height: 60px;">
+                        <input
+
+                        [matDatepicker]="picker"
+                         [value]="birthDateInHijriValue" readonly
+                         placeholder="DD/MM/YYYY"
+                         [value]="profile.birthDateInHijri"
+                        type="text"
+                        id="birthDateInHijri" [(ngModel)]="profile.birthDateInHijri"
+                        name="birthDateInHijri"
+                        class="form-control" [min]="minDate" [max]="maxDate">
+
+                        <mat-datepicker-toggle matSuffix class="border" [for]="picker10"></mat-datepicker-toggle>
+
+                    <label for="birthDateInHijri" style="top: -10px; font-size: 10px;">تاريخ الميلاد (هجري)</label>
+                    </div>
+                </div>
+
+            </div> -->
+            <div class="col-12 col-md-6">
+              <div class="input-element-none-icon w-100 mt-4" style="border-top-left-radius: 10px;">
+                <div class="input-group flex-nowrap" style="height: 60px;">
+                  <input
+                    [(ngModel)]="profile.birthDateInAD"
+                    (change)="onChangeDate($event)"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    name="birthDateInAD"
+                    id="birthDateInAD"
+                    class="none-icon form-control"
+                    aria-describedby="addon-wrapping">
+                  <label for="birthDateInAD">تاريخ الميلاد (ميلادي)</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="input-element-none-icon w-100 mt-4">
+                <div class="input-group flex-nowrap" style="height: 60px;">
+                  <input
+                    [value]="profile.birthDateInHijri"
+                    readonly
+                    placeholder="DD/MM/YYYY"
+                    type="text"
+                    id="birthDateInHijri"
+                    [(ngModel)]="profile.birthDateInHijri"
+                    name="birthDateInHijri"
+                    class="form-control">
+                  <label for="birthDateInHijri" style="top: -10px; font-size: 10px;">تاريخ الميلاد (هجري)</label>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+
+        <!-- facebook and twitter -->
+
+
+        <!-- gender -->
+        <div>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <!-- country -->
+                    <div class="input-surrounding">
+                        <div class="select-element select-input w-100">
+                            <select type="text" name="country" id="country" (change)="loadAllCitiesRelated(profile.countryId);isCountryChanged=true;profile.cityId=0" [(ngModel)]="profile.countryId" >
+                                <option [selected]="item.id==profile.countryId" *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <label for="country">الدولة</label>
+                        </div>
+                        <div *ngIf="false">
+                            <small class="error-text"> حقل الدولة مطلوب</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <!-- city -->
+                    <div class="input-surrounding">
+                        <div class="select-element select-input w-100">
+                            <select type="text" name="city" id="city" (change)="loadAllDistrictRelated(profile.cityId);isCityChanged=true;isCountryChanged=false;profile.districtId=0;" [(ngModel)]="profile.cityId" >
+                                <option [selected]="isCountryChanged" value="0" [disabled]="true">اختر المدينة</option>
+                                <option [selected]="item.id==profile.cityId" *ngFor="let item of cities" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <label for="city">المدينة</label>
+                        </div>
+                        <div *ngIf="false">
+                            <small class="error-text"> حقل المدينة مطلوب</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <!-- district -->
+                    <div class="input-surrounding">
+                        <div class="select-element select-input w-100">
+                            <select type="text" name="district" id="district" (change)="EditField('District')" [(ngModel)]="profile.districtId" >
+                                <option [selected]="isCityChanged" value="0" [disabled]="true">اختر الحى</option>
+                                <option [selected]="item.id==profile.districtId" *ngFor="let item of districts" value="{{item.id}}">{{item.name}}</option>
+                            </select>
+                            <label for="district">الحى</label>
+                        </div>
+                        <div *ngIf="false">
+                            <small class="error-text"> حقل الحى مطلوب</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-title my-3">الحالة</div>
+            <div class="row  mt-3">
+                <div class="col-12 col-md-4">
+                    <div class="row">
+                        <div class="col-3 col-md-6">
+                            <div class="d-flex justify-content-start align-items-start pb-2">
+                                <input type="radio" class="defaultRadioButton" style="width: 30px;" value="m"
+                                    [(ngModel)]="profile.maritalStatus" (change)="EditField('MaritalStatus')" name="maritalStatus" id="male">
+                                <span for="make d-inline-block" style="margin-right: 20px;">متزوج</span>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6">
+                            <div class="d-flex justify-content-start align-items-start pb-2">
+                                <input type="radio" class="defaultRadioButton" style="width: 30px;" value="s"
+                                    [(ngModel)]="profile.maritalStatus" (change)="EditField('MaritalStatus')" name="maritalStatus" id="female">
+                                <span for="female d-inline-block" style="margin-right: 20px;">اعزب</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8"></div>
+            </div>
+            <!-- country,city and district -->
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-12 col-md-4">
+                <!-- qualification -->
+                <div class="input-surrounding">
+                    <div class="select-element select-input w-100">
+                        <select type="text" name="qualification" id="qualification" (change)="loadRelatedDepartments(profile.qualificationId);isQualificationChanged=true;profile.departmentId=0" [(ngModel)]="profile.qualificationId" >
+                            <option [selected]="item.id==profile.qualificationId" *ngFor="let item of qualifications" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                        <label for="qualification">المؤهل</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل المؤهل مطلوب</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <!-- department -->
+                <div class="input-surrounding">
+                    <div class="select-element select-input w-100">
+                        <select type="text" name="department" id="department" [disabled]="departmentDisabled" (change)="loadRelatedSpecializations(profile.departmentId);isQualificationChanged=true;profile.specializationId=0"  [(ngModel)]="profile.departmentId" >
+                            <option *ngFor="let item of " value="{{item.id}}">{{item.name}}</option>
+                            <option [selected]="isQualificationChanged" value="0" [disabled]="true">اختر القسم</option>
+                                <option [selected]="item.id==profile.departmentId" *ngFor="let item of departments" value="{{item.id}}">{{item.name}}</option>
+
+                        </select>
+                        <label for="department">القسم</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل القسم مطلوب</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+                <!-- specialization -->
+                <div class="input-surrounding">
+                    <div class="select-element select-input w-100">
+                        <select type="text" name="specialization" [disabled]="specializationDisabled" id="specialization" [(ngModel)]="profile.specializationId" >
+                            <option [selected]="isDepartmentChanged" value="0" [disabled]="true">اختر التخصص</option>
+                            <option [selected]="item.id==profile.specializationId" *ngFor="let item of specializations" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                        <label for="specialization">التخصص</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل التخصص مطلوب</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mt-3 d-flex justify-content-center align-items-center">
+            <div class="col-12 col-md-6 pb-2">
+                <!-- specialization -->
+                <div class="input-element-none-icon w-100 mt-4 ">
+                <input type="text" name="experience" id="experience" (blur)="EditField('Experience')" [(ngModel)]="profile.experience"
+                class="none-icon">
+                <label for="experience">الخبرات</label>
+                </div>
+
+            </div>
+            <div class="col-12 col-md-6">
+                <!-- workType -->
+                <div class="input-surrounding">
+                    <div class="select-element select-input w-100">
+                        <select type="text" name="workType" id="workType" (change)="EditField('WorkType')" [(ngModel)]="profile.workTypeId" >
+                            <option [selected]="profile.workTypeId == null" [disabled]="profile.workTypeId != null" value="null"style="color: var(--neutral50-color);font-size: 12px;">اختر نوع العمل</option>
+                            <option [selected]="item.id==profile.workTypeId" *ngFor="let item of workTypes" value="{{item.id}}">{{item.name}}</option>
+                        </select>
+                        <label for="workType">نوع العمل</label>
+                    </div>
+                    <div *ngIf="false">
+                        <small class="error-text"> حقل نوع العمل مطلوب</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+        <div class="input-surrounding">
+            <div class="select-element select-input w-100">
+                <select type="text" name="distinguishedTypeId" id="distinguishedTypeId" (change)="EditField('DistinguishedType')" [(ngModel)]="profile.distinguishedTypeId" >
+                    <option [selected]="profile.distinguishedTypeId == null" [disabled]="profile.distinguishedTypeId != null" value="null" style="color: var(--neutral50-color);font-size: 12px;">اختر فرع العائلة</option>
+                    <option [selected]="item.id==profile.distinguishedTypeId" *ngFor="let item of distinguishedTypes" value="{{item.id}}">{{item.name}}</option>
+                </select>
+                <label for="distinguishedTypeId">وجه التميز</label>
+            </div>
+            <div *ngIf="false">
+                <small class="error-text"> حقل وجه التميز مطلوب</small>
+            </div>
+        </div>
+            </div>
+            <div class="col-12 col-md-6">
+        <div class="input-surrounding">
+            <div class="input-element-none-icon w-100 ">
+                <input type="text" name="hoppies" id="hoppies" (blur)="EditField('Hoppies')" [(ngModel)]="profile.hoppies"
+                    class="none-icon">
+                <label for="hoppies">الهوايات</label>
+            </div>
+            <div *ngIf="false">
+                <small class="error-text"> حقل الهوايات مطلوب</small>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+        <!-- ////asdas -->
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="input-element-none-icon w-100 mt-4 ">
+                    <input type="text" name="twitterLink" id="twitterLink" (blur)="EditField('TwitterLink')" [(ngModel)]="profile.twitterLink"
+                        class="none-icon">
+                    <label for="twitterLink">رابط تويتر </label>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 ">
+                <div class="input-element-none-icon w-100 mt-4 ">
+                    <input type="text" name="facebookLink" id="facebookLink" (blur)="EditField('FacebookLink')" [(ngModel)]="profile.facebookLink"
+                        class="none-icon">
+                    <label for="facebookLink">رابط الفيسبوك </label>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="details-title">معلومات السيرة الذاتية</div>
+        <div>
+        <div class="row">
+            <div class="col-12 col-md-6">
+              <div class="d-flex justify-content-right align-items-center">
+                <input type="checkbox" class="Square_Sign_checkboxButton" [checked]="profile.isBusinessOwner==true" (change)="EditField('isBusinessOwner')" style="width: auto; border: none;"  [(ngModel)]="profile.isBusinessOwner" name="isBusinessOwner" id="isBusinessOwner">
+                <span for="make d-inline-block">هل انت صاحب عمل ؟</span>
+            </div>
+                <div class="d-flex justify-content-right align-items-center">
+                    <input type="checkbox" class="Square_Sign_checkboxButton" [checked]="profile.isAvailableToWork==true" (change)="EditField('IsAvailableToWork')" style="width: auto; border: none;"  [(ngModel)]="profile.isAvailableToWork" name="isAvailableToWork" id="isAvailableToWork">
+                    <span for="make d-inline-block">هل تبحث عن عمل ؟</span>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div *ngIf="profile.isAvailableToWork==true">
+        <div class="sub-title mb-2 mt-3">السيرة الذاتية</div>
+        <div class="dashed-container d-flex justify-content-between align-items-center">
+            <div class="d-flex justify-content-start align-items-center">
+                <img src="/assets/images/cloud.svg" alt="">
+                <div class="ps-3">
+                    <div (click)="fileInput.click()" class="d-pointer">
+                        <div class="cloud-title pb-2">اختر ملف، او اسحبه هنا للرفع</div>
+                        <div class="cloud-sub-title">PDF file size no more than 10MB</div>
+                    </div>
+                    <input type="file" name="image"   accept="application/pdf" (change)="onSelectedCVFile($event)" #fileInput style="display:none">
+                </div>
+            </div>
+            <div class="">
+                <a class="bg-primary-btn" (click)="fileInput.click()">تحديد ملف</a>
+            </div>
+        </div>
+        <div *ngIf="errorMessage.length>1">
+            <small class="error-text">{{errorMessage}}</small>
+        </div>
+        <div *ngIf="fileSize > 0 && errorMessage == ''" class="p-3 d-flex justify-content-between align-items-center select-file-bg">
+            <div *ngIf="isNewSelectedFile">{{fileSize|number:'1.2-2'}} MB</div>
+            <div style="text-align: right;">
+                <a class="text-decoration-none d-pointer" (click)="showCV()"> عرض </a>
+                <span class="px-3">{{fileName}}</span>
+                <img src="/assets/images/file-small-image.svg" alt="">
+            </div>
+        </div>
+        </div>
+        <button class="bg-primary-btn text-light py-3" (click)="SaveData()">حفظ</button>
+</div>
+</div>
+
+<!-- <app-profile-change-password *ngIf="isPasswordPageVisible" (valueEmitted)="valueEmitted($event)"></app-profile-change-password> -->

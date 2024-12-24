@@ -1,0 +1,28 @@
+.pop-up-container{
+  padding: 20px;
+}
+.input-label{
+  color: var(--neutral90-color);
+}
+.title-pop-up{
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark-default-color);
+  line-height: 24px;
+  border-bottom: 2px solid var(--main-color);
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+}
+.form-select:hover{
+  outline: none;
+  box-shadow: none;
+}
+.form-select:focus{
+  outline: none;
+  box-shadow: none;
+}
+.form-select{
+  outline: none;
+  box-shadow: none;
+  border: 1px solid var(--neutral40-color);
+}

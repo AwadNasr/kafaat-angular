@@ -1,0 +1,55 @@
+<div class="row page-list-header d-flex justify-content-between align-items-center">
+  <div class="col-12 col-md-5">
+    <div class="mainPageTitle mb-3">المشاركون</div>
+  </div>
+  <!-- <div class="col-12 col-md-3 text-light" style="    align-self: self-end;"  *ngIf="!clubOrActivity">
+    <button type="button" class="btn btn-success w-100" (click)="exportAsXLSX()" >تصدير</button>
+  </div> -->
+  <div class="col-12 col-md-4" style="    align-self: self-end;">
+    <input type="text" style="outline: none; border: 1px solid var(--main-color);box-shadow: none;margin: 0px;" (keyup.enter)="getPageByName()" [(ngModel)]="pagedRequest.name" placeholder="ابحث عن مستخدم" class="form-control">
+  </div>
+</div>
+
+<div>
+    <table class="table table-responsive table-hover">
+        <tr class="tableHeader">
+            <td>الصورة </td>
+            <td>الاسم الرباعي</td>
+            <td>البريد الالكتروني</td>
+        </tr>
+         <tr class="mt-3">
+            <td colspan="7"></td>
+         </tr>
+        <tbody class="tableData" *ngFor="let item of pageResponse.items | paginate:
+            { id: 'foo', itemsPerPage: pagedRequest.pageSize, currentPage: pagedRequest.pageNumber, totalItems: pageResponse.totalCount };let i = index">
+            <tr id="first_{{i}}" >
+                <td class="table-date" style="cursor: pointer;">
+                  <img src="{{item.imageUser}}" width="55" height="55" style="border-radius: 50px;" alt="">
+                  <!-- <div class="user-image" style="background-image: url('{{item.imageUser}}');"></div> -->
+                </td>
+                <td class="table-date" style="cursor: pointer;" >{{item.userDisplayName}}</td>
+                <td class="table-date" style="cursor: pointer;">{{item.email}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="pageResponse.totalCount==0" class="emptyData">لا يوجد بيانات  . . .</div>
+
+</div>
+<div class="row my-5 mb-1 m-0" >
+    <div class="d-flex align-items-center justify-content-center">
+      <div>
+        <pagination-controls (pageChange)="changePageNumber($event)" id="foo" nextLabel="" previousLabel=""></pagination-controls>
+      </div>
+      <div >
+        <select style="margin-bottom: 15px;padding: 5px;display: inline-block;width: 70px;" name="pageSize" id="pageSize" (change)="changePageSize()" [(ngModel)]="pagedRequest.pageSize" class="select-size">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+    </div>
+</div>
+<div class="text-center">إجمالى عدد الأعضاء : {{ pageResponse.totalCount}}</div>
+

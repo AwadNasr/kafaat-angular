@@ -1,0 +1,48 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="registeration-container">
+        <div class="pb-4">
+            <img src="/assets/images/logo.svg" width="100%" height="80px" alt="">
+        </div>
+        <div class="registeration">
+            <div class="nextPage">
+                <div class="details-title">تسجيل الدخول</div>
+                            <!-- email -->
+                            <div class="input-surrounding">
+                                <div class="input-element w-100">
+                                    <input type="text" name="email" id="email" formControlName="email" class="input-element-icon email-icon"
+                                        required="">
+                                    <label for="email"> رقم الجوال</label>
+                                </div>
+                                <div *ngIf="email?.errors && email?.touched">
+                                    <small *ngIf="email?.hasError('required')" class="error-text"> حقل رقم الجوال مطلوب</small>
+                                </div>
+                            </div>
+                            <!-- password -->
+                            <div class="input-surrounding">
+                                <div class="input-element w-100">
+                                    <div class="password-container">
+                                    <input type="{{isPasswordVisible?'text':'password'}}" name="password" id="password" formControlName="password" class="input-element-icon  lock-icon" required="">
+                                    <label for="password">كلمة المرور</label>
+                                    <img *ngIf="isPasswordVisible"  (click)="isPasswordVisible=!isPasswordVisible" src="/assets/images/show.svg" width="25" height="25" class="passwordImage" alt="">
+                                    <img *ngIf="!isPasswordVisible" (click)="isPasswordVisible=!isPasswordVisible" src="/assets/images/eye.svg" width="25" height="25" class="passwordImage" alt="">
+                                </div>
+                                </div>
+                                <div *ngIf="password?.errors && password?.touched">
+                                    <small *ngIf="password?.hasError('required')" class="error-text"> حقل كلمة المرور مطلوب</small>
+                                </div>
+                            </div>
+                            <p class="text-end pt-2"><a routerLink="/forgotten-password" class="text-main text-decoration-none">نسيت كلمة المرور</a></p>
+                            <button type="submit" class="bg-primary-btn-block my-3 mb-4">تسجيل الدخول</button>
+            </div>
+            <div class="text-center">
+                لا تملك حساب ؟ <a routerLink="/registeration" class="d-pointer text-decoration-none" style="color: var(--main-color);">طلب انضمام</a>
+            </div>
+        </div>
+        <div class="back-arrow pt-3">
+            <a  (click)="back()" class="text-white text-decoration-none d-pointer">
+                <img   src="/assets/images/arrow-forward.svg" alt="">
+                <div class="d-inline-block back-btn">رجوع</div>
+            </a>
+        </div>
+    </div>
+    </form>

@@ -1,0 +1,158 @@
+.page-layout-container{
+    box-shadow: 0px 0px 7px lightgray;
+    border-radius: 8px;
+    height: 100%;
+    padding: 40px 30px;
+}
+.inactive-nav-item,.active-nav-item{
+    transition: all .5s ease-in-out;
+}
+.inactive-nav-item:hover,.active-nav-item:hover{
+    background-color: var(--Primary-border-color);
+    color: var(--main-color);
+    transform: scale(1.01);
+    transition: all .5s ease-in-out;
+}
+.inactive-nav-item:hover.inactive-nav-item,.active-nav-item:hover.inactive-nav-item{
+    border-right-color: var(--Primary-border-color);
+}
+.nav-link-container::-webkit-scrollbar {
+    display: none; 
+}
+.nav-link-container {
+    overflow-x: scroll;
+    /* display: inline-flex;  */
+    white-space: nowrap; 
+    /* padding-top: 50px; */
+  }
+  .active-nav-item:last-child,.inactive-nav-item:last-child{
+    color: red;
+  }
+@media (767px <= width <=3000px) {
+    .page-padding{
+        margin: 50px 124px;
+        padding: 0px 0px;
+    }
+    .nav-link-container{
+        box-shadow: 0px 0px 7px lightgray;
+        border-radius: 8px;
+    }
+    .inactive-nav-item,.active-nav-item{
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--neutral90-color);
+        line-height: 22px;
+        padding: 18px 16px;
+        border-bottom: 1px solid var(--Primary-border-color);
+        text-decoration: none;
+        display: block;
+        cursor: pointer;
+    }
+    .active-nav-item:not(:first-child){
+        border-right: 8px solid var(--main-color);
+    }
+    .active-nav-item:first-child{
+        border-right: 8px solid var(--main-color);
+        border-radius: 0px 8px 0px 0px;
+    }
+    .active-nav-item:last-child{
+        border-right: 8px solid var(--main-color);
+        border-radius: 0px 0px 8px 0px ;
+    }
+    
+    .inactive-nav-item:not(:first-child){
+        border-right: 8px solid white;
+    }
+    .inactive-nav-item:first-child{
+        border-right: 8px solid white;
+        border-radius: 0px 8px 0px 0px;
+    }
+    .inactive-nav-item:last-child{
+        border-right: 8px solid white;
+        border-radius: 0px 0px 8px 0px ;
+    }
+}
+@media (0px <= width <=767px) {
+    .page-padding{
+        margin: 50px 0px;
+        padding: 0px 0px;
+    }
+    .nav-link-container{
+        box-shadow: 0px 3px 4px lightgray;
+        border-radius: 8px;
+    }
+    .inactive-nav-item,.active-nav-item{
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--neutral90-color);
+        line-height: 22px;
+        padding: 18px 16px;
+        padding-bottom: 10px;
+        /* border-bottom: 1px solid var(--Primary-border-color); */
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .active-nav-item{
+        border-bottom: 8px solid var(--main-color);
+        /* border-radius: 0px 0px 8px 0px ; */
+    }
+    .inactive-nav-item{
+        border-bottom: 8px solid white;
+        /* border-radius: 0px 0px 8px 0px ; */
+    }
+    .page-layout-container{
+        margin: 40px 10px 0px 10px;
+        padding: 20px 10px;
+    }
+}
+
+
+
+/* ---------------------------------FIELDS---------------------------------------------------------------------- */
+.input-container {
+    position: relative;
+    outline: none;
+    box-shadow: none;   
+    border: none;
+    margin-bottom: -12px;
+    /* border: 1px solid var(--neutral90-color); */
+  }
+  
+  .input-container input,.input-container textarea {
+    width: 100%;
+    padding: 16px 30px 7px 0px;    
+  }
+  .input-container label {
+    position: absolute;
+    top:0;
+    right: 8px;
+    padding:8px 25px;
+    color: var(--neutral90-color);
+    pointer-events: none;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  
+  .input-container input:focus ~ label,
+  .input-container input:valid ~ label ,.input-container textarea:focus ~ label,
+  .input-container textarea:valid ~ label{
+    top: -10px;
+    left: 0;
+    color: var(--neutral90-color);
+    font-size: 10px;
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .input-container-icon {
+      background-position: 99%;
+      background-repeat: no-repeat;
+      padding-right: 40px;
+      outline: none;
+      box-shadow: none;     
+       border: 1px solid var(--neutral40-color);
+  }
+/* ---------------------------------FIELDS---------------------------------------------------------------------- */

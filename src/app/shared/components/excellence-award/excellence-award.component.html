@@ -1,0 +1,28 @@
+<div   class="manashet-list-container mb-5">
+  <div class="manashet-list-content">
+      <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+  </div>
+  <div class="manashet-items">
+    <div *ngFor="let item of navList">
+      <div *ngIf="item.isSelected" class="row">
+        <div class="col-12 d-flex align-items-center">
+          <div class="px-4 pt-4">
+            <p class="lh-lg" >{{excellenceAward}}</p>
+          </div>
+        </div>
+        <div class="col-12 d-flex align-items-center ">
+          <a class="bg-primary-btn my-4 " style="border-radius: 25px !important;" (click)="joinAward()">  تقدم للجائزة   </a>
+          <a class="bg-primary-btn my-4 mx-3" style="border-radius: 25px !important;"
+          >  أقرأ المزيد عن الجائزة  </a>
+
+        </div>
+        <div class="col-3">
+
+        </div>
+
+    </div>
+    </div>
+
+  </div>
+</div>
+

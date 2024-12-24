@@ -1,0 +1,134 @@
+<!-- <div class="home"> -->
+    <div class="navbar-container" id="beginningOfAbout">
+        <div class="navbar-element-container">
+            <app-navbar typeNav="light" (handleOpenNav)="openOrClosNav($event)"></app-navbar>
+        </div>
+        <div class="row bigRow">
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+
+                <div class="row containerImages " >
+                    <div class="addSpace"></div>
+                    <!-- <div class="about-we mb-4">من نحن </div>
+                    <p class="text-light fs-5 lh-base mb-5">كفاءات هي منصة تعليمية تهتم بافراد عائلة الماجد لايصال كل ماهو جديد</p> -->
+                    <!-- <button class="bg-primary-opacity-btn mx-auto mt-4"  style="display: block;margin-bottom: 30px;" routerLink="/kafaat/programs" >اكتشف البرامج</button>
+                    <button (click)="openModal()" class="btn bg-light p-2"> <img src="assets/images/play-circle.svg" class="me-2"
+                            alt="play-circle.svg" >شاهد الفيديو التعريفي</button> -->
+                    <!-- <div class="circle"> -->
+                    <div class="col-12 col-md-6 imgMainPaper zoom" (click)="naviagteToPrograms()">
+                        <img src="../../../../assets/images/podcast (3).svg"  loading="lazy" style="width: 100%;" class="home" @slideInRight>
+                    </div>
+                <!-- </div> -->
+                    <!-- <div class="col-12 col-md-1 vl"></div> -->
+                    <div class="col-12 col-md-6 imgMainPaper " (click)="openModal()" >
+                        <div class="circle"></div>
+                        <img src="../../../../assets/images/vid-home.png"  loading="lazy"  style="width: 100%;" class="handelImg " @slideInLeft>
+                    </div>
+
+                    <!-- <div class="col-12 col-md-1 "></div> -->
+                    <!-- <div class="addSpace"></div> -->
+                    <div class="col-12 col-md-12" style="height: min-content;">
+                    <!-- <h3 class="discover-title">كـــفــــــاءات.. تــصــنــع فَــرْقـــا</h3> -->
+                    <img src="../../../../assets/images/kfa2attsn3.svg" class="imgText" loading="lazy">
+                    <div class="col-1 col-md-3 yearAndImageContainerDown">
+                        <div class="yearContainer">
+                            <p style="color: white;margin-bottom: 8px !important;">
+                                لعام
+                            </p>
+                            <p style="color: white;margin-bottom: 5px;">
+                                {{contactInformationItems.year}}م
+                            </p>
+                        </div>
+                        <img src="../../../../assets/images/downarrow.png" loading="lazy" style="padding-block: 3px;width: 1.5rem;margin: auto;">
+                    </div>
+                    <div class="row  mainCounterRow" >
+                        <div class="col-1 col-md-3 yearAndImageContainer">
+                            <div class="yearContainer">
+                                <p style="color: white;margin-bottom: 8px;">
+                                    لعام
+                                </p>
+                                <p style="color: white;margin-bottom: 5px;">
+                                    {{contactInformationItems.year}}م
+                                </p>
+                            </div>
+                            <img src="../../../../assets/images/أيقونة السهم - إحصائيات.svg" style="width: 2rem;" loading="lazy">
+                        </div>
+                        <div class="col-5 col-md-4 vlL">
+                            <div class="row counterRow" >
+                                <div class="col-6 col-md-6">
+                                    <p>{{usersCounter}}</p>
+                                <p style="font-size: large;">مستفيداً</p>
+
+                                </div>
+
+                                <div class="col-6 col-md-6 imgData">
+                                    <img src="../../../../assets/images/membersIcon.png" loading="lazy" style="width: 5rem;vertical-align: super;" >
+                                </div>
+
+                            </div>
+                        </div>
+                         <!-- <div class=" col-md-1"></div> -->
+                         <div class="col-md-1 vertical-line"></div>
+                        <div class="col-5 col-md-4 vlR">
+                            <div class="row counterRow" >
+                                <div class="col-6 col-md-6">
+                                    <p>{{activityCounter}}</p>
+                                <p style="font-size: large;">منشطاً</p>
+                                </div>
+                                <div class="col-6 col-md-6 imgData">
+                                    <img src="../../../../assets/images/manshatIcon.png" style="width: 5rem;vertical-align: super;" loading="lazy">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                     <div class="row" style="width: 93%;">
+                        <img src="../../../../assets/images/n2sha3.svg" class="imgData" loading="lazy">
+                     </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 text-light">
+
+                    <app-image-third img1="assets/images/IMG_4005.JPG" img3="assets/images/h2.png" img2="assets/images/h3.png"></app-image-third>
+
+            </div>
+        </div>
+        <div class="bottomImg">
+            <!-- <img src="../../../../assets/images/النقشة السفلية.png" > -->
+        </div>
+    </div>
+        <div class="newTitle">
+            <p>برامج كـــفــــــاءات</p>
+        </div>
+
+    <div style="padding-top: 60px;">
+        <app-carousal-home></app-carousal-home>
+    </div>
+    <!-- <div style="background-image: url(../../../../assets/images/النقشةالسفليةبرنامجكفاءات.svg);"></div> -->
+    <div class="bottomImg2">
+        <!-- <img src="../../../../assets/images/النقشة السفلية.png" > -->
+    </div>
+    <app-layout-section [componentToDisplay]="1" title="ما هي كفاءات ؟"></app-layout-section>
+    <app-layout-section [componentToDisplay]="2" title="أبرز المناشط"></app-layout-section>
+    <div class="newTitle2">
+        <p>مقالات أبناء الأسرة</p>
+    </div>
+    <app-layout-section [componentToDisplay]="6" ></app-layout-section>
+    <app-layout-section [componentToDisplay]="3" title="أهم المشاركات"></app-layout-section>
+    <!-- < imgPath="assets/images/what-kafaat.png"></app-item-carousal-angle> -->
+    <!-- <app-posts-carousal-home></app-posts-carousal-home> -->
+    <!-- <app-tabs-container ></app-tabs-container> -->
+    <app-discover-programs></app-discover-programs>
+    <app-layout-section [componentToDisplay]="4" title="أبطال الشهر" header='b'></app-layout-section>
+    <app-layout-section [componentToDisplay]="5" title="تواصل معنا"></app-layout-section>
+    <!-- <app-form-contact></app-form-contact> -->
+    <!-- <app-month-faamous></app-month-faamous> -->
+    <div class="overlay" *ngIf="showOverlay"></div>
+    <a [href]="'https://api.whatsapp.com/send?phone='+contactInformationItems.whatsapp" class="position-fixed bottom-0" style="z-index: 1000;left: 0px; margin: 10px;">
+        <img src="assets/images/whatsappblue.svg" loading="lazy" alt="" style="width: 65px; margin-left: 10px; margin-bottom: 10px;"></a>
+    <!-- <app-tabs-container></app-tabs-container> -->
+<!-- </div> -->
+<div class="divider-section"></div>
+<app-dialog-video-image #dialog></app-dialog-video-image>
+
+<!-- <app-scroll-nav></app-scroll-nav> -->

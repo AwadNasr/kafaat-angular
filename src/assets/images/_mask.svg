@@ -1,0 +1,14 @@
+<svg width="216" height="215" viewBox="0 0 216 215" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g clip-path="url(#clip0_783_47651)">
+    <path d="M197.006 107.477L215.434 151.962L170.949 170.39L152.521 214.875L108.036 196.446L63.5516 214.875L45.1233 170.39L0.638672 151.962L19.067 107.477L0.638672 62.9923L45.1233 44.564L63.5516 0.0793457L108.036 18.5077L152.521 0.0793457L170.949 44.564L215.434 62.9923L197.006 107.477Z" fill="white"/>
+    <path d="M197.006 107.477L215.434 151.962L170.949 170.39L152.521 214.875L108.036 196.446L63.5516 214.875L45.1233 170.39L0.638672 151.962L19.067 107.477L0.638672 62.9923L45.1233 44.564L63.5516 0.0793457L108.036 18.5077L152.521 0.0793457L170.949 44.564L215.434 62.9923L197.006 107.477Z" fill="url(#pattern0)"/>
+  </g>
+  <defs>
+    <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+      <use xlink:href="#image0_783_47651" transform="translate(0 -0.0136503) scale(0.00239808)"/>
+    </pattern>
+    <clipPath id="clip0_783_47651">
+      <rect width="214.795" height="214.795" fill="transparent" transform="translate(0.638672 0.0793457)"/>
+    </clipPath>
+  </defs>
+</svg>

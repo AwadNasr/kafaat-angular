@@ -1,0 +1,78 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled [Header]="prize.name" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/excellence-prize" [subSubSubTitle]="prize.name"></app-bread-crumb>
+
+<div  style="background-color: #005183;margin-top: 40px">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-10 col-md-5">
+      <figure class="w-75 mx-auto h-100" style="margin-top: 10px;">
+        <img [src]="prize.prizeImage" class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+    <div class="col-sm-12 col-md-5 text-center my-sm-5">
+      <p class="text-white p-title" >{{prize.name}}</p>
+      <p class="text-white p-2 my-2 p-desc" style=" margin-inline: 1rem;">{{prize.description}}</p>
+      <button class="bg-primary-outline-btn my-2 p-btn" (click)="joinPrize(prize.id)" *ngIf="!checkDate(prize.applicationEndDate) && IsParticipant==false">تقدم للجائزة</button>
+       <button class="bg-primary-outline-btn my-2 p-btn" *ngIf="IsParticipant==true" (click)="getApproval()"> متابعة الحالة</button>
+      <button class="bg-primary-outline-btn my-2 p-btn" [routerLink]="['/kafaat/excellence-prize-winners',prize.id]" *ngIf="checkDate(prize.applicationEndDate)"> استعراض الفائزين</button>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+<div style="margin: 40px 0px;">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-10 col-md-5 ">
+      <p class="text-dark p-title" style="margin-inline: 1rem;">{{prize.staticContents[0].title}}</p>
+      <p class="titleLabel p-desc" style="margin-inline: 1rem;" [innerHTML]="prize.staticContents[0].staticContentValues[0].description"></p>
+      <div class="row justify-content-around align-items-center my-3 my-text" style=" margin-inline: 1rem;">
+        <button class="bg-primary-btn-block mt-2 col-5 my-sm-3 me-sm-3 p-btn" [routerLink]="['/kafaat/excellence-prize-conditions',prize.id]">قراءة المزيد عن الجائزة </button>
+        <button class="bg-primary-outline-btn mt-2 col-5 my-sm-3 p-btn">تحميل اللائحة التنظيمية</button>
+      </div>
+    </div>
+    <div class="col-sm-10 col-md-5">
+      <figure class="w-75 mx-auto">
+        <img [src]="prize.staticContents[0].staticContentValues[0].image" class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+    <div class="col-1"></div>
+
+  </div>
+</div>
+
+
+
+<div style="margin: 40px 0px; background-color: #F1F1F1;" *ngIf="prize.staticContents.length > 1">
+  <div class="w-100 text-center my-3 pt-5 p-title" style="line-height: 0.9cm;">{{ prize.staticContents[1].title }}</div>
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-evenly align-items-center">
+    <div class="col statisticsCol" *ngFor="let item of prizeContentValues">
+      <img *ngIf="item.image" [src]="item.image" class="my-1" width="64px" height="64px"><br>
+      <label *ngIf="item.description" class="text-dark my-1 p-title1" >{{ item.description }}</label><br>
+      <label class="titleLabel p-title1 my-1">{{ item.title }}</label><br>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div style="margin: 40px 0px;" >
+  <div class="row justify-content-around align-items-center">
+    <div class="col-sm-12 col-md-1"></div>
+    <div class="col-sm-12 col-md-4">
+      <div style="background-color: #005183;padding: 50px 30px;" class="text-center p-title text-white">
+        <p>المواسم السابقة</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6 row justify-content-around align-items-center">
+      <div class="col-5 my-2" *ngFor="let item of prizes" >
+        <p  style="color: #005183;cursor: pointer;" class="my-2 p-btn" [routerLink]="['/kafaat/excellence-prize-winners',item.id]"> {{item.name}}</p>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-1"></div>
+  </div>
+</div>

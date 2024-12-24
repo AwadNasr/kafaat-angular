@@ -1,0 +1,13 @@
+.manashet-card-container2{
+    border: 1px solid var(--Primary-border-color);
+    border-radius: 8px;
+    margin: 10px 0px;
+    background-color: white;
+    box-shadow: 1px 1px 7px lightgray;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+    width: 100%;
+    overflow: hidden;
+    min-height: 450px;
+}

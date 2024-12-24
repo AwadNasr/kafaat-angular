@@ -1,0 +1,112 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">اضافة كتاب</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+          <label class="input-label" for="Title">عنوان الكتاب</label>
+          <input formControlName="Title" type="text" Title="Title" id="Title"
+              [class.is-invalid]="Title?.invalid && Title?.touched" [class.is-valid]="Title?.valid"
+              class="form-control my-1">
+          <div *ngIf="Title?.errors && Title?.touched">
+              <small *ngIf="Title?.hasError('required')" class="text-danger">يجب ادخال عنوان الكتاب</small>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label class="input-label" for="Description">وصف الكتاب</label>
+          <input formControlName="Description" type="text" name="Description" id="Description"
+              [class.is-invalid]="Description?.invalid && Description?.touched" [class.is-valid]="Description?.valid"
+              class="form-control my-1">
+          <div *ngIf="Description?.errors && Description?.touched">
+              <small *ngIf="Description?.hasError('required')" class="text-danger">يجب ادخال وصف الكتاب</small>
+          </div>
+      </div>
+      <!-- <div class="mb-3">
+        <label class="input-label" for="Description">وصف الكتاب</label>
+        <div id="editor" class="w-100" #editor [innerHTML]="data?.description">
+        </div>
+        <div *ngIf="Description?.errors && Description?.touched">
+            <small *ngIf="Description?.hasError('required')"  class="text-danger">يجب ادخال وصف الكتاب</small>
+        </div>
+    </div> -->
+      <div class="mb-3">
+        <!-- <input (change)="onFileSelected2($event)" formControlName="Image" type="file" name="Image"
+               id="Image" class="form-control my-1 file-input" accept="image/*" hidden>
+        <label for="Image" class="bg-primary-btn-block custom-file-label">اختار صورة</label> -->
+        <label class=" mb-3" for="PrizeImage">
+          صورة جائزة التفوق: (لايجب ان يقل العرض عن {{minWidthProgram}} الطول عن {{minHeightProgram}})
+        </label>
+        <input (change)="onFileSelected2($event)" formControlName="Image" type="file" name="Image"
+               id="Image" class="form-control my-1 file-input" accept="image/*" hidden>
+        <label for="Image" class="bg-primary-btn-block custom-file-label">اختار صورة</label>
+        <div *ngIf="Image?.errors && Image?.touched">
+          <small *ngIf="Image?.hasError('required')" class="text-danger">يجب ادخال صورة الكتاب</small>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="input-label" for="Author">اسم المؤلف</label>
+        <input formControlName="Author" type="text" name="Author" id="Author"
+            [class.is-invalid]="Author?.invalid && Author?.touched" [class.is-valid]="Author?.valid"
+            class="form-control my-1">
+        <div *ngIf="Author?.errors && Author?.touched">
+            <small *ngIf="Author?.hasError('required')" class="text-danger">يجب ادخال اسم المؤلف</small>
+        </div>
+    </div>
+    <div class="mb-3">
+      <label class="input-label" for="PageCount">عدد الصفحات</label>
+      <input formControlName="PageCount" type="number" name="PageCount" id="PageCount"
+          [class.is-invalid]="PageCount?.invalid && PageCount?.touched" [class.is-valid]="PageCount?.valid"
+          class="form-control my-1">
+      <div *ngIf="PageCount?.errors && PageCount?.touched">
+          <small *ngIf="PageCount?.hasError('required')" class="text-danger">يجب ادخال عدد الصفحات</small>
+      </div>
+  </div>
+<div class="mb-3">
+  <label class="input-label" for="Link">رابط الكتاب</label>
+  <input formControlName="Link" type="text" name="Link" id="Link"
+      [class.is-invalid]="Link?.invalid && Link?.touched" [class.is-valid]="Link?.valid"
+      class="form-control my-1">
+  <div *ngIf="Link?.errors && Link?.touched">
+      <small *ngIf="Link?.hasError('required')" class="text-danger">يجب ادخال رابط الكتاب</small>
+  </div>
+</div>
+<div class="mb-3">
+  <label class="input-label" for="Category">تصنيف الكتاب</label>
+  <input formControlName="Category" type="text" name="Category" id="Category"
+      [class.is-invalid]="Category?.invalid && Category?.touched" [class.is-valid]="Category?.valid"
+      class="form-control my-1">
+  <div *ngIf="Category?.errors && Category?.touched">
+      <small *ngIf="Category?.hasError('required')" class="text-danger">يجب ادخال تصنيف الكتاب</small>
+  </div>
+</div>
+<div class="mb-3">
+  <label class="input-label" for="Language">لغة الكتاب</label>
+  <input formControlName="Language" type="text" name="Language" id="Language"
+      [class.is-invalid]="Language?.invalid && Language?.touched" [class.is-valid]="Language?.valid"
+      class="form-control my-1">
+  <div *ngIf="Language?.errors && Language?.touched">
+      <small *ngIf="Language?.hasError('required')" class="text-danger">يجب ادخال لغة الكتاب</small>
+  </div>
+</div>
+ <div class="mb-3">
+
+  <label for="QualificationId">مؤهل الكتاب</label>
+      <select id="QualificationId" formControlName="QualificationId" name="QualificationId"
+      [class.is-invalid]="QualificationId?.invalid && QualificationId?.touched" [class.is-valid]="QualificationId?.valid"
+      class="form-select my-1">
+        <option disabled selected>اختر مؤهل</option>
+        <option value="1" [selected]="QualificationId.value == 10013">متوسط</option>
+        <option value="2" [selected]="QualificationId.value == 10012">ثانوي</option>
+        <option value="3" [selected]="QualificationId.value == 10010 || QualificationId.value == 10009 || QualificationId.value == 10007 || QualificationId.value == 10011 ">جامعي</option>
+      </select>
+      <div *ngIf="QualificationId?.errors && QualificationId?.touched">
+        <small *ngIf="QualificationId?.hasError('required')" class="text-danger">يجب ادخال مؤهل الكتاب</small>
+    </div>
+</div>
+
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>
+
+

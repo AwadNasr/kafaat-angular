@@ -1,0 +1,51 @@
+<app-navbar typeNav="dark" style="z-index: 1000 !important;" [active]=1></app-navbar>
+<app-page-header-labeled Header="المجلة" style="z-index: 1000 !important;" [Label]="magazine.title"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" style="z-index: 1000 !important;" subTitlesRouteLink="/kafaat/magazine" subSubTitle="المجلة" subSubTitleRouteLink="/kafaat/magazine"
+[subSubSubTitle]="magazine.title"></app-bread-crumb>
+<div class="page-magazine" style="position: relative;z-index: 99 !important;" #fullScreen  (mouseenter)="showController()"
+(mouseleave)="hideController()">
+       <app-controller-pdf *ngIf="controllerVisible"  style="z-index: 100000000 !important;" class="mx-auto  controller" (nextClick)="goNextPage()" (previosClick)="goPrevPage()"
+       (stratClick)="startClick()" (endClick)="endClick()" (download)="downloadPdf()" (fullScreen)="fullScreenfun()"
+       [controller]="papers" [currentPage]="currentLocation"></app-controller-pdf>
+       <div  class="book" #book>
+
+
+              <div *ngFor="let item of papers;let i =index"  [id]="'p'+i" class="paper">
+                  <div class="front">
+                      <div [id]="'f'+i" class="front-content">
+                            <img [src]="item.firstElement.imagePath" alt="" class="h-100 w-100"/>
+
+                      </div>
+                  </div>
+                  <div class="back">
+                      <div [id]="'b'+i" class="back-content">
+                        <div *ngIf="!item.secondElement" style="background-color: #005183; width: 100%; height: 100%;">
+
+                        </div>
+                        <img *ngIf="item.secondElement" [src]="item.secondElement.imagePath" alt="" class="h-100 w-100"/>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</div>
+
+<div style="background-color: #005183;padding: 20px 10px; width:250px;" class="text-center p-title1 ms-5 my-4 text-white">
+  <p> شاهد الاصدارات السابقة</p>
+</div>
+<div class="more">
+       <div class="container m-auto">
+       <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+
+          <app-magazine-cart ngxSlickItem *ngFor="let slide of magazines;let i = index" [item]="slide" class="col-md-4 ms-3"></app-magazine-cart>
+
+
+       </ngx-slick-carousel>
+       <div class="text-center mt-4">
+        <img src="assets/images/next-carousal.svg" (click)="scrollNext()" alt="next-carousal" class="mx-4 d-pointer">
+        <img src="assets/images/back-carousal.svg" alt="back-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+
+    </div>
+      </div>
+</div>
+
+

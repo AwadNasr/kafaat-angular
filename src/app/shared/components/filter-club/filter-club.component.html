@@ -1,0 +1,39 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()"  class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">تصفية النتائج</div>
+  <form >
+<div class="row">
+  <div class="col-6 mb-3">
+    <label for="programId" class="mb-3"> السنة</label>
+    <select  type="text" name="programId" id="programId" class="form-select my-1">
+        <option >2024</option>
+        <option >2025</option>
+    </select>
+</div>
+<div class="col-6 mb-3">
+  <label for="programId" class="mb-3"> الشهر</label>
+  <select  type="text" name="programId" id="programId" class="form-select my-1">
+      <option>يناير</option>
+      <option>فبراير</option>
+      <option>مارس</option>
+      <option>ابريل</option>
+      <option>مايو</option>
+      <option>يونيو</option>
+      <option>يوليو</option>
+      <option>أغسطس</option>
+      <option>سبتمبر</option>
+      <option>أكتوبر</option>
+      <option>نوفمبر</option>
+      <option>ديسمبر</option>
+
+  </select>
+</div>
+</div>
+
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">تصفية</button>
+      <button type="button" (click)="closeDialog()" routerLink="#" class="bg-sec-btn-block add mb-4 p-2">الغاء</button>
+  </form>
+</div>
+

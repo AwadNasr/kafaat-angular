@@ -1,0 +1,15 @@
+.pop-up-container{
+    padding: 20px;
+}
+.input-label{
+    color: var(--neutral90-color);
+}
+.title-pop-up{
+    font-size: 18px;
+    border-bottom: 2px solid rgb(197, 0, 0);
+}
+.form-control{
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--neutral40-color);
+}

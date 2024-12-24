@@ -1,0 +1,110 @@
+<div class="container">
+    <div class="dropdown float-end">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          ادارة المنشط
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" [routerLink]="['/admin/attachments-activity',activity.id]">المرفقات</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/images-activity',activity.id]">  الصور</a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/videos-activity',activity.id]">مقاطع الفديو </a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/report-activity',activity.id]"> التقرير </a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/participants',activity.id]"> المشاركون </a></li>
+          <li><a class="dropdown-item" [routerLink]="['/admin/posts',activity.id]"> المشاركات </a></li>
+        </ul>
+      </div>
+    <div class="row g-3 w-100">
+        <div class="col-12 col-md-4 border">
+            <img [src]="activity.imagePath" width="100%" height="200px"  alt="not found">
+        </div>
+        <div class="col-12 col-md-8 row g-4">
+            <div class="col-4">
+                الاسم
+            </div>
+            <div class="col-8">
+                {{activity.name}}
+            </div>
+            <div class="col-4">
+                مكان
+            </div>
+            <div  class="col-8">
+                {{activity.place}}
+            </div>
+
+            <div class="col-4">
+                المشرف
+            </div>
+            <div  class="col-8">
+                {{activity.supervisorUserName}}
+            </div>
+            <div class="col-4">
+                تاريخ
+            </div>
+            <div  class="col-8">
+                {{activity.date | date: 'yyyy/MM/dd' }}
+            </div>
+        </div>
+        <div class="col-12 row mt-4 border align-items-center py-3">
+            <div class="col-2">
+                التفاصيل
+            </div>
+            <div class="col-10" [innerHTML]="activity.description">
+                
+            </div>
+        </div>
+       <div class="border row py-3">
+        <div class="col-2">
+            من
+        </div>
+        <div class="col-10 col-md-4">
+            {{activity.date | date: 'yyyy/MM/dd'}}
+        </div>
+        <div class="col-2">
+            الي
+        </div>
+        <div class="col-10 col-md-4">
+            {{activity.to | date: 'yyyy/MM/dd' }}
+        </div>
+       </div>
+
+       <div class="row border py-3">
+        <div class="col-2">
+            نوع النشاط
+        </div>
+        <div class="col-10 col-md-4">
+            {{activity.activityTypeName}}
+        </div>
+        <div class="col-2">
+           البرنامج
+        </div>
+        <div class="col-10 col-md-4">
+            {{activity.programTitle}}
+        </div>
+       </div>
+
+        <div class="row border py-3">
+            <div class="col-4">
+                اقصي عدد المشاركين
+           </div>
+           <div class="col-6 col-md-2">
+               {{activity.maximumParticipants}}
+           </div>
+           <div class="col-2">
+              سعر المشاركة
+           </div>
+           <div class="col-10 col-md-4">
+               {{activity.ticketPrice}}
+           </div>
+   
+        </div>
+        <div class="col-12 row mt-3 border py-3">
+            <div class="col-2">
+                الفئات
+            </div>
+            <div class="col-10">
+                <span style="display: inline;">
+                    {{activity.userCategories}}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

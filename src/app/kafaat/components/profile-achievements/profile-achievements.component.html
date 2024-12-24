@@ -1,0 +1,31 @@
+<div class="Musharkat-container">
+    <div class="main-title">الإنجازات</div>
+    <!-- <div class="tabs-container">
+        <div class="musharakat-list-content">
+            <a *ngFor="let nav of navList" (click)="selectItem(nav.title)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">
+                <img  *ngIf="nav.title=='المزيد'" class="me-1" src="/assets/images/list.svg" height="10px" alt="">
+                {{nav.title}}
+            </a> 
+        </div>
+        <div *ngIf="isDropDownOptionsVisible" class="musharakat-options">
+            <a class="shared-user-info-list-options-item-update">تعديل المشاركة</a>
+            <a class="shared-user-info-list-options-item-delete">حذف المشاركة</a>
+        </div>
+    </div> -->
+    <app-scroll-nav (numberSelected)="selectItem($event)"></app-scroll-nav>
+    <div class="card-items-container">
+        <div class="row">
+            <div *ngFor="let item of filterItems" class="col-md-6">
+                <div class="card-item">
+                    <img src="/assets/images/Badge.svg" width="100%" height="200px" alt="">
+                    <div class="divider"></div>
+                    <div class="p-3">
+                        <div class="program-name">{{item.programId}}</div>
+                        <div class="main-title">{{item.activitiesName}}</div>
+                    </div>
+                </div>
+            </div>
+            <app-empty-data *ngIf="filterItems.length==0" [inputText]="'لا يوجد انجازات لعرضها'"></app-empty-data>
+        </div>
+    </div>
+    </div>

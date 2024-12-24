@@ -1,0 +1,17 @@
+<div class="container">
+    <ngx-slick-carousel #slickCarousel  class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+      <div ngxSlickItem *ngFor="let slide of slides;let i = index" class="slide d-pointer">
+        <div class="carousal-home-item d-flex align-items-center justify-content-center m-4 zoom"
+        (mouseenter)="onCarouselItemMouseEnter(i)" (mouseleave)="onCarouselItemMouseLeave(i)">
+            <img src="{{slide.imagePath}}" loading="lazy" alt="Programs" (click)="onItemClick(slide, slide.id)" width="80px" height="80px">
+        </div>
+        <p [id]="'p'+i" class="fs-6 fw-bold text-center p-title" (click)="onItemClick(slide, slide.id)">{{slide.title}}</p>
+        <p class="text-center small" (click)="onItemClick(slide, slide.id)">منشط {{slide.activityCount}}</p>
+        </div>
+    </ngx-slick-carousel>
+    <div class="text-center" dir="ltr">
+        <img src="assets/images/back-carousal.svg" loading="lazy" alt="back-carousal" (click)="scrollNext()" class="mx-4 d-pointer">
+        <img src="assets/images/next-carousal.svg"  loading="lazy" alt="next-carousal" (click)="scrollBack()" class="mx-4 d-pointer">
+    </div>
+    </div>
+

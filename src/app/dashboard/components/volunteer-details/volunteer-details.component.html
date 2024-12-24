@@ -1,0 +1,58 @@
+<div class="pop-up-container">
+<div class="dropdown float-end ">
+  <button class="bg-primary-btn-block dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    ادارة  التطوع
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" [routerLink]="['/admin/volunteer-field-list',volunteerField.id]"> مجالات التطوع </a></li>
+    <li><a class="dropdown-item" [routerLink]="['/admin/volunteer-report',volunteerField.id]">  تقرير التطوع </a></li>
+    <li><a class="dropdown-item" [routerLink]="['/admin/volunteer-field-conditions',volunteerField.id]">   شروط مجال التطوع </a></li>
+  </ul>
+</div>
+</div>
+<div class="pop-up-container">
+
+  <div class="title-pop-up">تفاصيل  التطوع</div>
+
+      <div class="mb-3 ">
+        <label class="input-label" for="title">عنوان  التطوع</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" disabled>{{volunteerField.title}}</label>
+      </div>
+      <div class="mb-3">
+        <label class="input-label" for="description">وصف  التطوع</label>
+          <label type="text" name="description" id="description"
+              class="form-control my-1" disabled [innerHTML]="volunteerField.description"></label>
+      </div>
+      <div class="mb-3 ">
+        <label class="input-label" for="title">يوم</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" disabled>{{volunteerField.day}}</label>
+      </div>
+      <div class="mb-3 ">
+        <label class="input-label" for="title"> منشط</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" disabled>{{volunteerField.minshat}}</label>
+      </div>
+      <div class="mb-3 ">
+        <label class="input-label" for="title"> ريال</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" disabled>{{volunteerField.riyal}}</label>
+      </div>
+      <div class="mb-3 ">
+        <label class="input-label" for="title"> مشارك</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" disabled>{{volunteerField.volunteers}}</label>
+      </div>
+
+      <div class="mb-3" >
+        <label class="input-label" for="notes"> صورة مجال التطوع</label>
+        <div class="d-flex justify-content-center align-items-center">
+          <figure class="w-50 d-flex justify-content-center align-items-center rounded-3 overflow-hidden" style="height: 250px;">
+              <img [src]="imgSrc" class="w-100 h-100" >
+          </figure>
+
+        </div>
+
+      </div>
+</div>

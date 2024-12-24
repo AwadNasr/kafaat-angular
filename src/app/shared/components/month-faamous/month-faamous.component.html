@@ -1,0 +1,18 @@
+<div *ngIf="distinguishedMembers.length>0" class="container text-center p-4">
+    <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-4 p-4 m-4 d-flex justify-content-center align-items-center containerRow">
+        <div *ngFor="let item of distinguishedMembers" class="col text-center my-2 my-sm-0 zoom Container">
+            <div class="d-inline-block d-md-none p-4" style="width: auto ;">
+                <app-masked-image [inputImageUrl]="item.image" inputWidth="150" inputHeight="150"></app-masked-image>
+                <p>{{item.memberName}}</p>
+            <div class="primary-padge">{{item.activityName}}</div>
+            </div>
+            <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+                <app-masked-image [inputImageUrl]="item.image" inputWidth="215" inputHeight="215"></app-masked-image>
+                <p style="height: 35px;">{{item.memberName}}</p>
+                <div class="primary-padge">{{item.activityName}}</div>
+            </div>
+        </div>
+    </div>
+    <a class="bg-primary-btn my-2" routerLink="/kafaat/winners">عرض كل الأبطال</a>
+</div>
+<app-empty-data *ngIf="distinguishedMembers.length==0" [inputText]="'لا يوجد متميزون لـــهذا الشهر'"></app-empty-data>

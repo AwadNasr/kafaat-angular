@@ -1,0 +1,46 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="المقالات" [Label]="article.title"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/articles" subSubTitleRouteLink="/kafaat/articles" subSubTitle="المقالات" [subSubSubTitleRouteLink]="'/kafaat/article-details/'+id"
+[subSubSubTitle]="article.title"></app-bread-crumb>
+<div class="MainContainer">
+    <!-- <div class="row " style="text-align: end;">
+        <div class="col-3 col-md-2" >
+            <img src={{ImageFile}} class="img">
+        </div>
+        <div class="col-md-10 col-9" style="text-align: start;">
+            <label class="title">{{article.title}}</label>
+            <div class="nameContainer">
+                {{article.author}}
+            </div>
+        </div>
+    </div> -->
+    <div class="d-flex justify-content-start" style="text-align: end;">
+      <div class="ms-4 me-3" >
+          <img src={{ImageFile}} class="img">
+      </div>
+      <div class="text-start">
+          <label class="title">{{article.title}}</label>
+          <div class="nameContainer">
+              {{article.authorName}}
+          </div>
+          <img src="../../../../assets/images/uit_calender.png" alt="" class="d-inline">
+            <div class="nameContainer d-inline">
+              {{article.date  | date: 'yyyy/MM/dd'}}
+          </div>
+      </div>
+  </div>
+
+    <article class="">
+      <div class="m-sm-3 " style="float: left; margin: 5px;">
+        <figure class="rounded-3 overflow-hidden">
+          <img src={{ArticleImage}} height="250px" width="100%">
+        </figure>
+      </div>
+      <div class="" style=" text-align: justify;">
+        <p [innerHTML]="article.description" style="color: #3e4144; font-weight: 300;"></p>
+      </div>
+
+    </article>
+
+
+</div>

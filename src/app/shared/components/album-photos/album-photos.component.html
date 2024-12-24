@@ -1,0 +1,15 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="معرض الصور" Label=""></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/photo-album" subSubSubTitle="معرض الصور"></app-bread-crumb>
+<div class="page-padding py-4 my-4 border">
+
+  <div class="row g-3 p-2">
+      <app-album-card *ngFor="let item of items" [item]="item" class="col-md-4" (click)="showImage(item.photoPath)"></app-album-card>
+
+  </div>
+  <div class="mt-4"></div>
+
+  <app-paginations class="mt-4 pt-4" *ngIf="pageResponse.hasNextPage" [pagesNumber]="pagesNumber" [currentPage]="pageResponse.page"
+      [hasNextPage]="pageResponse.hasNextPage" [hasPreviousPage]="pageResponse.hasPreviousPage"
+      (next)="next($event)" (back)="back($event)"></app-paginations>
+</div>

@@ -1,0 +1,82 @@
+<div class="shared-container">
+   <div class="shared-user-info">
+
+    <div class="form-group input-advanced input-container w-100 mt-4">
+        <div class="border rounded pageUser">
+            <div id="editor"class="w-100"  #editor>
+
+            </div>
+        </div>
+      </div>
+      <div class="bg-primary-btn float-start mt-4"  *ngIf="checkLogin()"  (click)="addPost()">إضافة مشاركة</div>
+      <!-- <div class="my-2">
+
+        <div class="float-end">
+            <img src="assets/images/under_line.svg" alt="" class="d-pointer">
+            <img src="assets/images/center_line.svg" alt="" class="d-pointer">
+            <img src="assets/images/italic.svg" alt="" class="d-pointer">
+            <img src="assets/images/bold.svg" alt="" class="d-pointer">
+        </div>
+      </div> -->
+   </div>
+   <div style="clear: both; height: 10px;"></div>
+   <div *ngFor="let item of items; let i = index">
+    <div class="shared-user-info mt-2">
+
+        <div class="shared-user-info-container">
+            <img [src]="item.imageParticipant" class="shared-user-info-image">
+            <span class="shared-user-info-username">{{item.nameParticipant}}</span>
+            <a (click)="toggleOptions(i)" class="shared-user-info-list" *ngIf="checkPost(item.uid)"><img   src="/assets/images/list.svg" class="shared-user-info-list-image listItem"></a>
+            <div *ngIf="isDropDownVisible[i]" class="shared-user-info-list-options">
+                <a class="shared-user-info-list-options-item-update" (click)="edit(item.id)">تعديل المشاركة</a>
+                <a class="shared-user-info-list-options-item-delete" (click)="deleteItem(item.id)">حذف المشاركة</a>
+            </div>
+        </div>
+        <!-- <div class="shared-title">هل تبادلنا العطاء؟</div> -->
+        <div class="shared-desctiption" [innerHTML]="item.description">  </div>
+    </div>
+    <hr class="line-separator">
+   </div>
+    <!-- <div class="shared-user-info">
+        <div class="shared-user-info-container">
+            <img src="/assets/images/people.jpg" class="shared-user-info-image">
+            <span class="shared-user-info-username">عبدالإله حمد عبدالله الماجد</span>
+            <a (click)="toggleOptions()" class="shared-user-info-list"><img src="/assets/images/list.svg" class="shared-user-info-list-image"></a>
+            <div *ngIf="isDropDownVisible" class="shared-user-info-list-options">
+                <a class="shared-user-info-list-options-item-update">تعديل المشاركة</a>
+                <a class="shared-user-info-list-options-item-delete">حذف المشاركة</a>
+            </div>
+        </div>
+        <div class="shared-title">هل تبادلنا العطاء؟</div>
+        <div class="shared-desctiption">كل طفل من أطفالنا بحاجة إلى ولي حريص يكتشف مواهبه وينمي قدراته ، وكل فتى وفتاة من فتياننا وفتياتنا بحاجة للتوجيه والنصح والدعم ، وكل شابةٍ وشابٍ بيننا بحاجة لتطوير المهارات وتبني الأفكار ، وكل شيخٍ بيننا بحاجة للترابط الأسري والتواصل الاجتماعي .. وجميعهم يسعى للبحث عن هذه الحوائج سواءً من الأهل أو جماعة</div>
+    </div>
+    <hr class="line-separator">
+    <div class="shared-user-info">
+        <div class="shared-user-info-container">
+            <img src="/assets/images/people.jpg" class="shared-user-info-image">
+            <span class="shared-user-info-username">عبدالإله حمد عبدالله الماجد</span>
+            <a (click)="toggleOptions()" class="shared-user-info-list"><img src="/assets/images/list.svg" class="shared-user-info-list-image"></a>
+            <div *ngIf="isDropDownVisible" class="shared-user-info-list-options">
+                <a class="shared-user-info-list-options-item-update">تعديل المشاركة</a>
+                <a class="shared-user-info-list-options-item-delete">حذف المشاركة</a>
+            </div>
+        </div>
+        <div class="shared-title">هل تبادلنا العطاء؟</div>
+        <div class="shared-desctiption">كل طفل من أطفالنا بحاجة إلى ولي حريص يكتشف مواهبه وينمي قدراته ، وكل فتى وفتاة من فتياننا وفتياتنا بحاجة للتوجيه والنصح والدعم ، وكل شابةٍ وشابٍ بيننا بحاجة لتطوير المهارات وتبني الأفكار ، وكل شيخٍ بيننا بحاجة للترابط الأسري والتواصل الاجتماعي .. وجميعهم يسعى للبحث عن هذه الحوائج سواءً من الأهل أو جماعة</div>
+    </div>
+    <hr class="line-separator">
+    <div class="shared-user-info">
+        <div class="shared-user-info-container">
+            <img src="/assets/images/people.jpg" class="shared-user-info-image">
+            <span class="shared-user-info-username">عبدالإله حمد عبدالله الماجد</span>
+            <a (click)="toggleOptions()" class="shared-user-info-list"><img src="/assets/images/list.svg" class="shared-user-info-list-image"></a>
+            <div *ngIf="isDropDownVisible" class="shared-user-info-list-options">
+                <a class="shared-user-info-list-options-item-update">تعديل المشاركة</a>
+                <a class="shared-user-info-list-options-item-delete">حذف المشاركة</a>
+            </div>
+        </div>
+        <div class="shared-title">هل تبادلنا العطاء؟</div>
+        <div class="shared-desctiption">كل طفل من أطفالنا بحاجة إلى ولي حريص يكتشف مواهبه وينمي قدراته ، وكل فتى وفتاة من فتياننا وفتياتنا بحاجة للتوجيه والنصح والدعم ، وكل شابةٍ وشابٍ بيننا بحاجة لتطوير المهارات وتبني الأفكار ، وكل شيخٍ بيننا بحاجة للترابط الأسري والتواصل الاجتماعي .. وجميعهم يسعى للبحث عن هذه الحوائج سواءً من الأهل أو جماعة</div>
+    </div>
+    <hr class="line-separator"> -->
+</div>

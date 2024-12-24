@@ -1,0 +1,23 @@
+.payment-cuccess-container{
+    padding: 30px;
+    text-align: center;
+}
+.payment-cuccess-container img{
+display: inline-block;
+width: 100px;
+height: 100px;
+margin: 30px 0px;
+}
+.payment-success-title{
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--neutral90-color);
+    line-height: 40px;
+}
+.payment-success-details{
+
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--neutral80-color);
+    line-height: 22px;
+}

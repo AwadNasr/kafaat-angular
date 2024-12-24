@@ -1,0 +1,22 @@
+<app-navbar typeNav="dark"></app-navbar>
+<app-page-header-labeled Label="" Header="الملف الشخصي"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية"  subTitles="الملف الشخصي" subTitlesRouteLink="/kafaat/profile"></app-bread-crumb>
+
+<div class="page-padding">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="nav-link-container">
+               <a *ngFor="let link of navigationItemsList" (click)="chageNavigationLink(link.id)" ngClass="{{link.isSelected ? 'active-nav-item':'inactive-nav-item'}}">{{link.label}}</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="page-layout-container">
+                <div *ngIf="navigationItemsList[0].isSelected"><app-profile-account-information></app-profile-account-information></div>
+                <div *ngIf="navigationItemsList[1].isSelected"><app-profile-manashet></app-profile-manashet></div>
+                <div *ngIf="navigationItemsList[2].isSelected"><app-profile-payment></app-profile-payment></div>
+                <div *ngIf="navigationItemsList[3].isSelected"><app-profile-musharakat></app-profile-musharakat></div>
+                <div *ngIf="navigationItemsList[4].isSelected"><app-profile-achievements></app-profile-achievements></div>
+            </div>
+        </div>
+    </div>
+</div>

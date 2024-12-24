@@ -1,0 +1,105 @@
+<div class="manashet-not-found">
+    <div class="main-title">المناشط</div>
+    <div *ngIf="hideTest"  class="row">
+        <div class="col-12 col-md-3"></div>
+        <div class="col-12 col-md-6">
+            <div class="manashet-not-found-details">
+                <div class="sub-title text-center">لا يوجد مناشط تم المشاركة فيها حتى الآن إبدأ بعرص المناشط والمشاركة فيها لتظهر هنا</div>
+            </div>
+            <div class="text-center">
+                <button class="bg-primary-btn mt-2" (click)="hideTest=!hideTest">عرض المناشط</button>
+            </div>
+        </div>
+        <div class="col-12 col-md-4"></div>
+    </div>
+</div>
+<div *ngIf="!hideTest" class="manashet-items-category-container" >
+    <div class="manashet-list-content">
+        <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+    </div>
+    <div *ngIf="navList[0].isSelected">
+    <div *ngFor="let item of allActivities" class="manashet-element" (click)="gotoDetail(item.id)">
+        <div class="image-details-container">
+        <div class="element-image">
+            <img [src]="item.imagePath" alt="">
+        </div>
+        <div class="element-details">
+            <div class="program-name">{{item.programs}}</div>
+            <div class="main-title">{{item.name}}</div>
+            <div class="success-padge" *ngIf="item.statusActivity==0">جاري</div>
+            <div class="warning-padge" *ngIf="item.statusActivity==1">قادم</div>
+            <div class="primary-padge" *ngIf="item.statusActivity==2">سابق</div>
+            <br/>
+            <div class="sub-title mt-2 ">
+                <div [innerHTML]="item.description" class="truncate-3-lines text-justify"></div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    </div>
+
+    </div>
+    <!-- Next ------------------------------------->
+    <div *ngIf="navList[1].isSelected">
+    <div *ngFor="let item of willActivities" class="manashet-element" (click)="gotoDetail(item.id)" >
+        <div class="image-details-container">
+        <div class="element-image">
+            <img [src]="item.imagePath" alt="">
+        </div>
+        <div class="element-details">
+            <div class="program-name">{{item.programs}}</div>
+            <div class="main-title">{{item.name}}</div>
+            <span class="success-padge">قادم</span>
+            <div class="sub-title mt-2 ">
+                <div [innerHTML]="item.description" class="truncate-3-lines text-justify"></div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    </div>
+</div>
+<app-empty-data *ngIf="navList[1].isSelected && willActivities.length==0" [inputText]="'لا يوجد مناشط قادمة لعرضها'"></app-empty-data>
+
+    <!-- current------------------------------------------------------ -->
+    <div *ngIf="navList[2].isSelected">
+    <div *ngFor="let item of currentActivities" class="manashet-element" (click)="gotoDetail(item.id)">
+        <div class="image-details-container">
+        <div class="element-image">
+            <img [src]="item.imagePath" alt="">
+        </div>
+        <div class="element-details">
+            <div class="program-name">{{item.programs}}</div>
+            <div class="main-title">{{item.name}}</div>
+            <span class="primary-padge">جارى</span>
+            <div class="sub-title mt-2 ">
+                <div [innerHTML]="item.description" class="truncate-3-lines text-justify"></div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    </div>
+    </div>
+    <app-empty-data *ngIf="navList[2].isSelected && currentActivities.length==0" [inputText]="'لا يوجد مناشط حالية لعرضها'"></app-empty-data>
+
+     <!-- pevious------------------------------------------------------ -->
+     <div *ngIf="navList[3].isSelected">
+     <div *ngFor="let item of pastActivities" class="manashet-element" (click)="gotoDetail(item.id)">
+        <div class="image-details-container">
+        <div class="element-image">
+            <img [src]="item.imagePath" alt="">
+        </div>
+        <div class="element-details">
+            <div class="program-name">{{item.programs}}</div>
+            <div class="main-title">{{item.name}}</div>
+            <span class="warning-padge">سابق</span>
+            <div class="sub-title mt-2 ">
+                <div [innerHTML]="item.description" class="truncate-3-lines text-justify"></div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    </div>
+    </div>
+    <app-empty-data *ngIf="navList[3].isSelected && pastActivities.length==0" [inputText]="'لا يوجد مناشط سابقة لعرضها'"></app-empty-data>
+
+</div>

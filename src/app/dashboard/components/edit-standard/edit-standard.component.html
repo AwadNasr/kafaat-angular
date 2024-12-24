@@ -1,0 +1,115 @@
+<!-- <div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+
+<div class="pop-up-container">
+  <div class="title-pop-up">تعديل معيار للجائزة</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <div class="mb-3">
+      <label for="name">اسم المعيار</label>
+      <input formControlName="name" type="text" name="name" id="name"
+             [class.is-invalid]="name?.invalid && name?.touched"
+             [class.is-valid]="name?.valid"
+             class="form-control my-1">
+      <div *ngIf="name?.errors && name?.touched">
+        <small *ngIf="name?.hasError('required')" class="text-danger">يجب ادخال اسم المعيار</small>
+      </div>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="description">وصف المعيار</label>
+      <input formControlName="description" type="text" name="description" id="description"
+             [class.is-invalid]="description?.invalid && description?.touched"
+             [class.is-valid]="description?.valid"
+             class="form-control my-1">
+    </div>
+
+
+
+    <div formArrayName="standardValueTypes">
+      <div *ngFor="let standardValueType of standardValueTypes.controls; let i = index" [formGroupName]="i">
+          <div class="form-row">
+
+              <input type="hidden" formControlName="standardTypeId"/>
+
+
+              <div class="form-group" *ngIf="getStandardTypeId(i)?.value == 2">
+                  <label for="value-{{i}}">القيمة</label>
+                  <input type="text" id="value-{{i}}" formControlName="value" class="form-control"
+                         [class.is-invalid]="value?.invalid && value?.touched"
+                         [class.is-valid]="value?.valid"
+                         [value]="standardValueType.get('value').value"
+                         (input)="standardValueType.get('value').setValue($event.target.value)"/>
+                  <div *ngIf="value?.errors && value?.touched">
+                      <small *ngIf="value?.hasError('required')" class="text-danger">القيمة مطلوبة</small>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+    <button type="submit" class="bg-primary-btn-block my-3 mb-4 p-2">
+    حفظ
+    </button>
+  </form>
+</div> -->
+
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+
+<div class="pop-up-container">
+  <div class="title-pop-up">تعديل معيار للجائزة</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+    <!-- Standard Name Input -->
+    <div class="mb-3">
+      <label for="name">اسم المعيار</label>
+      <input formControlName="name" type="text" name="name" id="name"
+             [class.is-invalid]="name?.invalid && name?.touched"
+             [class.is-valid]="name?.valid"
+             class="form-control my-1">
+      <div *ngIf="name?.errors && name?.touched">
+        <small *ngIf="name?.hasError('required')" class="text-danger">يجب ادخال اسم المعيار</small>
+      </div>
+    </div>
+
+    <!-- Standard Description Input -->
+    <div class="mb-3">
+      <label for="description">وصف المعيار</label>
+      <input formControlName="description" type="text" name="description" id="description"
+             [class.is-invalid]="description?.invalid && description?.touched"
+             [class.is-valid]="description?.valid"
+             class="form-control my-1">
+    </div>
+
+    <!-- Standard Value Types -->
+    <div formArrayName="standardValueTypes">
+      <div *ngFor="let standardValueType of standardValueTypes.controls; let i = index" [formGroupName]="i">
+        <div class="form-group">
+          <!-- Hidden fields for fixed data -->
+          <input type="hidden" formControlName="id"/>
+          <input type="hidden" formControlName="standardsId"/>
+          <input type="hidden" formControlName="standardTypesId"/>
+
+          <!-- Editable input for value -->
+          <label for="value-{{i}}">القيمة</label>
+          <input formControlName="value" type="text" class="form-control my-1"
+                 [class.is-invalid]="standardValueType.get('value').invalid && standardValueType.get('value').touched"
+                 [class.is-valid]="standardValueType.get('value').valid">
+          <!-- <div *ngIf="standardValueType.get('value').errors && standardValueType.get('value').touched">
+            <small *ngIf="standardValueType.get('value').hasError('required')" class="text-danger">القيمة مطلوبة</small>
+          </div> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="bg-primary-btn-block my-3 mb-4 p-2">
+      حفظ
+    </button>
+  </form>
+</div>

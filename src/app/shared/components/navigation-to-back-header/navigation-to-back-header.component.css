@@ -1,0 +1,13 @@
+.navigation-container{
+    padding: 40px 0px;
+}
+.warning-padge{
+    cursor: pointer;
+}
+.navigation-container-title{
+    font-weight: 600;
+    font-size: 32px;
+    color: var(--neutral90-color);
+    margin: 20px 0px 0px 0px;
+    line-height: normal;
+}

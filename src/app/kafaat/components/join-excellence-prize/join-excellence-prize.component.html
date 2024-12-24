@@ -1,0 +1,103 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up"> تقدم للجائزة </div>
+  <form [formGroup]="joinPrizeForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="qualificationId" class="mb-3">اختر المؤهل</label>
+            <select formControlName="qualificationId" type="text" name="qualificationId" id="qualificationId"(change)="onStandardTypeChange($event)"
+            [class.is-invalid]="qualificationId?.invalid && qualificationId?.touched" [class.is-valid]="qualificationId?.valid"
+                class="form-select my-1">
+                <option *ngFor="let item of allQualifications" [value]="item.id">{{item.name}}</option>
+            </select>
+            <div *ngIf="qualificationId?.errors && qualificationId?.touched">
+                <small *ngIf="qualificationId?.hasError('required')" class="text-danger"> يجب اختيار المؤهل</small>
+            </div>
+     </div>
+     <div formArrayName="standardValues">
+      <div *ngFor="let standard of standardValues.controls; let i = index" [formGroupName]="i">
+        <!-- <div class="mb-3" *ngIf="standard.get('type').value === 'text'">
+          <label>{{ standards[i]?.name }}</label>
+          <div >
+            <input formControlName="value" type="text" [placeholder]="standards[i]?.description" class="form-control my-1"
+            [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+        [class.is-valid]="standard.get('value')?.valid"/>
+        <div *ngIf="standard.get('value')?.errors && standard.get('value')?.touched">
+          <small *ngIf="standard.get('value')?.hasError('required')" class="text-danger"> يجب ادخال قيمة {{standards[i]?.name }} </small>
+        </div>
+          </div>
+        </div> -->
+        <div class="mb-3" *ngIf="standard.get('type').value === 'text'">
+          <label>{{ standards[i]?.name }}</label>
+          <div>
+            <input
+              formControlName="value"
+              type="text"
+              [placeholder]="standards[i]?.description"
+              class="form-control my-1"
+              [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+              [class.is-valid]="standard.get('value')?.valid"
+            />
+            <div *ngIf="standard.get('value')?.errors && standard.get('value')?.touched">
+              <small *ngIf="standard.get('value')?.hasError('required')" class="text-danger">
+                يجب ادخال قيمة {{standards[i]?.name}}
+              </small>
+              <small *ngIf="standard.get('value')?.hasError('minValue')" class="text-danger">
+                يجب أن تكون القيمة أكبر من أو تساوي {{standards[i]?.values[0].value}}
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3" *ngIf="standard.get('type').value === 'dropdown'">
+          <label>{{ standards[i]?.name }}</label>
+          <div >
+            <!-- <input formControlName="value" type="text" [placeholder]="standards[i]?.description" class="form-control my-1"
+            [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+        [class.is-valid]="standard.get('value')?.valid"/> -->
+        <select formControlName="value"
+        [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+        [class.is-valid]="standard.get('value')?.valid"
+                class="form-select my-1">
+                <option *ngFor="let option of standards[i]?.values" [value]="option.value">
+                  {{option.value}}
+                </option>
+            </select>
+
+        <div *ngIf="standard.get('value')?.errors && standard.get('value')?.touched">
+          <small *ngIf="standard.get('value')?.hasError('required')" class="text-danger"> يجب ادخال قيمة {{standards[i]?.name }} </small>
+        </div>
+          </div>
+        </div>
+        <div class="mb-3" *ngIf="standard.get('type').value === 'date'">
+          <label>{{ standards[i]?.name }}</label>
+          <div >
+            <input formControlName="value" type="date" [placeholder]="standards[i]?.description" class="form-control my-1"
+            [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+        [class.is-valid]="standard.get('value')?.valid"/>
+        <div *ngIf="standard.get('value')?.errors && standard.get('value')?.touched">
+          <small *ngIf="standard.get('value')?.hasError('required')" class="text-danger"> يجب ادخال قيمة {{standards[i]?.name }} </small>
+        </div>
+          </div>
+        </div>
+
+
+        <div class="mb-3" *ngIf="standard.get('type').value === 'file' || standard.get('type').value === 'image'">
+        <div >
+          <label>{{ standards[i]?.name }}</label>
+          <input type="file" (change)="onFileChange($event, i)" class="form-control my-1"
+          [class.is-invalid]="standard.get('value')?.invalid && standard.get('value')?.touched"
+        [class.is-valid]="standard.get('value')?.valid"/>
+        <div *ngIf="standard.get('value')?.errors && standard.get('value')?.touched">
+          <small *ngIf="standard.get('value')?.hasError('required')" class="text-danger"> يجب تحميل {{standards[i]?.name}} </small>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>
+

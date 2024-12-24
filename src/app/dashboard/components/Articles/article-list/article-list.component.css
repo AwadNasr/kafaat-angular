@@ -1,0 +1,17 @@
+/* component-name.component.css */
+.mat-select-panel {
+  overflow-y: auto !important; /* Enable scrolling */
+  position: relative; /* Ensure proper positioning for absolute children */
+}
+
+.ngx-mat-select-search {
+  position: absolute;
+  top: -120;
+  left: 500;
+  right: 0;
+  padding: 8px 16px;
+  border-bottom: 1px solid #09c;
+  background-color: white;
+  z-index: 99999; /* Ensure the search input is above other options */
+}
+

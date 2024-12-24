@@ -1,0 +1,123 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled Header="نادي القراءة" [Label]="readingClub.title"></app-page-header-labeled>
+<app-bread-crumb title="الرئسية" subTitlesRouteLink="/kafaat/readingClub" subSubTitleRouteLink="/kafaat/readingClub" subSubTitle="نادي القراءة" [subSubSubTitleRouteLink]="'/kafaat/club-detailsBook/'+id"
+[subSubSubTitle]="readingClub.title"></app-bread-crumb>
+<div class="page-padding">
+  <div class="card shadow-X-Large" style="width: 100% !important;">
+    <div class="row p-3">
+        <diV class="col-md-8 col-12">
+            <h1>{{readingClub.title}}</h1>
+        </diV>
+        <diV class="col-md-4 col-12 d-flex justify-content-center align-items-center">
+            <div class="pdfContainer">
+                <i class="fa fa-file-pdf-o" aria-hidden="true" style="color: crimson;padding-inline: 10px;"></i>
+                <a (click)="goToLink(readingClubReport.reportFile)" style="cursor: pointer !important;">تحميل التقرير السنوي</a>
+            </div>
+            <!-- <div class="pdfContainer mx-2">
+              <i class="fa-solid fa-sliders" aria-hidden="true" style="color: crimson;padding-inline: 10px;"></i>
+              <a style="cursor: pointer !important;" (click)="filter()">
+                تصفية
+               </a>
+            </div> -->
+        </diV>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-1 col-12" ></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/participants.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubReport.partners}}</label>
+            <label class="titleLabel">مشاركا</label>
+        </div>
+        <div class="col-md-1 vertical-line"></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/books.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubReport.readedBooks}}</label>
+            <label class="titleLabel">كتاب مقروء</label>
+        </div>
+        <!-- <div class="col-md-1 col-12 verticalLine" ></div> -->
+        <div class="col-md-1 vertical-line"></div>
+        <div class="col-md-3 col-12 statisticsCol" >
+            <img src="../../../../assets/images/benefits.png" width="100px" height="80px">
+            <label class="numberLabel">{{readingClubReport.benefits}}</label>
+            <label class="titleLabel">المستفيدين</label>
+        </div>
+        <div class="col-md-1 col-12" ></div>
+    </div>
+  </div>
+</div>
+
+<app-layout-section [componentToDisplay]="11" title="نبذة عن النادي "></app-layout-section>
+<div class="page-padding">
+  <div class="shadow-X-Large card" style="width: 100% !important;">
+    <div class="row p-3">
+        <diV class="col-md-8 col-12">
+            <h1>أبطال النادي</h1>
+        </diV>
+        <!-- <diV class="col-md-4 col-12">
+            <div class="pdfContainer">
+
+            </div>
+        </diV> -->
+    </div>
+    <hr>
+    <div class="row" *ngIf="isParticipant">
+      <div *ngFor="let item of pageResponse" class="col-md-6 col-lg-3 my-3">
+        <div class="d-inline-block d-sm-none p-4" style="width: auto ;">
+          <app-masked-image [inputImageUrl]="item.imageUser" inputWidth="150" inputHeight="150"></app-masked-image>
+          <p class="profile-name text-center">{{item.userDisplayName}}</p>
+      </div>
+      <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+          <app-masked-image [inputImageUrl]="item.imageUser" inputWidth="215" inputHeight="215"></app-masked-image>
+          <p class="profile-name text-center">{{item.userDisplayName}}</p>
+      </div>
+        <!-- <div class="profile-container">
+          <div class="profile-image">
+            <img [src]="item.imageUser" alt="Profile picture">
+          </div>
+          <div class="profile-name">{{item.userDisplayName}}</div>
+        </div> -->
+
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center" *ngIf="!isParticipant">
+<h2 class="mt-2">كن واحدا من أبطال النادي انضم الأن وابدأ بالقراءة!</h2>
+<a class="bg-primary-btn my-4"   (click)="joinClub()"> انضم للنادي</a>
+    </div>
+  </div>
+</div>
+<div class="page-padding">
+  <div class="shadow-X-Large card" style="width: 100% !important;">
+    <div class="row p-3">
+        <diV class="col-md-8 col-12">
+            <h1>كتب عام 2024</h1>
+        </diV>
+        <!-- <diV class="col-md-4 col-12">
+            <div class="pdfContainer">
+
+            </div>
+        </diV> -->
+    </div>
+    <hr>
+    <div class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-5 my-3">
+      <div *ngFor="let item of pageResponse2" class="col">
+        <div class="d-inline-block d-sm-none p-4" style="width: auto ;">
+          <app-masked-image [inputImageUrl]="item.bookImage" inputWidth="150" inputHeight="150"></app-masked-image>
+          <p class="profile-name text-center">{{item.title}}</p>
+      </div>
+      <div class="d-none d-md-inline-block p-4" style="width: auto ;">
+          <app-masked-image [inputImageUrl]="item.bookImage" inputWidth="215" inputHeight="215"></app-masked-image>
+          <p class="profile-name text-center">{{item.title}}</p>
+      </div>
+        <!-- <div class="profile-container">
+          <div class="profile-image">
+            <img [src]="item.bookImage" width="80%" alt="Profile picture">
+          </div>
+          <div class="profile-name">{{item.title}}</div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+

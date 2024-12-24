@@ -1,0 +1,54 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">اضافة متطوع</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="mb-3">
+
+          <div class="w-100 form-group">
+            <label for="ParticipantId" class="mb-3">اسم  المتطوع</label>
+            <mat-select class="border rounded p-2" [formControl]="ParticipantId" placeholder="المتطوع" #singleSelect name="ParticipantId" id="ParticipantId"
+            [class.is-invalid]="ParticipantId?.invalid && ParticipantId?.touched"
+            [class.is-valid]="ParticipantId?.valid">
+                <mat-option style="z-index:1000;background-color: white;">
+                    <ngx-mat-select-search  [formControl]="filterInput2"   noEntriesFoundLabel="لا يوجد  اسم متطوع مماثل لكلمة البحث"
+                        placeholderLabel="البحث عن متطوع"></ngx-mat-select-search>
+                </mat-option>
+                <mat-option *ngFor="let element of supervisors" [value]="element.id">
+                    {{element.displayName}}
+                </mat-option>
+            </mat-select>
+            <div *ngIf="ParticipantId?.errors && ParticipantId?.touched">
+                <small *ngIf="ParticipantId?.hasError('required')" class="text-danger">    يجب اختيار المتطوع</small>
+            </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="IsSupervisor" class="mb-3">اختر المنصب</label>
+        <select formControlName="IsSupervisor" type="text" name="IsSupervisor" id="IsSupervisor"
+            [class.is-invalid]="IsSupervisor?.invalid && IsSupervisor?.touched" [class.is-valid]="IsSupervisor?.valid"
+            class="form-control my-1">
+            <option  disabled selected>اختر المنصب</option>
+            <option  value="true">مشرف</option>
+            <option  value="false">متطوع</option>
+        </select>
+
+        <div *ngIf="IsSupervisor?.errors && IsSupervisor?.touched">
+            <small *ngIf="IsSupervisor?.hasError('required')" class="text-danger"> يجب اختيار المنصب</small>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>

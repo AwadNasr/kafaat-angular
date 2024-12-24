@@ -1,0 +1,20 @@
+<div class="payment-container">
+    <div class="main-title">المدفوعات</div>
+    <div class="column-title-container">
+        <div class="payment-col-1 sub-title" style="text-align: right; padding-right: 20px;">المنشط</div>
+        <div class="payment-col-2 sub-title">المبلغ</div>
+        <div class="payment-col-3 sub-title">عن طريق</div>
+        <div class="payment-col-4 sub-title">التاريخ</div>
+    </div>
+    <div *ngFor="let item of paymentList">
+        <div class="payment-item d-flex align-items-center justify-content-center">
+            <div class="payment-col-1" style="text-align: right; ">
+                <div class="truncate-4-lines main-title">{{item.activityName}}</div>
+                <div class="program-main-primary">{{item.programName}}</div>
+            </div>
+            <div class="payment-col-2 sub-title-md">{{item.cost}}</div>
+            <div class="payment-col-3"> <img [src]="getImagePath(item.paymentMethod)" alt=""> </div>
+            <div class="payment-col-4 sub-title-md">{{transformDateToArabic(item.date)}}</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,172 @@
+<div class="container-fluid p-4">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+  <div class="row">
+    <div class="col-12 col-md-6">
+        <div class="input-surrounding">
+          <div class="input-element-none-icon w-100">
+            <input type="text" name="firstName" id="firstName" formControlName="firstName"
+                class="none-icon" >
+            <label for="firstName">الاسم الاول</label>
+        </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="input-element-none-icon w-100">
+          <input type="text" name="middleName" id="middleName" formControlName="middleName"
+              class="none-icon" >
+          <label for="middleName">الاسم الاوسط</label>
+      </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="input-element-none-icon w-100">
+          <input type="text" name="lastName" id="lastName" formControlName="lastName"
+              class="none-icon" >
+          <label for="lastName">الاسم الاخير</label>
+      </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="input-element-none-icon w-100">
+          <input type="text" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber"
+              class="input-element-icon phoneNumber-icon" >
+          <label for="phoneNumber">رقم الجوال</label>
+      </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="input-element-none-icon w-100">
+          <input type="text" name="identityNumber" id="identityNumber" formControlName="identityNumber"
+              class="none-icon" >
+          <label for="identityNumber">رقم الهوية</label>
+      </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="input-element-none-icon w-100 mt-4" style="border-top-left-radius: 10px;">
+          <div class="input-group flex-nowrap" style="height: 60px;">
+            <input
+            formControlName="birthDateInAD"
+              placeholder="DD/MM/YYYY"
+              type="date"
+              name="birthDateInAD"
+              id="birthDateInAD"
+              class="none-icon form-control"
+              aria-describedby="addon-wrapping">
+            <label for="birthDateInAD">تاريخ الميلاد (ميلادي)</label>
+          </div>
+        </div>
+        <!-- <div class="input-element-none-icon w-100 ">
+          <div class="input-group flex-nowrap" style="height: 60px;">
+              <input matInput [matDatepicker]="picker"
+                  placeholder="DD/MM/YYYY" type="text" name="birthDateInAD" id="birthDateInAD"
+                  formControlName="birthDateInAD" class="none-icon form-control"
+                  aria-describedby="addon-wrapping">
+              <mat-datepicker-toggle matSuffix class="border" [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              <label for="birthDateInAD">تاريخ الميلاد (ميلادي)</label>
+          </div>
+
+      </div> -->
+
+      </div>
+      <!--
+      <div class="input-element-none-icon w-100 mt-4" style="border-top-left-radius: 10px;">
+                <div class="input-group flex-nowrap" style="height: 60px;">
+                  <input
+                    [(ngModel)]="profile.birthDateInAD"
+                    (change)="onChangeDate($event)"
+                    placeholder="DD/MM/YYYY"
+                    type="date"
+                    name="birthDateInAD"
+                    id="birthDateInAD"
+                    class="none-icon form-control"
+                    aria-describedby="addon-wrapping">
+                  <label for="birthDateInAD">تاريخ الميلاد (ميلادي)</label>
+                </div>
+              </div>
+       -->
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="select-element select-input w-100">
+          <select type="text" name="countryId" id="countryId"
+              formControlName="countryId" >
+              <option *ngFor="let item of countries" value="{{item.id}}">{{item.name}}</option>
+          </select>
+          <label for="countryId">الدولة</label>
+      </div>
+
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="select-element select-input w-100">
+          <select type="text" name="districtId" id="districtId" formControlName="districtId"
+              >
+              <option *ngFor="let item of districts" value="{{item.id}}">{{item.name}}</option>
+          </select>
+          <label for="districtId">الحى</label>
+      </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="select-element select-input w-100">
+          <select type="text" name="familyBranchId" id="familyBranchId" formControlName="familyBranchId"
+              >
+              <option *ngFor="let item of familyBranches" value="{{item.id}}">{{item.name}}</option>
+          </select>
+          <label for="familyBranchId">فرع الأسرة</label>
+      </div>
+
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="input-surrounding">
+        <div class="select-element select-input w-100">
+          <select type="text" name="qualificationId" id="qualificationId"
+              formControlName="qualificationId" >
+              <option *ngFor="let item of qualifications" value="{{item.id}}">{{item.name}}
+              </option>
+          </select>
+          <label for="qualificationId">المؤهل</label>
+      </div>
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-12">
+      <div class="input-surrounding">
+        <div class="select-element select-input w-100">
+          <select type="text" name="specializationId" id="specializationId"
+              formControlName="specializationId" >
+              <option *ngFor="let item of specializations" value="{{item.id}}">{{item.name}}
+              </option>
+          </select>
+          <label for="specializationId">التخصص</label>
+      </div>
+
+
+      </div>
+    </div>
+    <div class="col-12 col-md-12 mt-3">
+      <button class="bg-primary-btn text-light py-3 w-100" (click)="onSearch()">بحث</button>
+    </div>
+
+
+
+  </div>
+</form>
+</div>
+

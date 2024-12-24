@@ -1,0 +1,17 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up .dark-default-color pb-2 fw-bold"> <i class="fas fa-exclamation-triangle .dark-default-color fs-3"></i>  {{data.title}} </div>
+<div class="title-pop-up .dark-default-color" style="border-bottom: none;font-size: 16px; font-weight: 400; margin: 30px 0px;">{{data.confirmationMessage}}</div>
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-5">
+            <button type="submit" (click)="submit()" class="bg-primary-btn-block my-3 mb-4 p-2"> تأكيـد </button>
+        </div>
+        <div class="col-5">
+            <button type="submit" (click)="closeDialog()" class="bg-primary-btn-block my-3 mb-4 p-2"> إلغاء </button>
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>

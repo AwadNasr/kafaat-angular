@@ -1,0 +1,148 @@
+.pop-up-container{
+    padding: 20px;
+}
+.input-label{
+    color: var(--neutral90-color);
+}
+.title-pop-up{
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--dark-default-color);
+    line-height: 24px;
+    border-bottom: 2px solid var(--main-color);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+.form-control{
+    outline: none;
+    box-shadow: none;
+}
+.form-control:hover{
+    outline: none;
+    box-shadow: none;
+}
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+
+
+/* .input-with-tags {
+  position: relative;
+}
+
+#goals-input {
+  padding-right: 3rem;
+}
+
+.tags-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.tag-item {
+  position: relative;
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.tag-remove-btn {
+  margin-left: 0.5rem;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.tag-remove-btn:hover {
+  background: darkred;
+} */
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+  padding: 0.5rem; /* Adjust as needed */
+}
+
+#goals-input {
+  width: 100%;
+  padding-right: 3rem; /* Space for the tags */
+  box-sizing: border-box;
+  z-index: 1; /* Ensure input is below the tags */
+}
+
+.tags-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5rem;
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  box-sizing: border-box;
+  z-index: 2; /* Ensure tags are above the input field */
+  pointer-events: none; /* Allow input interactions to pass through */
+}
+
+.tag-item {
+  background-color: #e0e0e0;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  pointer-events: auto; /* Allow interactions with tags */
+  z-index: 2; /* Ensure tags are above the input field */
+}
+
+.tag-remove-btn {
+  margin-left: 0.5rem;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.tag-remove-btn:hover {
+  background: darkred;
+}
+

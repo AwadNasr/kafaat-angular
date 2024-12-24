@@ -1,0 +1,31 @@
+<div class="card p-0 shadow-X-Large zoom" cli>
+    <!-- <article> -->
+    <div class="row" style="height: 90px;">
+        <div class="col-3 col-md-3 mt-1" >
+            <img src={{item.imagePath}} class="img" loading="lazy">
+        </div>
+
+        <div class="col-md-9 col-9">
+            <label class="title" >{{item.title}}</label>
+            <div class="nameContainer">
+                {{item.authorName}}
+            </div>
+            <img src="../../../../assets/images/uit_calender.png" alt="" class="d-inline" loading="lazy">
+            <div class="nameContainer d-inline">
+              {{item.date  | date: 'yyyy/MM/dd'}}
+          </div>
+
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-2 " >
+        <img src={{item.imageArticle}} loading="lazy" height="250px" width="100%" style="border-radius: 8px">
+      </div>
+    </div>
+
+    <p [innerHTML]="SubStringFun(item.description)" style="height: 10.625rem;font-size: 16px;"></p>
+
+
+<!-- </article> -->
+
+</div>

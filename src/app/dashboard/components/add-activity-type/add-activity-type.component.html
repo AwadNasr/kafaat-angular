@@ -1,0 +1,25 @@
+<div class="text-end p-2">
+    <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+<div class="title-pop-up">إضافة  نوع نشاط</div>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+        <label class="input-label" for="type">نوع النشاط</label>
+        <input formControlName="type" type="text" name="type" id="type" [class.is-invalid]="type?.invalid && type?.touched" [class.is-valid]="type?.valid" class="form-control my-1">
+        <div *ngIf="type?.errors && type?.touched">
+            <small *ngIf="type?.hasError('required')"  class="text-danger">يجب ادخال اسم التصنيف</small>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label class="input-label" for="name">وصف نوع</label>
+        <input formControlName="description" type="text" name="description" id="description" [class.is-invalid]="description?.invalid && description?.touched" [class.is-valid]="description?.valid" class="form-control my-1">
+        <div *ngIf="description?.errors && description?.touched">
+            <small *ngIf="description?.hasError('required')"  class="text-danger">يجب وصف اسم التصنيف</small>
+        </div>
+    </div>
+    <button *ngIf="data.type" type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">تعديل</button>
+    <button *ngIf="!data.type" type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+</form>
+</div>

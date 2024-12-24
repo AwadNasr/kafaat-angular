@@ -1,0 +1,42 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+<div class="container-fluid mt-4">
+  <div class=" row justify-content-center align-items-center shadow mb-4 p-3">
+    <div class="col-sm-10 col-md-3">
+      <figure class="w-100 h-100">
+        <img [src]="book.image" class="w-100" alt="">
+      </figure>
+    </div>
+    <div class="col-sm-10 col-md-7">
+      <p  class="py-3 p-title">{{book.title}}</p>
+      <p style="color: #263238;" class="pb-3 p-title1">نبذة عن الكتاب</p>
+      <p class="pb-3 p-desc" >{{book.description}}</p>
+      <p   class="pb-3 p-title1">المؤلف :<span class="p-info">{{book.author}}</span></p>
+      <p   class="pb-3 p-title1">التصنيف :<span class="p-info">{{book.category}}</span></p>
+      <p   class="pb-3 p-title1"> الصفحات :<span class="p-info">{{book.pageCount}}</span></p>
+      <p   class="pb-3 p-title1"> اللغة :<span class="p-info">{{book.language}}</span></p>
+      <button class="bg-primary-btn-block mt-2 col-6 my-sm-3 me-sm-3 " >
+        <a href="{{book.link}}" target="_blank"  class="text-white p-btn" style="text-decoration: none;" >قراءة الكتاب</a>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #005183;padding: 20px 10px; width:250px;" class="text-center ms-3 p-title text-white mb-3">
+  <p>كتب مقترحة</p>
+</div>
+
+<div class="container-fluid">
+  <div *ngIf="pageResponse.length>0" class="row row-cols-sm-1 row-cols-md-3 row-cols-lg-5 text-center g-2 d-flex justify-content-center align-items-center my-3">
+    <div class="col my-3 d-flex justify-content-center " style="height: 450px;" *ngFor="let item of pageResponse">
+      <div class="book-card shadow" [routerLink]="['/kafaat/book-details',item.id]">
+        <figure class="w-100">
+          <img [src]="item.image" class="w-100 h-100" alt="Book Cover" />
+        </figure>
+        <p  class="p-2 p-title1">{{item.title}}</p>
+        <p style="color: #2D2A2A;" class="p-1 p-desc text-center">{{item.author}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

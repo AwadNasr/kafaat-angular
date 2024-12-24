@@ -1,0 +1,70 @@
+<app-navbar typeNav="dark"></app-navbar>
+<div class="page-padding">
+    <div class="row">
+        <div class="col-12 col-md-7">
+            <div class="payment-details-container">
+                <div class="payment-details-title">تفاصيل الدفع</div>
+                <span class="under-line"></span>
+                <div class="payment-methods-title">الدفع عن طريق:</div>
+                <div class="payment-methods">
+                    <a *ngFor="let method of paymentList" (click)="selectPaymenyMethod(method.id)" ngClass="{{method.isSelected?'payment-methods-item-active':'payment-methods-item-inactive'}}" ><img src="{{method.imagePath}}" width="60" height="25"></a>
+                </div>
+                <div class="form-group input-container w-100 mt-4 ">
+                    <input type="text" name="name" class="input-container-icon person-icon" required="">
+                    <label for="name">الاسم على البطاقة</label>
+                  </div>
+                  <div class="form-group input-container w-100 mt-4 ">
+                    <input type="text"  mask="0000 - 0000 - 0000 - 0000" name="name" class="input-container-icon card-icon" required="">
+                    <label for="name">رقم البطاقة</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group input-container w-100 mt-4 ">
+                            <input type="text"  mask="00 / 00" name="name" class="input-container-icon card-date" required="">
+                            <label for="name">تاريخ الإنتهاء</label>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group input-container w-100 mt-4 ">
+                            <input type="text"  mask="000" name="name" class="input-container-icon " required="">
+                            <label for="name">CVV</label>
+                        </div>
+                    </div>
+                  </div>
+                <button routerLink="/kafaat/payment-success" class="bg-primary-btn-block mt-5">ادفع الآن</button>
+            </div>
+        </div>
+        <div class="col-12 col-md-5">
+            <div class="payment-details-container payment-details-container-left-section">
+                <div class="payment-details-title">ملخص الدفع</div>
+                <span class="under-line"></span>
+                <div class="payment-items-details">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="/assets/images/people.jpg" width="90" height="70" alt="">
+                        </div>
+                        <div class="col-8">
+                            <div class="payment-items-details-title truncate-1-lines">كيف تختار كتاباً للقراءة</div>
+                            <div class="payment-items-details-description truncate-2-lines">وصف مبسط ومختصر لبرنامج قارئ وما يهدف اليه وما يحاول تعزيزه ونشره،وصــــــــــف مبسط </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="line-seperator">
+                <div class="item-details-label-values mb-4">
+                    <div>سعر المنشط</div>
+                    <div>٢٣٠ ريال سعودي</div>
+                </div>
+                <div class="item-details-label-values">
+                    <div>القيمة المضافة</div>
+                    <div>١٥ ريال سعودي</div>
+                </div>
+                <hr class="line-seperator">
+                <div class="item-details-label-values">
+                    <div>الإجمالي</div>
+                    <div class="total"> ٢٤٥ ريال سعودي</div>
+                </div>
+                <hr class="line-seperator">
+            </div>
+        </div>
+    </div>
+</div>

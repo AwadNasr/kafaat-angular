@@ -1,0 +1,192 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+
+
+<div class="my-5">
+  <!-- <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-12 col-md-7 my-sm-5">
+      <p  class="p-title m-2"> العمل التطوعي</p>
+      <p class=" p-2 my-3 p-desc" style=" margin-inline: 1rem;">يُساهم العمل التطوعي في بناء الثقة بالنفس وتنمية المهارات الشخصية، إذ يتيح للفرد اكتساب تجارب جديدة وتوسيع آفاقه، مما يثري حياته ويعمق فهمه للآخرين وللمجتمع. </p>
+      <div class="row justify-content-start align-items-center my-3 my-text" style=" margin-inline: 1rem;">
+        <button class="bg-primary-btn-block mt-2 col-sm-9 col-md-5 my-sm-3 me-sm-3 p-btn" style="border:2px solid #FFFFFF !important;font-size: 16px;" [routerLink]="['/kafaat/volunteer-fields',volunteer.id]">  استعراض الفرص التطوعية </button>
+      </div>
+    </div>
+    <div class="col-sm-10 col-md-3 position-relative">
+      <figure  style="margin-top: 10px;" class="w-75 mx-auto h-100">
+        <img [src]="photos[2].image"  class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+    <div class="col-1"></div>
+  </div> -->
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+
+    <div class="col-sm-10 col-md-4 position-relative figure-container">
+      <figure style="margin-top: 10px;" class="w-75 mx-auto h-100">
+        <img [src]="photos[2].image" class="w-100 h-100 rounded-2" alt="">
+      </figure>
+    </div>
+
+    <div class="col-sm-12 col-md-6 my-sm-5 text-container">
+      <p class="p-title m-2"> العمل التطوعي</p>
+      <p class="p-2 my-3 p-desc" style="margin-inline: 1rem;">
+        يُساهم العمل التطوعي في بناء الثقة بالنفس وتنمية المهارات الشخصية، إذ يتيح للفرد اكتساب تجارب جديدة وتوسيع آفاقه، مما يثري حياته ويعمق فهمه للآخرين وللمجتمع.
+      </p>
+      <div class="row justify-content-start align-items-center my-3 my-text" style="margin-inline: 1rem;">
+        <button class="bg-primary-btn-block mt-2 col-sm-9 col-md-5 my-sm-3 me-sm-3 p-btn"
+          style="border:2px solid #FFFFFF !important;font-size: 16px;"
+          [routerLink]="['/kafaat/volunteer-fields', volunteer.id]">
+          استعراض الفرص التطوعية
+        </button>
+      </div>
+    </div>
+
+    <div class="col-1"></div>
+  </div>
+
+
+
+</div>
+
+
+<div  style="background-color: #005183;" class="my-3">
+  <div class="p-5">
+    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 justify-content-around align-items-center">
+      <div class="col-12 my-2 d-flex flex-column justify-content-center align-items-center">
+        <p class="text-white p-title" >إحصائيات</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../assets/images/ci_clock (1).png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{volunteer.hours}}+</p>
+      <p class="text-white my-2 text-center p-title" >ساعة</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../assets/images/volunteers.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{volunteer.volunteers}}+</p>
+      <p class="text-white my-2 text-center p-title" >متطوع</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../assets/images/riyals.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{volunteer.riyal}}+</p>
+      <p class="text-white my-2 text-center p-title" >ريال</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../assets/images/days.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{volunteer.day}}+</p>
+      <p class="text-white my-2 text-center p-title" >يوم</p>
+      </div>
+      <div class="col my-2 d-flex flex-column justify-content-center align-items-center">
+        <figure style="width: 48px; height: 42px;">
+          <img src="../../../assets/images/minshats.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="text-white p-title" >{{volunteer.minshat}}+</p>
+      <p class="text-white my-2 text-center p-title" >منشط</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="my-5">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-12 col-md-7 my-sm-5">
+      <p  class="p-title m-2">  التعريف ببرنامج التطوع</p>
+      <p class="pt-3 p-2 p-desc" style=" margin-inline: 1rem;"> في عام 2023، كان بريق شباب الأسرة أشد لمعاناً في ميادين التطوع، حيث تجسد التفاني والإلهام في مشاركتهم الفاعلة في إدارة وقيادة مشروعات الأسرة وكفاءات. كان النادي الترفيهي الخامس، وبرنامج "نبيل فروع الأسرة"، والرحلات، والبرامج التدريبية المطولة، ومجموعة من المبادرات والمشروعات هي مساحة لتألق هذه النخبة الشابة، فقد برعوا بشكل ملحوظ في الإدارة وتنفيذ المهام متسلحين بهمة عالية وحماس متدفق، ولم يدخروا جهدًا في تحقيق تميز مبهر. </p>
+      <p  class="p-desc p-2" style=" margin-inline: 1rem;">يجسد هؤلاء المتطوعون من شباب الأسرة حقيقة أن الشباب ليسوا فقط هم المستقبل، بل هم الحاضر الذي يستنير بنجومه اللامعة في سماء التطوع والقيادة.</p>
+
+    </div>
+    <div class="col-sm-10 col-md-3">
+      <!-- <div class="d-flex">
+        <figure  style="margin-top: 10px;height: 165px;width: 218px;" class="m-0 p-0">
+          <img src="../../../assets/images/Rectangle 5.png" class="w-100 h-100 rounded-2" alt="">
+        </figure>
+        <figure  style="margin-top: 10px;height: 179px;width: 191px;" class="m-0 p-0">
+          <img src="../../../assets/images/Ellipse 2.png" class="w-100 h-100 rounded-2" alt="">
+        </figure>
+      </div>
+      <div class="d-flex" >
+        <figure  style="margin-top: 10px;height: 192px;width: 192px;" class="m-0 p-0">
+          <img src="../../../assets/images/Ellipse 1.png" class="w-100 h-100 rounded-2" alt="">
+        </figure>
+        <figure  style="margin-top: 10px;height: 170px;width: 190px;" class="m-0 p-0">
+          <img src="../../../assets/images/Rectangle 4.png" class="w-100 h-100 rounded-2" alt="">
+        </figure>
+      </div> -->
+      <figure  style="margin-top: 10px;" class="mx-auto w-75 h-100">
+        <img [src]="photos[0].image" class="w-100 h-100 " alt="">
+      </figure>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+
+
+<div class="my-5" style="background-color: #F4F4F4;">
+  <div class="row justify-content-around align-items-center">
+    <div class="col-1"></div>
+    <div class="col-sm-10 col-md-4">
+      <figure class="w-75 mx-auto h-100" style="margin-top: 10px;width: 370.38px;height: 295.11px;">
+        <img [src]="photos[3].image"  class="w-100 h-100" alt="">
+      </figure>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-sm-12 col-md-5 my-sm-5">
+      <p  class="p-title m-2">أهداف كفاءات الاستراتيجية</p>
+<div class="row row-cols-1 row-cols-lg-2  justify-content-around align-items-center" style="margin-top: 40px;margin-inline: 1rem;">
+  <div class="col d-flex my-3" *ngFor="let item of objectives">
+    <figure class="mx-1" style="height: 14px;width: 17px;">
+      <img src="../../../assets/images/Ellipse 3.png"  class="w-100 h-100 rounded-2" alt="">
+    </figure>
+    <p class="p-btn">{{item.title}}</p>
+
+  </div>
+</div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+
+
+<div *ngIf="volunteerFields.length>0" style="background-color: #005183;padding: 20px 10px; width:250px;" class="text-center p-title ms-5 my-4 text-white">
+  <p>مجالات التطوع</p>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row row-cols-sm-1 row-cols-md-2  row-cols-lg-4 justify-content-around align-items-center">
+    <div class="col" *ngFor="let item of volunteerFields">
+      <div class="reading-club-card shadow-lg">
+        <p class="text-center my-4 p-title1">{{item.title}}</p>
+
+        <div class="text-center">
+          <p  class="my-1 p-btn">عدد المتطوعين :{{item.participants}}</p>
+
+          <button class="bg-primary-btn-block  col-10 my-3 me-sm-3 p-btn"  [routerLink]="['/kafaat/volunteer-field-participants',item.id]">عرض المتطوعين</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="container my-3" >
+  <div class="row row-cols-1  justify-content-around align-items-center">
+      <div class="col d-flex mb-2" *ngFor="let item of volunteers">
+        <figure style="width: 16px; height: 16px;">
+          <img src="../../../../assets/images/ph_users-four-thin.png" class="w-100 h-100" alt="">
+        </figure>
+        <p class="mx-2 p-btn" style="cursor: pointer;" (click)="navigateToParticipant(item.id)">{{item.title}}</p>
+     </div>
+  </div>
+  </div>

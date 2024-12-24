@@ -1,0 +1,59 @@
+<div class="text-end p-2">
+  <img (click)="closeDialog()" class="d-pointer" src="assets/images/close_dialog.svg" alt="">
+</div>
+<div class="pop-up-container">
+  <div class="title-pop-up">{{title}}</div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="mb-3">
+          <label class="input-label" for="Name">عنوان الجائزة</label>
+          <input formControlName="Name" type="text" name="Name" id="Name"
+              [class.is-invalid]="Name?.invalid && Name?.touched" [class.is-valid]="Name?.valid"
+              class="form-control my-1">
+          <div *ngIf="Name?.errors && Name?.touched">
+              <small *ngIf="Name?.hasError('required')" class="text-danger">يجب ادخال عنوان الجائزة</small>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label class="input-label" for="Description">وصف الجائزة</label>
+          <input formControlName="Description" type="text" name="Description" id="Description"
+              [class.is-invalid]="Description?.invalid && Description?.touched" [class.is-valid]="Description?.valid"
+              class="form-control my-1">
+          <div *ngIf="Description?.errors && Description?.touched">
+              <small *ngIf="Description?.hasError('required')" class="text-danger">يجب ادخال وصف الجائزة</small>
+          </div>
+      </div>
+      <div class="mb-3">
+          <label class="mb-3" for="ApplicationStartDate">تاريخ بدء التقدم</label>
+          <div class="input-group">
+              <input matInput [matDatepicker]="picker" formControlName="ApplicationStartDate" name="ApplicationStartDate" placeholder="DD/MM/YYYY"
+                  id="ApplicationStartDate" [class.is-invalid]="ApplicationStartDate?.invalid && ApplicationStartDate?.touched" [class.is-valid]="ApplicationStartDate?.valid"
+                  class="form-control">
+              <mat-datepicker-toggle matIconSuffix class="border" [for]="picker"></mat-datepicker-toggle>
+          </div>
+          <mat-datepicker #picker></mat-datepicker>
+      </div>
+      <div class="mb-3">
+        <label class="mb-3" for="ApplicationEndDate">تاريخ انتهاء التقدم</label>
+        <div class="input-group">
+            <input matInput [matDatepicker]="picker1" formControlName="ApplicationEndDate" name="ApplicationEndDate" placeholder="DD/MM/YYYY"
+                id="ApplicationEndDate" [class.is-invalid]="ApplicationEndDate?.invalid && ApplicationEndDate?.touched" [class.is-valid]="ApplicationEndDate?.valid"
+                class="form-control">
+            <mat-datepicker-toggle matIconSuffix class="border" [for]="picker1"></mat-datepicker-toggle>
+        </div>
+        <mat-datepicker #picker1></mat-datepicker>
+    </div>
+      <div class="mb-3">
+        <label class=" mb-3" for="PrizeImage">
+          صورة جائزة التفوق: (لايجب ان يقل العرض عن {{minWidthProgram}} الطول عن {{minHeightProgram}})
+        </label>
+        <input (change)="onFileSelected2($event)" formControlName="PrizeImage" type="file" name="PrizeImage"
+               id="PrizeImage" class="form-control my-1 file-input" accept="image/*" hidden>
+        <label for="PrizeImage" class="bg-primary-btn-block custom-file-label">اختار صورة</label>
+        <div *ngIf="PrizeImage?.errors && PrizeImage?.touched">
+          <small *ngIf="PrizeImage?.hasError('required')" class="text-danger">يجب ادخال صورة المقالة</small>
+        </div>
+      </div>
+      <button type="submit" routerLink="#" class="bg-primary-btn-block my-3 mb-4 p-2">حفــظ</button>
+  </form>
+</div>
+

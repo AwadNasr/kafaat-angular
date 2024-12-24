@@ -1,0 +1,21 @@
+<div class="pop-up-container">
+  <div class="title-pop-up"> الرد علي طلب الانضمام لجائزة التفوق طلب رقم#{{response.applicationNumber}}</div>
+      <div class="mb-3">
+        <label class="input-label" for="title">حالة الاعتماد</label>
+          <label type="text" name="title" id="title"
+              class="form-control my-1" style="background-color: #F5F5F5 !important;" disabled *ngIf="response.isApproved==false">لم يتم الاعتماد</label>
+              <label type="text" name="title" id="title"
+              class="form-control my-1" style="background-color: #F5F5F5 !important;" disabled *ngIf="response.isApproved==true">تم الاعتماد</label>
+      </div>
+      <div class="mb-3" *ngIf="response.isApproved==false">
+        <label class="input-label" for="description"> سبب الرفض</label>
+          <label type="text" name="description" id="description"
+              class="form-control my-1" style="background-color: #F5F5F5 !important;" disabled >{{response.reasonOfReject}}</label>
+      </div>
+      <div class="mb-3" *ngIf="response.notes.length>0">
+        <label class="input-label" for="notes"> ملاحظات</label>
+          <label type="text" name="notes" id="notes"
+              class="form-control my-1" style="background-color: #F5F5F5 !important;" disabled>{{response.notes}}</label>
+      </div>
+      <button type="button" routerLink="#" class="bg-primary-btn-block  my-3 mb-4 p-2" (click)="closeDialog()">  حسنا </button>
+</div>

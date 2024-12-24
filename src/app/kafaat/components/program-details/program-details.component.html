@@ -1,0 +1,108 @@
+<app-navbar typeNav="dark" [active]=1></app-navbar>
+<app-page-header-labeled [Header]="program.title" [Label]="program.subTitle"></app-page-header-labeled>
+    <app-bread-crumb title="الرئيسية" subTitles="البرامج" subTitlesRouteLink="/kafaat/programs" [subSubTitleRouteLink]="'kafaat/program-details/'+id" [subSubTitle]="program.title"></app-bread-crumb>
+<div class="row container mx-auto">
+    <div class="col-12 col-md-4">
+        <div class="statistic-container-right">
+            <div class="statistic-item text-center">
+                <img src="/assets/images/light-bulb.svg" width="48" height="48">
+                <span class="statistic-number">{{program.activityCount}}</span>
+                <span class="statistic-label">عدد المناشط</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="statistic-container">
+            <div class="statistic-item text-center">
+                <img src="/assets/images/document-duplicate.svg" width="48" height="48">
+                <span class="statistic-number">{{program.postsCount}}</span>
+                <span class="statistic-label">عدد المشاركات</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="statistic-container-left">
+            <div class="statistic-item text-center">
+                <img src="/assets/images/user-group.svg" width="48" height="48">
+                <span class="statistic-number">{{program.participantsCount}}</span>
+                <span class="statistic-label">عدد المشاركين</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="program-descriprion-container">
+    <div class="row">
+        <div class="col-12 col-md-3">
+            <div class="program-descriprion-image-name-container">
+                <!-- <img src="/assets/images/book.svg" width="149" height="135"> -->
+                <div class="card-image" [style]="'background-image:url('+program.imagePath+');'"></div>
+                 <span class="program-descriprion-name">{{program.title}}</span>
+            </div>
+        </div>
+        <div class="col-12 col-md-9">
+            <div class="d-flex justify-content-center spe ">
+
+                <div  [class]="objectives?'inactive-navigation-button':'active-navigation-button'" (click)="changeObjective()">
+                    وصف البرنامج
+                </div>
+                <div style="width: 2vw;">
+
+                </div>
+                <div [class]="objectives?'active-navigation-button':'inactive-navigation-button'" (click)="changeObjective()">
+                    اهداف المنشط
+                </div>
+            </div>
+            <div class="program-descriprion-words mt-4">
+
+                <div class="text-container" *ngIf="!objectives">
+                    <p class="text-content" [innerHTML]="program.description"></p>
+                  </div>
+                <div class="text-container" *ngIf="objectives">
+                   <ul class="text-content">
+                    <li  *ngFor="let item of program.objectives">{{ item.name }}</li>
+                   </ul>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-padding mt-5">
+    <app-manashet-tabs (tabSelected)="onTabSelected($event)"></app-manashet-tabs>
+</div>
+<div *ngIf="tabNumberIsActive == 0"  class="manashet-list-container mb-5">
+    <div class="manashet-list-content">
+        <a *ngFor="let nav of navList" (click)="selectItem(nav.id)" ngClass="{{nav.isSelected?'active-navigation-button':'inactive-navigation-button'}}">{{nav.label}}</a>
+    </div>
+    <div class="manashet-items">
+        <div *ngIf="navList[0].isSelected" class="row">
+          <p class="col-12 text-center" *ngIf="allActivities.length<=0">لا توجد مناشط حالية</p>
+            <app-manashet-item  class="col-12 col-md-4" *ngFor="let a of allActivities; let i=index" [circle]="i%3!=0" [title]="a.name" (click)="onClickItem(a.id)" [description]="a.description" [imagePath]="a.imagePath"
+            [statusActivity]="a.statusActivity" [programTitle]="program.title" ></app-manashet-item>
+        </div>
+        <div *ngIf="navList[1].isSelected" class="row">
+          <p class="col-12 text-center" *ngIf="nextActivity.length<=0">لا توجد مناشط حالية</p>
+            <app-manashet-item *ngFor="let a of nextActivity; let i=index" [circle]="i%3!=0"  class="col-12 col-md-4" [title]="a.name" (click)="onClickItem(a.id)" [description]="a.description" [imagePath]="a.imagePath"
+            [statusActivity]="a.statusActivity" [programTitle]="program.title" ></app-manashet-item>
+        </div>
+        <div *ngIf="navList[2].isSelected" class="row">
+          <p class="col-12 text-center" *ngIf="underwayActivity.length<=0">لا توجد مناشط حالية</p>
+            <app-manashet-item *ngFor="let a of underwayActivity; let i=index" [circle]="i%3!=0"  class="col-12 col-md-4" [title]="a.name" (click)="onClickItem(a.id)" [description]="a.description" [imagePath]="a.imagePath"
+            [statusActivity]="a.statusActivity" [programTitle]="program.title" ></app-manashet-item>
+        </div>
+        <div *ngIf="navList[3].isSelected" class="row">
+          <p class="col-12 text-center" *ngIf="pastActivity.length<=0">لا توجد مناشط حالية</p>
+            <app-manashet-item  *ngFor="let a of pastActivity; let i=index" [circle]="i%3!=0"  class="col-12 col-md-4" [title]="a.name" (click)="onClickItem(a.id)" [description]="a.description" [imagePath]="a.imagePath"
+            [statusActivity]="a.statusActivity" [programTitle]="program.title" ></app-manashet-item>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div *ngIf="tabNumberIsActive == 1"  class="manashet-list-container mb-5">
+    <app-musharakat-item [Items]="program.posts" [programId]="id"></app-musharakat-item>
+</div>
+
